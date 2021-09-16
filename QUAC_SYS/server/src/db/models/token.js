@@ -14,11 +14,21 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   Token.init({
-    acess - token: DataTypes.STRING,
-    refresh - token: DataTypes.STRING
+    id: {
+      DataTypes: UUID,
+      allowNull: false
+    },
+    acess_token: {
+      DataTypes: STRING,
+      allowNull: false
+    },
+    refresh_token: {
+      DataTypes: STRING,
+      allowNull: false
+    }
   }, {
     sequelize,
-    modelName: 'Token',
+    modelName: 'RefreshToken',
   });
   return Token;
 };

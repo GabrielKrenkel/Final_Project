@@ -1,9 +1,10 @@
 'use strict';
 const {
-  Model
+  Model, UUID
 } = require('sequelize');
+const { all } = require('sequelize/types/lib/operators');
 module.exports = (sequelize, DataTypes) => {
-  class Empresas extends Model {
+  class Ticket extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -13,38 +14,22 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   };
-  Empresas.init({
+  Ticket.init({
     id: {
       DataTypes: UUID,
       allowNull: false
     },
-    nome: {
-      DataTypes: STRING,
+    expirationTime: {
+      DataTypes: DATE,
       allowNull: false
     },
-    endereço: { 
-      DataTypes: STRING,
-      allowNull: false
-    },
-    latitude: {
-      DataTypes: NUMERIC,
-      allowNull:false
-    },
-    longitude: {
-      DataTypes: NUMERIC,
-      allowNull: false
-    },
-    horario_atendimento: {
-      DataTypes: NUMERIC,
-      allowNull: false
-    },
-    numero_contato: {
-      DataTypes: NUMERIC,
+    ticket: {
+      DataTypes: INTEGER,
       allowNull: false
     }
   }, {
     sequelize,
-    modelName: 'Empresas',
+    modelName: 'Ticket',
   });
-  return Empresas;
+  return Ticket;
 };

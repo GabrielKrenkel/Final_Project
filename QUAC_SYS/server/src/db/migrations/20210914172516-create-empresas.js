@@ -3,10 +3,10 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Empresas', {
       id: {
-        allowNull: false,
-        autoIncrement: true,
+        allowNull: false,        
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.UUID,
+        defaultValue: Sequelize.UUIDV4
       },
       nome: {
         type: Sequelize.STRING
@@ -20,17 +20,17 @@ module.exports = {
       longitude: {
         type: Sequelize.NUMERIC
       },
-      horario - atendimento: {
+      horario_atendimento: {
         type: Sequelize.NUMERIC
       },
-      numero - contato: {
+      numero_contato: {
         type: Sequelize.NUMERIC
       },
-      createdAt: {
+      created_at: {
         allowNull: false,
         type: Sequelize.DATE
       },
-      updatedAt: {
+      updated_at: {
         allowNull: false,
         type: Sequelize.DATE
       }

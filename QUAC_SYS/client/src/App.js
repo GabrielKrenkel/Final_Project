@@ -1,10 +1,12 @@
 import './App.css';
-import { PesquisaLocal } from './pages/Pesquisadelocal/PesquisaLocal';
+import { RetirarSenha } from './pages/RetirarSenha/RetirarSenha';
+
+
 
 function App() {
   return (
     <div className="App">
-      <PesquisaLocal/>
+      <RetirarSenha/>
     </div>
   );
 }

@@ -1,12 +1,16 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('tokens', {
+    await queryInterface.createTable('tickets', {
       id: {
         allowNull: false,        
         primaryKey: true,
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4
+      },
+      expiration_time: {
+        type: Sequelize.DATE,
+        allowNull: false
       },
       user_id: {
         type: Sequelize.INTEGER,
@@ -18,8 +22,19 @@ module.exports = {
         onDelete: "CASCADE",
         onUpdate: "CASCADE"
       },
-      refresh_token: {
-        type: Sequelize.STRING
+      empresa_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: "empresas",
+          key: "id"
+        },
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE"
+      },
+      ticket: {
+        type: Sequelize.INTEGER,
+        allowNull: false
       },
       created_at: {
         allowNull: false,
@@ -32,6 +47,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('tokens');
+    await queryInterface.dropTable('tickets');
   }
 };

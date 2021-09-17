@@ -1,13 +1,11 @@
 import './App.css';
-import { RetirarSenha } from './pages/RetirarSenha/RetirarSenha';
+import { Routes } from "./routes";
 
 
 
 function App() {
   return (
-    <div className="App">
-      <RetirarSenha/>
-    </div>
+    <Routes /> 
   );
 }
 

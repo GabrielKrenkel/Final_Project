@@ -4,42 +4,38 @@ const {
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Empresas extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
-      // define association here
+      this.hasMany(models.Ticket, { foreignKey: "empresa_id" });
     }
   };
   Empresas.init({
     id: {
-      DataTypes: UUID,
-      allowNull: false
+      type: DataTypes.UUID,
+      primaryKey: true,
+      defaultValue: DataTypes.UUIDV4
     },
     nome: {
-      DataTypes: STRING,
+      type: DataTypes.STRING,
       allowNull: false
     },
-    endereço: { 
-      DataTypes: STRING,
+    endereco: { 
+      type: DataTypes.STRING,
       allowNull: false
     },
     latitude: {
-      DataTypes: NUMERIC,
+      type: DataTypes.NUMERIC,
       allowNull:false
     },
     longitude: {
-      DataTypes: NUMERIC,
+      type: DataTypes.NUMERIC,
       allowNull: false
     },
     horario_atendimento: {
-      DataTypes: NUMERIC,
+      type: DataTypes.NUMERIC,
       allowNull: false
     },
     numero_contato: {
-      DataTypes: NUMERIC,
+      type: DataTypes.NUMERIC,
       allowNull: false
     }
   }, {

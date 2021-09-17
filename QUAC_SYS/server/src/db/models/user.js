@@ -1,34 +1,58 @@
 'use strict';
+const bcrypt = require("bcrypt");
 const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
-      // define association here
+      this.hasOne(models.RefreshToken, { foreignKey: "user_id" });
+      this.hasMany(models.Ticket, { foreignKey: "user_id" });
+
     }
+
+    isPasswordValid(password) {
+      return bcrypt.compareSync(password, this.password);
+    }
+
+    toJSON() {
+      return {
+        ...this.get(),
+        password: undefined
+      }
+    }   
   };
   User.init({
     id: {
-      DataTypes: UUID,
-      allowNull: false
+      type: DataTypes.UUID,
+      primaryKey: true,
+      defaultValue: DataTypes.UUIDV4
     },
     name: {
-      DataTypes:STRING,
+      type: DataTypes.STRING,
       allowNull: false
     },
     email: {
-      DataTypes:STRING,
+      type: DataTypes.STRING,
       allowNull: false
     },
+    phone: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true      
+    },
     password: {
-      DataTypes: STRING,
-      allowNull: false
+      type: DataTypes.STRING,
+      allowNull: false,
+      set(password) {
+        this.setDataValue("password", bcrypt.hashSync(password, 10));
+      }
+    },
+    role: {
+      type: DataTypes.STRING,
+      validate: {
+        isIn: [["user", "admin", "developer"]]
+      }
     }
   }, {
     sequelize,

@@ -3,23 +3,30 @@ module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('tokens', {
       id: {
-        allowNull: false,        
+        allowNull: false,
         primaryKey: true,
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4
       },
-      user_id: {
-        type: Sequelize.INTEGER,
+      token: {
+        type: Sequelize.STRING,
         allowNull: false,
+        unique: true
+      },
+      expires_in: {
+        type: Sequelize.BIGINT,
+        allowNull: false
+      },
+      user_id: {
+        type: Sequelize.UUID,
+        allowNull: false,
+        unique: true,
         references: {
           model: "users",
           key: "id"
-        },
+        },        
+        onUpdate: "CASCADE",
         onDelete: "CASCADE",
-        onUpdate: "CASCADE"
-      },
-      refresh_token: {
-        type: Sequelize.STRING
       },
       created_at: {
         allowNull: false,

@@ -1,30 +1,26 @@
 'use strict';
 const {
-  Model, UUID
+  Model
 } = require('sequelize');
-const { all } = require('sequelize/types/lib/operators');
 module.exports = (sequelize, DataTypes) => {
   class Ticket extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
-      // define association here
+      this.belongsTo(models.User, { foreignKey: "user_id", as: "user" });
+      this.belongsTo(models.Empresas, { foreignKey: "empresa_id", as: "empresa" });
     }
   };
   Ticket.init({
     id: {
-      DataTypes: UUID,
-      allowNull: false
+      type: DataTypes.UUID,
+      primaryKey: true,
+      defaultValue: DataTypes.UUIDV4
     },
     expirationTime: {
-      DataTypes: DATE,
+      type: DataTypes.DATE,
       allowNull: false
     },
     ticket: {
-      DataTypes: INTEGER,
+      type: DataTypes.INTEGER,
       allowNull: false
     }
   }, {

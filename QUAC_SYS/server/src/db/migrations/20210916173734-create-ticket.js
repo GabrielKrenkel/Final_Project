@@ -13,7 +13,7 @@ module.exports = {
         allowNull: false
       },
       user_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         allowNull: false,
         references: {
           model: "users",
@@ -23,7 +23,7 @@ module.exports = {
         onUpdate: "CASCADE"
       },
       empresa_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.UUID,
         allowNull: false,
         references: {
           model: "empresas",

@@ -1,11 +1,12 @@
 import './App.css';
-import { Routes } from "./routes";
+import { VerificarDistancia } from './pages/VerificarDistância/VerificarDistancia';
 
+// import { Routes } from "./routes";
 
 
 function App() {
   return (
-    <Routes /> 
+    <VerificarDistancia/>
   );
 }
 

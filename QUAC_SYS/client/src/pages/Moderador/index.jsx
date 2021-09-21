@@ -1,7 +1,13 @@
+import { DashboardContainer } from "../../components/DashboardContaimer"
+
 export function Moderador(){
     return(
-        <div>
-            <h1>Página moderador</h1>
-        </div>
-    )
+        <DashboardContainer title="testes">
+            <div className="user-container"> 
+                <h1>Moderador</h1>
+            
+            </div>                               
+               
+        </DashboardContainer>
+    );
 }

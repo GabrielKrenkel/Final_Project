@@ -1,11 +1,11 @@
 const createHttpError = require("http-errors");
-const { Empresas } = require("../db/models")
+const { Empresa } = require("../db/models")
 
 
 async function CadastrarEmpresa(req, res, next) {
     const { nome, endereco, latitude, longitude, horario_atendimento, numero_contato, email, password } = req.body;     
     try {        
-        const [empresa, created] = await Empresas.findOrCreate({
+        const [empresa, created] = await Empresa.findOrCreate({
             where: {
                 email
             },

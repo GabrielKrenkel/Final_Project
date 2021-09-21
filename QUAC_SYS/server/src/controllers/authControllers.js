@@ -1,4 +1,4 @@
-const { User, RefreshToken } = require("../db/models");
+const { User, RefreshToken, Empresas } = require("../db/models");
 const createHttpError = require("http-errors");
 const jwt = require("jsonwebtoken");
 const ms = require("ms");
@@ -51,7 +51,12 @@ async function login(req, res, next) {
     try {
         const { email, password } = req.body;
 
-        const registeredUser = await User.findOne({ where: { email } });    
+        let registeredUser = await User.findOne({ where: { email } });   
+        
+        if (!registeredUser) {
+            registeredUser = await Empresas.findOne({ where: { email } })
+            console.log(registeredUser);
+        }
 
         // Checando se o usuário existe
         if (!registeredUser) {

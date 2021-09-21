@@ -1,155 +1,136 @@
-// import { Loader } from "@googlemaps/js-api-loader";
-import React from 'react'
+import React, { Component } from "react";
+import { GoogleMap, DistanceMatrixService } from "@react-google-maps/api";
+class ExampleDirections extends Component {
 
-export function VerificarDistancia() {
-    window.google = window.google ? window.google : {}
-    const successCallback = (position) => {
-        console.log(position);
-        const latitude = position.coords.latitude
-        const longitude = position.coords.longitude
-        // console.log(latitude + ' ' + longitude);
-        localStorage.setItem("latitude", latitude);
-        localStorage.setItem("longitude", longitude);
+  state = {
+    response: null,
+    travelMode: "DRIVING",
+    origin: "",
+    destination: "",
+  };
+
+  distanceCallback = (response) => {
+    console.log("Hello");
+    console.log(response);
+
+    if (response !== null) {
+      if (response.status === "OK") {
+        this.setState(() => ({
+          response,
+        }));
+      } else {
+        console.log("response: ", response);
+      }
     }
-    const errorCallback = (error) => {
-        console.error(error);
+  };
+
+  checkDriving = ({ target: { checked } }) => {
+    checked &&
+      this.setState(() => ({
+        travelMode: "DRIVING",
+      }));
+  };
+
+  getOrigin = (ref) => {
+    this.origin = ref;
+  };
+
+  getDestination = (ref) => {
+    this.destination = ref;
+  };
+
+  onClick = () => {
+    if (this.origin.value !== "" && this.destination.value !== "") {
+      this.setState(() => ({
+        origin: this.origin.value,
+        destination: this.destination.value,
+      }));
     }
-    navigator.geolocation.getCurrentPosition(successCallback, errorCallback)
-    
-    let latLng = { 
-        lat: +localStorage.getItem("latitude"),
-        lng: +localStorage.getItem("longitude")
-     };
-    
-    console.log(latLng)
-    let mapOptions = {
-        center: latLng,
-        zoom: 4,
-        // mapTypeId: window.google.maps.MapTypeId.ROADMAP
-    };
-    let map = new window.google.maps.Map(document.getElementById('googleMap'), mapOptions);
-    let directionsService = new window.google.maps.DirectionsService();
-    let directionsDisplay = new window.google.maps.DirectionsRenderer();
-    directionsDisplay.setMap(map);
-    
-    function calcRoute() {
-        let request = {
-            origin: latLng,
-            destination: document.getElementById("to").value,
-            travelMode: window.google.maps.TravelMode.DRIVING,
-            unitSystem: window.google.maps.UnitSystem.METRICAL
-        }
-        directionsService.route(request, function (result, status) {
-            if (status === window.google.maps.DirectionsStatus.OK) {
-                // const output = document.querySelector('#output');
-                // output.innerHTML = "Estabelecimento: " + document.getElementById("to").value + ".<br /> Distância dirigindo <i class='fas fa-road'></i> : " + result.routes[0].legs[0].distance.text + ".<br />Tempo estimado <i class='fas fa-hourglass-start'></i> : " + result.routes[0].legs[0].duration.text + ".</div>";
-                directionsDisplay.setDirections(result);
-            } else {
-                directionsDisplay.setDirections({ routes: [] });
-                map.setCenter(latLng);
-                // output.innerHTML = "<div class='alert-danger'><i class='fas fa-exclamation-triangle'></i> Não conseguimos calcular a distância da rota.</div>";
-            }
-        });
-    }
+  };
 
+  onMapClick = (...args) => {
+    console.log("onClick args: ", args);
+  };
 
-    
-    // let options = {
-    //     types: ['(cities)']
-    // }
+  render = () => (
+    <div className="map">
+      <div className="map-settings">
+        <hr className="mt-0 mb-3" />
 
-    let input = document.getElementById("to");
-    // let autocomplete = new window.google.maps.places.Autocomplete(input, options)
-    calcRoute()
-    // const loader = new Loader({
-    //     apiKey: "AIzaSyA1NvDncK1bxyaAVTEt69j-C9csOm1ETOg",
-    //     version: "weekly",
-    //     libraries: ["places"]
-    //   });
-      
-    //   const mapOptions = {
-    //     center: {
-    //         lat: +localStorage.getItem("latitude"),
-    //         lng: +localStorage.getItem("longitude")
-    //     },
-    //     zoom: 4
-    //   };
+        <div className="row">
+          <div className="col-md-6 col-lg-4">
+            <div className="form-group">
+              <label htmlFor="ORIGIN">Origin</label>
+              <br />
+              <input
+                id="ORIGIN"
+                className="form-control"
+                type="text"
+                ref={this.getOrigin}
+              />
+            </div>
+          </div>
 
-    //   loader
-    //     .load()
-    //     .then((google) => {
-    //         new google.maps.Map(document.querySelector(".map") , mapOptions);
-    //     })
-    //     .catch(e => {
-    //         // do something
-    //     });
+          <div className="col-md-6 col-lg-4">
+            <div className="form-group">
+              <label htmlFor="DESTINATION">Destination</label>
+              <br />
+              <input
+                id="DESTINATION"
+                className="form-control"
+                type="text"
+                ref={this.getDestination}
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="d-flex flex-wrap">
+          <div className="form-group custom-control custom-radio mr-4">
+            <input
+              id="DRIVING"
+              className="custom-control-input"
+              name="travelMode"
+              type="radio"
+              checked={this.state.travelMode === "DRIVING"}
+              onChange={this.checkDriving}
+            />
+            <label className="custom-control-label" htmlFor="DRIVING">
+              Driving
+            </label>
+          </div>
+        </div>
+
+        <button
+          className="btn btn-primary"
+          type="button"
+          onClick={this.onClick}
+        >
+          Build Route
+        </button>
+      </div>
         
-    // const loader = new Loader({
-    //     apiKey: "AIzaSyA1NvDncK1bxyaAVTEt69j-C9csOm1ETOg",
-    //     version: "weekly",
-    //     ...additionalOptions,
-    //   });
-
-    // let latLng = { 
-    //     lat: +localStorage.getItem("latitude"),
-    //     lng: +localStorage.getItem("longitude")
-    // };
-
-    // loader.load().then(() => {
-    //     map = new google.maps.Map(mapRef.current, {
-    //     center: latLng,
-    //     zoom: 4,
-    //     mapTypeId: google.maps.MapTypeId.ROADMAP
-    //     });
-    //   });
-    
-    // let mapOptions = {
-    //     center: latLng,
-    //     zoom: 4,
-    //     mapTypeId: google.maps.MapTypeId.ROADMAP
-    // };
-
-    // let map = new google.maps.Map(mapRef, mapOptions);
-    // let directionsService = new google.maps.DirectionsService();
-    // let directionsDisplay = new google.maps.DirectionsRenderer();
-    // directionsDisplay.setMap(map);
-    
-    // function calcRoute() {
-    //     let request = {
-    //         origin: latLng,
-    //         destination: document.getElementById("to").value,
-    //         travelMode: google.maps.TravelMode.DRIVING,
-    //         unitSystem: google.maps.UnitSystem.METRICAL
-    //     }
-    //     directionsService.route(request, function (result, status) {
-    //         if (status == google.maps.DirectionsStatus.OK) {
-    //             const output = document.querySelector('#output');
-    //             output.innerHTML = "Estabelecimento: " + document.getElementById("to").value + ".<br /> Distância dirigindo <i class='fas fa-road'></i> : " + result.routes[0].legs[0].distance.text + ".<br />Tempo estimado <i class='fas fa-hourglass-start'></i> : " + result.routes[0].legs[0].duration.text + ".</div>";
-    //             directionsDisplay.setDirections(result);
-    //         } else {
-    //             directionsDisplay.setDirections({ routes: [] });
-    //             map.setCenter(latLng);
-    //             output.innerHTML = "<div class='alert-danger'><i class='fas fa-exclamation-triangle'></i> Não conseguimos calcular a distância da rota.</div>";
-    //         }
-    //     });
-    // }
-    
-    // let options = {
-    //     types: ['(cities)']
-    // }
-
-
-    return (
-        <>
-            <div className="googleMap"></div>
-            <h2>Distância do seu local para o estabelecimento</h2>
-            <p>A distância é de (x)km e o tempo de espera é de (x) minutos.</p>
-            <form action="pesquisaLocal.html">
-                <button onclick="history.back()">Voltar</button>
-            </form>
-            <form action="retirarSenha.html">
-                <input type="submit"/>
-            </form>
-        </>
-    );
+      <div className="map-container">
+        <GoogleMap
+          id="map"
+          mapContainerStyle={mapContainerStyle}
+          zoom={14}
+          center={latLng}
+          options={options}
+        >
+          <DistanceMatrixService
+            options={{
+              destinations: this.state.destination,
+              origins: this.state.origin,
+              travelMode: this.state.travelMode,
+            }}
+            callback={this.distanceCallback}
+          />
+          )
+        </GoogleMap>
+      </div>
+    </div>
+  );
 }
+
+export default ExampleDirections;

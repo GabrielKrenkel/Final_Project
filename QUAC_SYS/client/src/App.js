@@ -1,12 +1,16 @@
 import './App.css';
-import { VerificarDistancia } from './pages/VerificarDistância/VerificarDistancia';
-
-// import { Routes } from "./routes";
-
+// import ExampleDirections, { VerificarDistancia } from './pages/VerificarDistância/VerificarDistancia';
+import { withScriptjs } from "react-google-maps";
+import Map from './components/Mapa';
 
 function App() {
+  const MapLoader = withScriptjs(Map);
+
   return (
-    <VerificarDistancia/>
+    <MapLoader
+      googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1NvDncK1bxyaAVTEt69j-C9csOm1ETOg"
+      loadingElement={<div style={{ height: `100%` }} />}
+  />
   );
 }
 

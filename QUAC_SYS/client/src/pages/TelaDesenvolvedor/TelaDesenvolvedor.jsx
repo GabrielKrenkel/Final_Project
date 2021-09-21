@@ -10,35 +10,35 @@ export function TelaDesenvolvedor(props) {
         <form>
             <div>
                 <label for="nomes">Nome do estabelecimento:</label>
-                <input type="text">
-                <br>
+                <input className="imputestabelecimento" type="text"/>
+                <br/>
                 <label for="nomes">Tipo de estabelecimento:</label>
-                <input type="text" placeholder="Ex: Hospital" required>
+                <input className="imputtype"type="text" placeholder="Ex: Hospital" required/>
             </div>
             <div>
                 <label for="estado">Estado:</label>
-                <input type="text">
-                <br>
+                <input className="imputestado"type="text"/>
+                <br/>
                 <label for="estado">Cidade:</label>
-                <input type="text">
-                <br>
+                <input className="imputcidade" type="text"/>
+                <br/>
                 <label for="estado">Bairro:</label>
-                <input type="text">
-                <br>
+                <input className="imputbairro" type="text"/>
+                <br/>
                 <label for="estado">Rua:</label>
-                <input type="text">
-                <br>
+                <input className="imputrua"  type="text"/>
+                <br/>
             </div>
             <div>
                 <label for="nomes">Longitude:</label>
-                <input type="text">
-                <br>
+                <input className="imputlongitude" type="text"/>
+                <br/>
                 <label for="nomes">Latitude:</label>
-                <input type="text">
+                <input className="imputlatitude" type="text"/>
             </div>
         </form>
         <div>
-            <button>Confirmar</button>
+            <button className="confirm" >Confirmar</button>
         </div>
     </div>
         </>

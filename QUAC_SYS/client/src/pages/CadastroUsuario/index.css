@@ -1,0 +1,98 @@
+body{
+    font-family: "Lucida Console", "Courier New", monospace;
+    text-align: center;
+    background-color :#253C59;   
+}
+form{
+    padding-top: 7%;
+}
+
+h2{
+    font-size: 50px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    color: white;
+}
+
+label {
+    font-size: 30px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    color: white;
+} 
+.imputname{
+    border: 10px;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 20px 10px 10px;
+    border-radius: 5px;
+}
+.imputemail{
+    border: 10px;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 20px 10px 10px;
+    border-radius: 5px;
+}
+.imputsenha{
+    border: 10px;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 20px 10px 10px;
+    border-radius: 5px;
+}
+.imputestado{
+    border: 10px;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 20px 10px 10px;
+    border-radius: 5px;
+}
+
+.imputcidade{
+    border: 10px;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 20px 10px 10px;
+    border-radius: 5px;
+}
+.imputbairro{
+    border: 10px;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 20px 10px 10px;
+    border-radius: 5px;
+}  
+
+.imputnascimento{
+    border: 10px;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 20px 10px 10px;
+    border-radius: 5px;
+}  
+
+.imputsub {
+    font-family: "Lucida Console", "Courier New", monospace;
+    background-color: #2D4B73; 
+    border-radius: 5px;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    color: #F2AB27; 
+    border: 2px solid #F2AB27 ;
+  }
+  
+  .confirm {
+    font-family: "Lucida Console", "Courier New", monospace;
+    background-color: #2D4B73; 
+    border-radius: 5px;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    color: #F2AB27; 
+    border: 2px solid #F2AB27 ;
+  }

@@ -1,0 +1,23 @@
+body{
+    font-family: "Lucida Console", "Courier New", monospace;
+    text-align: center;
+    background-color :#253C59;   
+}
+
+h2{
+    font-size: 50px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    color: white;
+}
+h3{
+    font-size: 50px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    color: white;
+}
+
+p{
+    font-size: 50px;
+    font-family: "Lucida Console", "Courier New", monospace;
+    color: white;
+}
+

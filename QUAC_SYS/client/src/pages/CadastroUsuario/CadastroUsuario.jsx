@@ -10,30 +10,30 @@ export function TelaFuncionario(props) {
         <form>
             <div>
                 <label for="nomes">Nome:</label>
-                <input type="text">
+                <input className="imputname"type="text">
                 <br>
                 <label for="nomes">E-mail:</label>
-                <input type="text">
+                <input className="imputemail"type="text">
                 <br>
                 <label for="nomes">Senha:</label>
-                <input type="text">
+                <input className="imputsenha" type="text">
             </div>
             <div>
                 <label for="estado">Estado:</label>
-                <input type="text">
+                <input className="imputestado" type="text">
                 <br>
                 <label for="estado">Cidade:</label>
-                <input type="text">
+                <input className="imputcidade" type="text">
                 <br>
                 <label for="estado">Bairro:</label>
-                <input type="text">
+                <input className="imputbairro" type="text">
                 <br>
                 <label for="data">Data de nascimento:</label>
-                <input type="date">
+                <input className="imputnascimento" type="date">
             </div>
         </form>
         <div>
-            <button>Confirmar</button>
+            <button className="confirm">Confirmar</button>
         </div>
     </div>
         </>

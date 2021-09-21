@@ -1,14 +1,28 @@
 'use strict';
+const bcrypt = require("bcrypt");
 const {
   Model
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  class Empresas extends Model {
+  class Empresa extends Model {
     static associate(models) {
+      this.hasOne(models.RefreshToken, { foreignKey: "empresa_id" });
       this.hasMany(models.Ticket, { foreignKey: "empresa_id" });
     }
+
+
+    isPasswordValid(password) {
+      return bcrypt.compareSync(password, this.password);
+    }
+    toJSON() {
+      return {
+        ...this.get(),
+        password: undefined
+      }
+    }   
+
   };
-  Empresas.init({
+  Empresa.init({
     id: {
       type: DataTypes.UUID,
       primaryKey: true,
@@ -44,7 +58,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      set(password) {
+        this.setDataValue("password", bcrypt.hashSync(password, 10));
+      }
     },
     role: {
       type: DataTypes.STRING,
@@ -54,7 +71,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
-    modelName: 'Empresas',
+    modelName: 'Empresa',
   });
-  return Empresas;
+  return Empresa;
 };

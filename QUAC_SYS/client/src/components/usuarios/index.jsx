@@ -6,9 +6,9 @@ import { DashboardContainer } from "../DashboardContaimer";
 export function UserDashboard() {
     
     return (
-        <DashboardContainer title="testes">
+        <DashboardContainer >
             <div className="user-container"> 
-                <h1>user</h1>
+                <h1>Página de usuários</h1>
             
             </div>                               
                

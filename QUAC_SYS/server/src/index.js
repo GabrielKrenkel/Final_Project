@@ -14,6 +14,7 @@ app.use(express.json());
 // Rotas da API
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/users", require("./routes/usersRoutes"));
+app.use("/api/empresas", require("./routes/devsRoutes"));
 
 // Middleware de tratamento de erros
 app.use(require("./middleware/errorMiddleware"));

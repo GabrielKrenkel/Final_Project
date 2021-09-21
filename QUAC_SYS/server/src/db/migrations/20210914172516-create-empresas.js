@@ -11,7 +11,7 @@ module.exports = {
       nome: {
         type: Sequelize.STRING
       },
-      endereço: {
+      endereco: {
         type: Sequelize.STRING
       },
       latitude: {
@@ -21,10 +21,20 @@ module.exports = {
         type: Sequelize.NUMERIC
       },
       horario_atendimento: {
-        type: Sequelize.NUMERIC
+        type: Sequelize.STRING
       },
       numero_contato: {
         type: Sequelize.NUMERIC
+      },
+      email: {
+        type: Sequelize.STRING
+      },
+      password: {
+        type: Sequelize.STRING
+      },
+      role: {
+        type: Sequelize.ENUM("moderador"),
+        allowNull: false
       },
       created_at: {
         allowNull: false,

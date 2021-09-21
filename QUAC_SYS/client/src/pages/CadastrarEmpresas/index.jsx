@@ -1,0 +1,64 @@
+import React, { useState } from 'react'
+import { api } from '../../services/api'
+
+export function EmpresaCadastrar() {
+    const [nome, setNome] = useState('');
+    const [endereco, setEndereco] = useState('');
+    const [latitude, setLatitude] = useState('');
+    const [longitude, setLongitude] = useState('');
+    const [horario_atendimento, setHorario_atendimento] = useState('')
+    const [email, setEmail] = useState('');
+    const [numero_contato, setNumero_contato] = useState('');
+    const [password, setPassword] = useState('');
+
+    async function handleSubmit() {
+        const data = { nome, endereco, latitude, longitude, horario_atendimento, numero_contato, email, password, role: "moderador" }
+
+        console.log(data);
+
+        const response = await api.post('/api/empresas', data);
+
+        if (response.status === 201) {
+
+            alert("Empresa cadastrada com sucesso")
+
+            window.location.replace("/");
+        } else {
+            alert("Erro ao cadastrar empresa")
+        }
+    }
+    return (
+        <div>
+            <h2>Cadastro de empresa</h2>
+            <label htmlFor="text">Nome:</label>
+            <input type="text" value={nome} onChange={e => setNome(e.target.value)} placeholder="Nome completo" required />
+
+            <label htmlFor="text">Endereço:</label>
+            <input type="text" value={endereco} onChange={e => setEndereco(e.target.value)} placeholder="Endereço da empresa" required />
+
+            <label htmlFor="text">Horário de atendimento</label>
+            <input type="" value={horario_atendimento} onChange={e => setHorario_atendimento(e.target.value)} placeholder="Horário de atendimento" required />
+
+            <label htmlFor="text">Telefone:</label>
+            <input type="tel" value={numero_contato} onChange={e => setNumero_contato(e.target.value)} placeholder="Telefone" required />
+
+            <label htmlFor="text">Latitude:</label>
+            <input type="text" value={latitude} onChange={e => setLatitude(e.target.value)} placeholder="Latitude" required />
+
+            <label htmlFor="text">Longitude:</label>
+            <input type="text" value={longitude} onChange={e => setLongitude(e.target.value)} placeholder="Longitude" required />
+
+            <label htmlFor="text">Email:</label>
+            <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Digite o email" required />
+
+            <label htmlFor="text">Senha:</label>
+            <input type="text" value={password} onChange={e => setPassword(e.target.value)} placeholder="Digite a senha" required />
+
+            <button
+                onClick={handleSubmit}>
+                Salvar
+            </button>
+        </div>
+
+    )
+};

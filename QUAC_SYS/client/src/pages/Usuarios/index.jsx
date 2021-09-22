@@ -62,7 +62,7 @@ export function Usuarios() {
                 <h1>Escolha o estabelecimento</h1>
                 <label htmlFor="to" className="paraOndeLabel"></label>
             <div className="col-xs-4">
-                <input type="text" id="to" placeholder="Estabelecimento" className="form-control"/>
+                <input className="imputestabelecimento" type="text" id="to" placeholder="Estabelecimento" className="form-control"/>
             </div>
         </div>
     </>

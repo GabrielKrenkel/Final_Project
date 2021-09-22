@@ -14,11 +14,11 @@ export function Home() {
   }
 
   return (
-    <div className="container-home">        
-        <h1 className="home-title">trabalho final</h1>
-      <Login />  
+    <div className="containerhome">        
+        <h1 className="hometitle">trabalho final</h1>
+      <Login className="login"/>  
       <div>
-        <button
+        <button className="button"
         onClick={goCadastrar}>
           Cadastrar
         </button>  

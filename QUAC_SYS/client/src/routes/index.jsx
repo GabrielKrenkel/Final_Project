@@ -17,14 +17,19 @@ export function Routes() {
             <Router>                 
                 <Switch>  
                     <Route exact path="/" component={Home} />  
+
                     <Route path="/cadastrar" component={UsuarioCadastrar} /> 
+
                     <PrivateRoute path="/CadastrarEmpresas" permissions={["dev", "moderador", "user"]}>
                         <EmpresaCadastrar />
-                    </PrivateRoute>                    
+                    </PrivateRoute>  
+
                     <PrivateRoute path="/dashboard" permissions={["dev", "moderador", "user"]}>
                         <Dashboard />
                     </PrivateRoute>
-                    <Route path="*" component={NotFound} />                                            
+
+                    <Route path="*" component={NotFound} /> 
+                                                               
                 </Switch>          
             </Router>
         </>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { ReturnDeshboard } from '../../components/ReturnButton';
 import { api } from '../../services/api'
 
 export function EmpresaCadastrar() {
@@ -30,6 +31,8 @@ export function EmpresaCadastrar() {
         }
     }
     return (
+        <>
+        <ReturnDeshboard/>
         <div>
             <h2>Cadastro de empresa</h2>
 
@@ -61,6 +64,7 @@ export function EmpresaCadastrar() {
                 <button>Salvar</button>
             </form>
         </div>
-
+        
+        </>
     )
 };

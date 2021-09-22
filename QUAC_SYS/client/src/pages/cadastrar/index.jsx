@@ -27,7 +27,12 @@ export  function UsuarioCadastrar() {
         }
     }
     
+    function Cancel() {
+        window.location.replace("/");
+    }
     return (
+        <>
+        <button onClick={Cancel}>Cancelar</button>
         <div>
             <main>
                 <div>                    
@@ -50,5 +55,6 @@ export  function UsuarioCadastrar() {
             </main>
 
         </div>
+    </>
     )
 };

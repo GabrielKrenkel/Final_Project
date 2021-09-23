@@ -3,6 +3,7 @@ body{
     text-align: center;
     background-color :#253C59;   
 }
+
 h1{
     font-size: 50px;
     font-family: "Lucida Console", "Courier New", monospace;
@@ -25,3 +26,4 @@ h1{
     color: #F2AB27; 
     border: 2px solid #F2AB27 ;
   }
+

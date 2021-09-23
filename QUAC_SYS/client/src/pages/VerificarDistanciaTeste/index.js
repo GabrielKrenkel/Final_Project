@@ -1,5 +1,5 @@
-/*global google*/
-import React, { Component } from "react";
+
+import React from "react";
 import { withScriptjs } from "react-google-maps";
 import Map from '../../components/Mapa';
 import { useHistory } from "react-router-dom";

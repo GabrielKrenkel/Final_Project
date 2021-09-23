@@ -14,8 +14,8 @@ export function Home() {
   }
 
   return (
-    <div className="container-home">        
-        <h1 className="home-title">trabalho final</h1>
+    <div className="containerhome">        
+        <h1 className="hometitle">Trabalho Final</h1>
       <Login />  
       <div>
         <button

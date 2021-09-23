@@ -38,28 +38,28 @@ export function EmpresaCadastrar() {
 
             <form onSubmit={handleSubmit}>
                 <label htmlFor="text">Nome:</label>
-                <input type="text" value={nome} onChange={e => setNome(e.target.value)} placeholder="Nome completo" required />
+                <input class="imputesstabelecimento" type="text" value={nome} onChange={e => setNome(e.target.value)} placeholder="Nome completo" required />
 
                 <label htmlFor="text">Endereço:</label>
-                <input type="text" value={endereco} onChange={e => setEndereco(e.target.value)} placeholder="Endereço da empresa" required />
+                <input  class="imputendereco" type="text" value={endereco} onChange={e => setEndereco(e.target.value)} placeholder="Endereço da empresa" required />
 
                 <label htmlFor="text">Horário de atendimento</label>
-                <input type="" value={horario_atendimento} onChange={e => setHorario_atendimento(e.target.value)} placeholder="Horário de atendimento" required />
+                <input class="imputhorario" type="" value={horario_atendimento} onChange={e => setHorario_atendimento(e.target.value)} placeholder="Horário de atendimento" required />
 
                 <label htmlFor="text">Telefone:</label>
-                <input type="tel" value={numero_contato} onChange={e => setNumero_contato(e.target.value)} placeholder="Telefone" required />
+                <input class="imputtelefone" type="tel" value={numero_contato} onChange={e => setNumero_contato(e.target.value)} placeholder="Telefone" required />
 
                 <label htmlFor="text">Latitude:</label>
-                <input type="text" value={latitude} onChange={e => setLatitude(e.target.value)} placeholder="Latitude" required />
+                <input class="imputlatitude" type="text" value={latitude} onChange={e => setLatitude(e.target.value)} placeholder="Latitude" required />
 
                 <label htmlFor="text">Longitude:</label>
-                <input type="text" value={longitude} onChange={e => setLongitude(e.target.value)} placeholder="Longitude" required />
+                <input class="imputlongitude" type="text" value={longitude} onChange={e => setLongitude(e.target.value)} placeholder="Longitude" required />
 
                 <label htmlFor="text">Email:</label>
-                <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Digite o email" required />
+                <input class="imputemail" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Digite o email" required />
 
                 <label htmlFor="text">Senha:</label>
-                <input type="text" value={password} onChange={e => setPassword(e.target.value)} placeholder="Digite a senha" required />
+                <input class="imputsenha" type="text" value={password} onChange={e => setPassword(e.target.value)} placeholder="Digite a senha" required />
 
                 <button>Salvar</button>
             </form>

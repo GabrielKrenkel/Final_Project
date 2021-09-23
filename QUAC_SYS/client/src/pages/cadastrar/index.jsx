@@ -46,7 +46,7 @@ export  function UsuarioCadastrar() {
                             <label htmlFor="text">Telefone:</label>
                             <input  type="tel" value={phone} onChange={e => setPhone(e.target.value)} placeholder="Telefone" required/>
                             <label htmlFor="text">Senha:</label>
-                            <input  type="text" value={password} onChange={e => setPassword(e.target.value)} placeholder="Digite a senha" required/>
+                            <input  type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Digite a senha" required/>
                             <div>
                                 <button>Salvar</button>
                             </div>

@@ -1,5 +1,6 @@
 import { DashboardContainer } from "../DashboardContaimer";
-
+import { withScriptjs } from "react-google-maps";
+import Map from './components/Mapa';
 
 
 

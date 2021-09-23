@@ -19,7 +19,7 @@ export function EmpresaCadastrar() {
 
         console.log(data);
 
-        const response = await api.post('/api/empresas', data);
+        const response = await api.post('/empresas', data);
 
         if (response.status === 201) {
 
@@ -59,7 +59,7 @@ export function EmpresaCadastrar() {
                 <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Digite o email" required />
 
                 <label htmlFor="text">Senha:</label>
-                <input type="text" value={password} onChange={e => setPassword(e.target.value)} placeholder="Digite a senha" required />
+                <input type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Digite a senha" required />
 
                 <button>Salvar</button>
             </form>

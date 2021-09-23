@@ -38,7 +38,7 @@ async function getUser(accessToken) {
 
 async function signIn(email, password) {
     try {
-        const res = await api.post("/api/auth/login", { email, password });
+        const res = await api.post("/auth/login", { email, password });
         
         saveTokens(res.data.accessToken, res.data.refreshToken);        
         
@@ -51,7 +51,7 @@ async function signIn(email, password) {
 async function refreshToken() {
     const refresh_token = getRefreshToken();
     try {
-        const res = await api.post("api/auth/refreshToken", { refreshToken: refresh_token });
+        const res = await api.post("/auth/refreshToken", { refreshToken: refresh_token });
 
         const newAccessToken = res.data.accessToken;
         const newRefreshToken = res.data.refreshToken;

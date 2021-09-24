@@ -3,9 +3,10 @@ import React, { Component } from "react";
 import { withGoogleMap, GoogleMap, DirectionsRenderer } from "react-google-maps";
 
 class Map extends Component {
+    
     state = {
         directions: null,
-        destination: { lat: -26.883233, lng: -49.246709 },
+        destination: { lat: +localStorage.getItem("latEMP"), lng: +localStorage.getItem("lonEMP") },
         distance: 0,
         time: 0
     };
@@ -23,7 +24,6 @@ class Map extends Component {
             },
             (result, status) => {
                 if (status === google.maps.DirectionsStatus.OK) {
-                    console.log(result);
                     this.setState({
                         directions: result,
                         distance: result.routes[0].legs[0].distance.text,

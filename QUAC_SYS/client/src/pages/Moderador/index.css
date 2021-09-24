@@ -10,3 +10,18 @@ h1{
     font-size: 50px;
     color: white;
 }
+<<<<<<< HEAD
+=======
+
+h2{
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 40px;
+    color: white;
+}
+
+p{
+    font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 20px;
+    color: white;
+}
+>>>>>>> 61b0b42c34e893e30a23a15f93b4e27769251941

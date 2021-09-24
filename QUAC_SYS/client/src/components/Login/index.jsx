@@ -17,11 +17,7 @@ export function Login() {
     }
 
     return (
-<<<<<<< HEAD
         <div className="container-login">
-=======
-        <div className="containerlogin">
->>>>>>> 61b0b42c34e893e30a23a15f93b4e27769251941
             <h2 className="logintitle">Login</h2>
             <form className="loginform" onSubmit={handleSubmit}>   
                 { error && <p className="error">{error}</p> }
@@ -29,11 +25,7 @@ export function Login() {
                     Email
                     <input  type="email" value={email} onChange={e => setEmail(e.target.value)} required />
                 </label> 
-<<<<<<< HEAD
                 <label className="labelsenha"> 
-=======
-                <label className="labelsenha">
->>>>>>> 61b0b42c34e893e30a23a15f93b4e27769251941
                     Senha
                     <input type="password" value={password} onChange={e => setPassword(e.target.value)} required />
                 </label >       

@@ -15,13 +15,8 @@ export function Home() {
 
   return (
     <div className="containerhome">        
-<<<<<<< HEAD
         <h1 className="hometitle">trabalho final</h1>
       <Login className="login"/>  
-=======
-        <h1 className="hometitle">Trabalho Final</h1>
-      <Login />  
->>>>>>> 61b0b42c34e893e30a23a15f93b4e27769251941
       <div>
         <button className="button"
         onClick={goCadastrar}>

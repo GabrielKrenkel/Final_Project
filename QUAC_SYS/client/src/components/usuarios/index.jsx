@@ -65,14 +65,14 @@ export function UserDashboard() {
 
     return (
         <DashboardContainer >
-            <div className="user-container">
+            <div className="usercontainer">
                 <h1>Página de usuários</h1>
 
                 <div className="form-group">
                     <h1>Escolha o estabelecimento</h1>
                     <label htmlFor="to" className="paraOndeLabel"></label>
-                    <div>
-                        <input type="text" id="to" placeholder="Estabelecimento" onChange={e => setText(e.target.value)} value={text} />
+                    <div className="col-xs-4">
+                        <input className="imputestabelecimento" type="text" id="to" placeholder="Estabelecimento" className="form-control" />
                     </div>
                 </div>
 

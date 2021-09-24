@@ -3,11 +3,12 @@ body{
     text-align: center;
     background-color :#253C59;   
 }
-.usercontainer{
+
+main{
     padding-top: 7%;
 }
 
-h1{
+h2{
     font-size: 50px;
     font-family: "Lucida Console", "Courier New", monospace;
     color: white;
@@ -19,13 +20,35 @@ label {
     color: white;
 } 
 
-.imputestabelecimento{
+.imputname{
     border: 10px;
     padding: 10px 10px 10px 10px;
     margin: 10px 20px 10px 10px;
     border-radius: 5px;
-}  
-.button {
+}
+
+.imputemail{
+    border: 10px;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 20px 10px 10px;
+    border-radius: 5px;
+}
+
+.imputsenha{
+    border: 10px;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 20px 10px 10px;
+    border-radius: 5px;
+}
+
+.imputtelefone{
+    border: 10px;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 20px 10px 10px;
+    border-radius: 5px;
+}
+  
+  .button {
     font-family: "Lucida Console", "Courier New", monospace;
     background-color: #2D4B73; 
     border-radius: 5px;

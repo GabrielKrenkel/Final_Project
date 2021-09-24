@@ -12,7 +12,7 @@ export function DevDashboard() {
     return (
         <DashboardContainer>
             <div className="admin-container"> 
-                    
+                <h1>Página de dev</h1>
                 <button
                 onClick={goCadastrarEmpresa}>
                     Cadastrar empresa

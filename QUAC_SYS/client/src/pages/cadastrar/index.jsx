@@ -8,7 +8,9 @@ export  function UsuarioCadastrar() {
     const [phone, setPhone] = useState('');
     const [password, setPassword] = useState('');
     
-    async function handleSubmit() {
+    async function handleSubmit(e) {
+        e.preventDefault();
+        
         const data = { name, email, phone, password, role: "user" }
 
         console.log(data);
@@ -25,11 +27,15 @@ export  function UsuarioCadastrar() {
         }
     }
     
+    function Cancel() {
+        window.location.replace("/");
+    }
     return (
+        <>
+        <button onClick={Cancel}>Cancelar</button>
         <div>
             <main>
-                <div>
-                    
+                <div>                    
                         <h2>Cadastro de usuário</h2>
                         <label  htmlFor="text">Nome:</label>
                         <input  className="imputname" type="text" value={name} onChange={e => setName(e.target.value)} placeholder="Nome completo" required/>
@@ -50,5 +56,6 @@ export  function UsuarioCadastrar() {
             </main>
 
         </div>
+    </>
     )
 };

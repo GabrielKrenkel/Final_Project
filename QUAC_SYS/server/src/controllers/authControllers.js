@@ -1,4 +1,5 @@
-const { User, RefreshToken, Empresas } = require("../db/models");
+const { Op } = require("sequelize");
+const { User, RefreshToken, Empresa } = require("../db/models");
 const createHttpError = require("http-errors");
 const jwt = require("jsonwebtoken");
 const ms = require("ms");
@@ -15,13 +16,20 @@ async function createRefreshToken(sub, role) {
     );
 
     // Armazenando o token no banco de dados
+    
     try {
         const [refreshToken, created] = await RefreshToken.findOrCreate({
-            where: { user_id: sub },
+            where: { 
+                [Op.or]: [
+                    { user_id: sub  },
+                    { empresa_id: sub }
+                ]                
+            },
             defaults: {
                 token: newRefreshToken,
                 expiresIn: refreshTokenExpiration
             }
+            
         });
     
         if (!created) {
@@ -54,8 +62,8 @@ async function login(req, res, next) {
         let registeredUser = await User.findOne({ where: { email } });   
         
         if (!registeredUser) {
-            registeredUser = await Empresas.findOne({ where: { email } })
-            console.log(registeredUser);
+            registeredUser = await Empresa.findOne({ where: { email } })
+        
         }
 
         // Checando se o usuário existe

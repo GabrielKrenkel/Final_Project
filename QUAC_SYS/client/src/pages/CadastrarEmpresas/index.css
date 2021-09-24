@@ -23,34 +23,47 @@ label {
     margin: 10px 20px 10px 10px;
     border-radius: 5px;
 }
-.imputtype{
+.imputlongitude{
+    border: 10px;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 20px 10px 10px;
+    border-radius: 5px;
+}
+.imputlatitude{
     border: 10px;
     padding: 10px 10px 10px 10px;
     margin: 10px 20px 10px 10px;
     border-radius: 5px;
 }
 
-.imputestado{
+.imputendereco{
     border: 10px;
     padding: 10px 10px 10px 10px;
     margin: 10px 20px 10px 10px;
     border-radius: 5px;
 }
 
-.imputcidade{
+.imputhorario{
     border: 10px;
     padding: 10px 10px 10px 10px;
     margin: 10px 20px 10px 10px;
     border-radius: 5px;
 }
-.imputbairro{
+
+.imputemail{
+    border: 10px;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 20px 10px 10px;
+    border-radius: 5px;
+}
+.imputsenha{
     border: 10px;
     padding: 10px 10px 10px 10px;
     margin: 10px 20px 10px 10px;
     border-radius: 5px;
 }  
 
-.imputnascimento{
+.imputtelefone{
     border: 10px;
     padding: 10px 10px 10px 10px;
     margin: 10px 20px 10px 10px;

@@ -24,6 +24,7 @@ async function cadastrarEmpresa(req, res, next) {
 }
 
 async function getEmpresa(req, res, next) {
+
     const empresaId = res.locals.userId;
 
     try {        
@@ -51,22 +52,54 @@ async function getTodasEmpresa(req, res, next) {
 };
 
 async function deleteEmpresa(req, res, next) {
+    
     const empresaId = req.params.id;
 
     try {                
+
         const empresa = await Empresa.findOne( { where: { id: empresaId } } )
 
         if (!empresa) {
-            throw new createHttpError(404, "Empresa não encontrada!");           
+
+            throw new createHttpError(404, "Empresa não encontrada!");
+
         }
 
         await empresa.destroy();
 
         res.status(204).end();
+
     } catch (err) {
+
         console.log(err);
+
         next(err);
     };
+}
+
+async function getCorp(req, res, next) {
+    
+    const empresaID = req.params.id;
+
+    try {
+        
+        const empresa = await Empresa.findOne( { where: { id: empresaID } } )
+
+        if (!empresa) {
+
+            throw new createHttpError(404, "Empresa não encontrada!");
+
+        }
+
+        res.json(empresa);
+
+    } catch (err) {
+        
+        console.log(err);
+
+        next(err)
+
+    }
 }
 
 
@@ -74,5 +107,6 @@ module.exports = {
     cadastrarEmpresa,
     getTodasEmpresa,
     getEmpresa,
-    deleteEmpresa
+    deleteEmpresa,
+    getCorp
 }

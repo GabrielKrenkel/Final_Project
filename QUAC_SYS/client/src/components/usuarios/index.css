@@ -1,0 +1,14 @@
+.card  {
+    background-color: yellow;
+    text-align: center;
+    margin-left: 10px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+p {
+    color: black;
+}
+.empresas {
+    margin-top: 10px;
+    display: flex;
+}

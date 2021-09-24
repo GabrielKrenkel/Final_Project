@@ -1,4 +1,3 @@
-
 import React from "react";
 import { withScriptjs } from "react-google-maps";
 import Map from '../../components/Mapa';

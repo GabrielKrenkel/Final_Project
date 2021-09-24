@@ -19,7 +19,7 @@ export function EmpresaCadastrar() {
 
         console.log(data);
 
-        const response = await api.post('/api/empresas', data);
+        const response = await api.post('/empresas', data);
 
         if (response.status === 201) {
 

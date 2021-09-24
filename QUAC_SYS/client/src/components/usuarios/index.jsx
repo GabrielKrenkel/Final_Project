@@ -1,13 +1,13 @@
 import { DashboardContainer } from "../DashboardContaimer";
 import { useHistory } from "react-router-dom";
 
+
 export function UserDashboard() {
 
     const history = useHistory();
     const calcRoute = () => history.push('./VerificaDistancia');
 
     const successCallback = (position) => {
-        console.log(position);
         const latitude = position.coords.latitude
         const longitude = position.coords.longitude
         localStorage.setItem("latitude", latitude);
@@ -16,7 +16,7 @@ export function UserDashboard() {
     const errorCallback = (error) => {
         console.error(error);
     }
-    navigator.geolocation.watchPosition(successCallback, errorCallback)
+    navigator.geolocation.getCurrentPosition(successCallback, errorCallback)
 
     let input = document.getElementById("to");
 

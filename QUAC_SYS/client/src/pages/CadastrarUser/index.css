@@ -3,6 +3,7 @@ body{
     text-align: center;
     background-color :#253C59;   
 }
+
 main{
     padding-top: 7%;
 }
@@ -18,24 +19,28 @@ label {
     font-family: "Lucida Console", "Courier New", monospace;
     color: white;
 } 
+
 .imputname{
     border: 10px;
     padding: 10px 10px 10px 10px;
     margin: 10px 20px 10px 10px;
     border-radius: 5px;
 }
+
 .imputemail{
     border: 10px;
     padding: 10px 10px 10px 10px;
     margin: 10px 20px 10px 10px;
     border-radius: 5px;
 }
+
 .imputsenha{
     border: 10px;
     padding: 10px 10px 10px 10px;
     margin: 10px 20px 10px 10px;
     border-radius: 5px;
 }
+
 .imputtelefone{
     border: 10px;
     padding: 10px 10px 10px 10px;

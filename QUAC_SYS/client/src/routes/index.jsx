@@ -3,7 +3,7 @@ import {
     Route, 
     Switch    
 } from "react-router-dom";
-import { UsuarioCadastrar } from "../pages/cadastrar";
+import { UsuarioCadastrar } from "../pages/CadastrarUser";
 import { EmpresaCadastrar } from "../pages/CadastrarEmpresas";
 import { Dashboard } from "../pages/Dashboard";
 import { Home } from "../pages/Home";

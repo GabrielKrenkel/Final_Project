@@ -9,7 +9,7 @@ export function DashboardContainer({title, children}) {
       <div className="dashboard-container">
         <header className="dashboard-header">
           <h1>{title}</h1>
-          <button onClick={handleSignOut}>Sign Out</button>       
+          <button onClick={handleSignOut}>Sair</button>       
         </header>
         <div className="dashboard-content">
           {children}

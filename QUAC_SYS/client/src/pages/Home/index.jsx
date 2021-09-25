@@ -20,7 +20,7 @@ export function Home() {
       <div>
         <button
         onClick={goCadastrar}>
-          Cadastrar
+          Cadastre-se
         </button>  
       </div>                                 
     </div>

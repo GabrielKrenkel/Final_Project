@@ -16,4 +16,4 @@ const { User } = require("./src/db/models");
 })();
 
 
-// node .\generateDev.js --name=DiegoF --email=dev@dev --phone=47988848888 --password=123456
+// node .\generateDev.js --name=Dev --email=dev@dev --phone=47988848888 --password=123456

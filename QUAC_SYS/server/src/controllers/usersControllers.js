@@ -2,6 +2,7 @@ const createHttpError = require("http-errors");
 const { User } = require("../db/models");
 
 async function createUser(req, res, next) {
+
     const { name, email, phone, password } = req.body;     
     try {        
         const [user, created] = await User.findOrCreate({
@@ -23,6 +24,7 @@ async function createUser(req, res, next) {
 }
 
 async function getUser(req, res, next) {
+
     const userId = res.locals.userId;
 
     try {        

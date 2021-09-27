@@ -43,10 +43,40 @@ export function DevDashboard() {
 
     async function editEmp(idEmpresa) {
 
+        try {
+            const empresa = await api.get(`/empresas/${idEmpresa}`)
+
+            showEmp(empresa)
+
+        } catch (err) {
+
+            console.log(err);
+
+        }
+
+    }
+
+    function showEmp(empresa) {
         
+        console.log(empresa.data);
+
+        let Modal = document.querySelector(".Modal_Emp")
+        
+        Modal.style = "display:block"
+    }
+
+    function closeModal(params) {
+        
+        let Modal = document.querySelector(".Modal_Emp")
+        
+        Modal.style = "display:none"
     }
     return (
-        <DashboardContainer>
+
+        <>
+
+        <DashboardContainer/>
+
             <div className="admin-container">
                 <h1>Página de dev</h1>
                 <button
@@ -58,7 +88,7 @@ export function DevDashboard() {
                     loading ?
                         <p>Carregando...</p> :
                         <table className="empresas">
-                            
+                            <tbody> 
                                 <thead>
                                     <tr>
                                         <th>Nome</th>
@@ -70,7 +100,7 @@ export function DevDashboard() {
                                     </tr>
                                 </thead>
 
-                            <tbody>    
+                               
                                 {
                                     empresas.map(empresa => (
                                         <tr key={empresa.id}>
@@ -89,8 +119,49 @@ export function DevDashboard() {
                         </table>
                 }
 
-            
+                
             </div>
-        </DashboardContainer>
+
+                <div className="Modal_Emp" style={ {display: "None"}}>
+                
+                <form>
+                    <label htmlFor="name" >
+                        Nome:
+                        <input className="name"  type="text" />
+                    </label>
+
+                    <label htmlFor="endereco">
+                        Endereço:
+                        <input className="endereco" type="text" />
+                    </label>
+
+                    <label htmlFor="contato">
+                        Contato:
+                        <input className="contato" type="text" />
+                    </label>
+
+                    <label htmlFor="atendimento">
+                        Horario de Atendimento:
+                        <input className="atendimento" type="text" />
+                    </label>
+
+                    <label htmlFor="latitude">
+                        Latitude:
+                        <input className="latitude" type="text" />
+                    </label>
+
+                    <label htmlFor="longitude">
+                        longitude:
+                        <input className="longitude" type="text" />
+                    </label>
+
+                    <button>Salvar</button> 
+                    
+                    
+                </form>
+
+                <button onClick={() => {closeModal()}}>Cancelar</button>
+            </div>
+        </>
     );
 }

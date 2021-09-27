@@ -41,3 +41,15 @@ label {
     color: #F2AB27; 
     border: 2px solid #F2AB27 ;
   }
+
+.card {
+    background-color: yellow; 
+    padding: 7px;
+    margin: 7px;
+}
+
+.empresas {
+    display: flex;
+    padding: 5px;
+    flex-wrap: wrap;
+}

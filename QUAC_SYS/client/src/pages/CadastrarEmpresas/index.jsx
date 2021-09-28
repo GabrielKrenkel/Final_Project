@@ -21,7 +21,7 @@ export function EmpresaCadastrar() {
 
         try {
             
-            const response = await api.post('/empresas', data);
+            const response = await api.post('/developer', data);
 
             if (response.status === 201) {
 
@@ -48,28 +48,28 @@ export function EmpresaCadastrar() {
             <form onSubmit={handleSubmit}>
                 <label htmlFor="text">Nome:</label>
                 <input className="imputesstabelecimento" type="text" value={nome} onChange={e => setNome(e.target.value)} placeholder="Nome completo" required />
-
+<br />
                 <label htmlFor="text">Endereço:</label>
                 <input  className="imputendereco" type="text" value={endereco} onChange={e => setEndereco(e.target.value)} placeholder="Endereço da empresa" required />
-
-                <label htmlFor="text">Horário de atendimento</label>
+<br />
+                <label htmlFor="text">Atendimento</label>
                 <input className="imputhorario" type="" value={horario_atendimento} onChange={e => setHorario_atendimento(e.target.value)} placeholder="Horário de atendimento" required />
-
+<br />
                 <label htmlFor="text">Telefone:</label>
                 <input className="imputtelefone" type="tel" value={numero_contato} onChange={e => setNumero_contato(e.target.value)} placeholder="Telefone" required />
-
+<br />
                 <label htmlFor="text">Latitude:</label>
                 <input className="imputlatitude" type="text" value={latitude} onChange={e => setLatitude(e.target.value)} placeholder="Latitude" required />
-
+<br />
                 <label htmlFor="text">Longitude:</label>
                 <input className="imputlongitude" type="text" value={longitude} onChange={e => setLongitude(e.target.value)} placeholder="Longitude" required />
-
+<br />
                 <label htmlFor="text">Email:</label>
                 <input className="imputemail" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Digite o email" required />
-
+<br />
                 <label htmlFor="text">Senha:</label>
                 <input className="imputsenha" type="text" value={password} onChange={e => setPassword(e.target.value)} placeholder="Digite a senha" required />
-
+<br />
                 <button>Salvar</button>
             </form>
         </div>

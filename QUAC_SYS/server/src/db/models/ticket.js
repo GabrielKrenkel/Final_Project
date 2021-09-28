@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     expirationTime: {
       type: DataTypes.DATE,
-      allowNull: false
+      allowNull: true
     },
     ticket: {
       type: DataTypes.INTEGER,

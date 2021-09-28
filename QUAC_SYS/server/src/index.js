@@ -15,6 +15,7 @@ app.use(express.json());
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/users", require("./routes/usersRoutes"));
 app.use("/api/empresas", require("./routes/empresasRoutes"));
+app.use("/api/developer", require("./routes/devsRoutes"))
 
 
 // Middleware de tratamento de erros

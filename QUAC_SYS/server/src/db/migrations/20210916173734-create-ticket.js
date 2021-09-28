@@ -8,13 +8,13 @@ module.exports = {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4
       },
-      expiration_time: {
+      expirationTime: {
         type: Sequelize.DATE,
-        allowNull: false
+        allowNull: true
       },
       user_id: {
         type: Sequelize.UUID,
-        allowNull: false,
+        allowNull: true,
         references: {
           model: "users",
           key: "id"

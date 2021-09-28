@@ -2,6 +2,7 @@
 export function DashboardContainer({title, children}) {
 	function handleSignOut() {
 		localStorage.clear();
+    sessionStorage.clear();
 		window.location.replace("/");
 	}
 

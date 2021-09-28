@@ -1,30 +1,32 @@
 const createHttpError = require("http-errors");
-const { Ticket } = require("../db/models")
+const { Ticket, sequelize } = require("../db/models");
+const { QueryTypes } = require("sequelize");
 const ms = require("ms");
 
 async function retirarTicket(req, res, next) {
-
     const empresa_id = req.params.id
-
-    const expirationtime = Date.now() + ms(process.env.TICKET_EXPIRATION);
-
-    const {ticket} = req.body
-
+    const expirationTime = Date.now() + ms(process.env.TICKET_EXPIRATION);
+    
     try {
-        const [senha, created] = await Ticket.findOrCreate( { 
-            where: {
-                empresa_id: empresa_id
-            },
-            defaults: { empresa_id, expirationtime, ticket  }
-        
-        })
-   
-        if (!created) {
-            throw new createHttpError(404, "Empresa não encontrada!")
-        }
-        
-        res.status(201).json(senha);
+        // Obter o último ticket
+        const lastTicket = await Ticket.findOne({
+            where: { empresa_id },
+            order: [              
+              [sequelize.fn('max', sequelize.col('ticket')), 'DESC'],
+            ],
+            group: "id"
+        });
 
+        console.log(lastTicket);
+
+        let ticket;
+        if (!lastTicket) {
+            ticket = await Ticket.create({ empresa_id, expirationTime, ticket: 1 });
+        } else {
+            ticket = await Ticket.create({ empresa_id, expirationTime, ticket: lastTicket.ticket + 1});
+        }
+
+        res.status(201).json(ticket);
     } catch (err) {
 
         console.log(err);
@@ -38,8 +40,6 @@ async function retirarTicket(req, res, next) {
 async function deleteTicket(req, res, next) {
 
     const ticketId = req.params.id
-
-    
 
     try {
         
@@ -63,29 +63,8 @@ async function deleteTicket(req, res, next) {
     }
 }
 
-
-async function verUltimaSenha(req, res, next) {
-    
-    const empresaId = req.params.id
-
-    try {
-        
-        let lastTicket = await Ticket.max("ticket", { where: { empresa_id: empresaId }})
-
-
-        res.status(202).json(lastTicket)
-
-    } catch (err) {
-
-        console.log(err);
-
-        next(err)
-    }
-}
-
 module.exports = {
     retirarTicket,
-    deleteTicket,
-    verUltimaSenha
+    deleteTicket
 }
 

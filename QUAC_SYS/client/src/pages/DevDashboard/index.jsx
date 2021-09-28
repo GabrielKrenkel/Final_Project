@@ -164,7 +164,7 @@ export function DevDashboard() {
                     loading ?
                         <p>Carregando...</p> :
                         <table className="empresas">
-                             
+                             <tbody> 
                                 <thead>
                                     <tr>
                                         <th>Nome</th>
@@ -175,8 +175,7 @@ export function DevDashboard() {
                                         <th>Longitude</th>
                                     </tr>
                                 </thead>
-
-                            <tbody>   
+                              
                                 {
                                     empresas.map(empresa => (
                                         <tr key={empresa.id}>

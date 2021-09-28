@@ -79,8 +79,11 @@ export function UserDashboard() {
 
                 {
                     (text === "") ?
+
                         loading ?
+
                             <p>Carregando...</p> :
+                            
                             <div className="empresas">
                                 {
                                     empresas.map(empresa => (
@@ -94,8 +97,11 @@ export function UserDashboard() {
                                     ))
                                 }
                             </div> :
+
                         loading ?
+
                         <p>Carregando...</p> :
+
                             <div className="empresas">
                                 {
                                     !!filteredEmpresas.length &&

@@ -1,9 +1,10 @@
 import jwtDecode from "jwt-decode";
 import { api } from "./api";
 
-function saveTokens(accessToken, refreshToken) {
+function saveTokens(accessToken, refreshToken, userId) {
     localStorage.setItem("access-token", accessToken);
     localStorage.setItem("refresh-token", refreshToken);
+    localStorage.setItem("user-id", userId)
 }
 
 function getAccessToken() {
@@ -40,7 +41,7 @@ async function signIn(email, password) {
     try {
         const res = await api.post("/auth/login", { email, password });
         
-        saveTokens(res.data.accessToken, res.data.refreshToken);        
+        saveTokens(res.data.accessToken, res.data.refreshToken, res.data.userId);        
         
     } catch (err) {
         console.log(err);

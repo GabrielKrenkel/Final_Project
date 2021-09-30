@@ -16,11 +16,11 @@ export function Home() {
   return (
     <>
     <img src="linkDaImagem" alt="Descrição da imagem" />
-    
+
     <div className="containerhome">        
         <h1 className="hometitle">trabalho final</h1>
       <Login className="login"/>  
-      <div>
+      <div> <br /> <br /><br />
         <button className="button"
         onClick={goCadastrar}>
           Cadastrar

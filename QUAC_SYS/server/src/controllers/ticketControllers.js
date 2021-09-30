@@ -7,7 +7,8 @@ async function retirarTicket(req, res, next) {
 
     const empresa_id = req.params.id
     const expirationTime = Date.now() + ms(process.env.TICKET_EXPIRATION);
-    
+    const { userId } = req.body
+
     try {
         // Obter o último ticket
         const lastTicket = await Ticket.findOne({
@@ -22,13 +23,13 @@ async function retirarTicket(req, res, next) {
 
         let ticket;
         if (!lastTicket) {
-            ticket = await Ticket.create({ empresa_id, expirationTime, ticket: 1 });
+            ticket = await Ticket.create({ empresa_id, user_id: userId, expirationTime, ticket: 1});
         } else {
-            ticket = await Ticket.create({ empresa_id, expirationTime, ticket: lastTicket.ticket + 1});
+            ticket = await Ticket.create({ empresa_id, user_id: userId, expirationTime, ticket: lastTicket.ticket + 1});
         }
 
         res.status(201).json(ticket);
-        
+
     } catch (err) {
 
         console.log(err);

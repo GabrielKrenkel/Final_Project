@@ -9,7 +9,8 @@ export function Login() {
     async function handleSubmit(e) {
         e.preventDefault();
         try {
-            await authServices.signIn(email, password);            
+            await authServices.signIn(email, password);     
+                   
             window.location.replace("/dashboard");
         } catch (err) {
             setError(err.message);
@@ -22,13 +23,14 @@ export function Login() {
             <form className="loginform" onSubmit={handleSubmit}>   
                 { error && <p className="error">{error}</p> }
                 <label className="labelemail">
-                    Email
+                    Email <br />
                     <input  type="email" value={email} onChange={e => setEmail(e.target.value)} required />
-                </label> 
+                </label> <br />
                 <label className="labelsenha"> 
-                    Senha
+                    Senha <br />
                     <input type="password" value={password} onChange={e => setPassword(e.target.value)} required />
-                </label >       
+                </label >   
+                <br />    <br />
                 <button>login</button>
             </form>
             

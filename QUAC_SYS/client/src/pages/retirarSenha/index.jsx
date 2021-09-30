@@ -1,37 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ReturnDeshboard } from "../../components/ReturnButton";
 import { api } from "../../services/api";
 
 export function RetirarTicket () {
+    const [senha, setSenha] = useState("");
 
-    async function retiraSenha(){
-
+    async function retiraSenha() {    
+        const userId = localStorage.getItem("user-id")
         const empresaId = sessionStorage.getItem("empresaName")
-
-        try {
-            
-            const senha = await api.get(`/users/${empresaId}`)
-
-            let position = senha.data + 1
-
-            localStorage.setItem("senha", position)
-
-            salvarSenha(position, empresaId)
-            
-        } catch (err) {
-
-            console.log(err)
-        }
-    }
-
-    async function salvarSenha(ticket, empresaId) {
         
-        const data = {ticket}
-
         try {
             
-            const salvarSenha = await api.post(`/users/${empresaId}`, data)
-            
+            const { ticket } = (await api.post(`/users/${empresaId}`, { userId })).data;
+
+            setSenha(ticket);
             
         } catch (err) {
 
@@ -39,11 +21,17 @@ export function RetirarTicket () {
 
         }
     }
+
     return (
         <>
         <ReturnDeshboard/>
         <br /><br />
-        <button onClick={() => {retiraSenha()}}>Retirar Senha</button>
+        <button onClick={retiraSenha}>Retirar Senha</button>
+
+        <div className="senhaUser">
+            <br />
+            {senha}
+        </div>
         </>
     );
 }

@@ -80,8 +80,10 @@ async function login(req, res, next) {
 
         const accessToken = createAccessToken(registeredUser.id, registeredUser.role);
         const refreshToken = await createRefreshToken(registeredUser.id, registeredUser.role);
-        
-        res.json({ accessToken, refreshToken });
+        const userId = registeredUser.id
+
+        res.json({ accessToken, refreshToken, userId});
+
     } catch (error) {
         console.log(error);
         next(error);

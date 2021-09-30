@@ -1,5 +1,5 @@
 const createHttpError = require("http-errors");
-const { Empresa } = require("../db/models")
+const { Empresa, Ticket } = require("../db/models")
 
 
 async function getTodasEmpresa(req, res, next) {
@@ -44,10 +44,22 @@ async function getCorp(req, res, next) {
     }
 }
 
+async function getTicket(req, res, next) {
+    
+
+    try {
+        
+        
+    } catch (err) {
+        console.log(err);
+    }
+
+}
 
 
 
 module.exports = {
     getTodasEmpresa,
-    getCorp
+    getCorp,
+    getTicket
 }

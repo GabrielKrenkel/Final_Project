@@ -4,6 +4,7 @@ const { QueryTypes } = require("sequelize");
 const ms = require("ms");
 
 async function retirarTicket(req, res, next) {
+
     const empresa_id = req.params.id
     const expirationTime = Date.now() + ms(process.env.TICKET_EXPIRATION);
     
@@ -27,6 +28,7 @@ async function retirarTicket(req, res, next) {
         }
 
         res.status(201).json(ticket);
+        
     } catch (err) {
 
         console.log(err);

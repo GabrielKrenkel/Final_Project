@@ -14,6 +14,9 @@ export function Home() {
   }
 
   return (
+    <>
+    <img src="linkDaImagem" alt="Descrição da imagem" />
+    
     <div className="containerhome">        
         <h1 className="hometitle">trabalho final</h1>
       <Login className="login"/>  
@@ -24,6 +27,6 @@ export function Home() {
         </button>  
       </div>                                 
     </div>
-
+    </>
   );  
 }

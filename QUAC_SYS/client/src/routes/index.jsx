@@ -21,15 +21,15 @@ export function Routes() {
                     <Route exact path="/" component={Home} />  
                     <Route path="/cadastrar" component={UsuarioCadastrar} /> 
 
-                    <PrivateRoute path="/CadastrarEmpresas" permissions={["dev", "moderador", "user"]}>
+                    <PrivateRoute path="/CadastrarEmpresas" permissions={["dev"]}>
                         <EmpresaCadastrar />
                     </PrivateRoute>  
 
-                    <PrivateRoute path="/VerificaDistancia" permissions={["dev", "moderador", "user"]}>
+                    <PrivateRoute path="/VerificaDistancia" permissions={["user"]}>
                         <RouteMap/>
                     </PrivateRoute>       
 
-                    <PrivateRoute path="/RetirarTicket" permissions={["dev", "moderador", "user"]}>
+                    <PrivateRoute path="/RetirarTicket" permissions={["user"]}>
                         <RetirarTicket/>
                     </PrivateRoute>   
 

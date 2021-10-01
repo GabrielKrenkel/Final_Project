@@ -2,6 +2,7 @@ import { Redirect } from "react-router-dom";
 import { Login } from "../../components/Login";
 import authServices from "../../services/authServices";
 import { useHistory } from "react-router-dom";
+import { LoginAndRegister } from "../../components/TelaLogin";
 
 export function Home() {
   const accessToken = authServices.getAccessToken();  
@@ -15,18 +16,7 @@ export function Home() {
 
   return (
     <>
-    <img src="linkDaImagem" alt="Descrição da imagem" />
-
-    <div className="containerhome">        
-        <h1 className="hometitle">trabalho final</h1>
-      <Login className="login"/>  
-      <div> <br /> <br /><br />
-        <button className="button"
-        onClick={goCadastrar}>
-          Cadastrar
-        </button>  
-      </div>                                 
-    </div>
+      <LoginAndRegister/>
     </>
   );  
 }

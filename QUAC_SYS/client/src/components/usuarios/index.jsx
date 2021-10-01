@@ -64,7 +64,8 @@ export function UserDashboard() {
 
 
     return (
-        <DashboardContainer >
+        <>
+        <DashboardContainer/>
             <div className="usercontainer">
                 <h1>Página de usuários</h1>
 
@@ -72,7 +73,7 @@ export function UserDashboard() {
                     <h1>Escolha o estabelecimento</h1>
                     <label htmlFor="to" className="paraOndeLabel"></label>
                     <div className="col-xs-4">
-                        <input className="imputestabelecimento" type="text" id="to" placeholder="Estabelecimento" onChange={(e) => setText(e.target.value)} className="form-control" />
+                        <input className="imputestabelecimento" type="text" id="to" placeholder="Estabelecimento" onChange={(e) => setText(e.target.value)}  />
                     </div>
                 </div>
 
@@ -120,8 +121,7 @@ export function UserDashboard() {
 
 
             </div>
-
-        </DashboardContainer>
+        </>
     );
 }
 

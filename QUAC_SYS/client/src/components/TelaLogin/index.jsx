@@ -2,7 +2,7 @@ import React from "react";
 import "./index.css"
 import { useState } from "react";
 import authServices from "../../services/authServices";
-import Image from "./QAC.png"
+import image from "./quac.png"
 
 export function LoginAndRegister() {
     
@@ -27,7 +27,8 @@ export function LoginAndRegister() {
     return (
         <>
             <a href="http://localhost:3000/" className="logo" target="_parent">
-                <img src="https://dc737.4shared.com/img/V14pLOcyea/s24/17c3d8248e8/QAC?async&rand=0.8932856227083548" className="logo" alt="" />
+                {/* <img src="https://dc737.4shared.com/img/V14pLOcyea/s24/17c3d8248e8/QAC?async&rand=0.8932856227083548" className="logo" alt="" /> */}
+                <img src={image} className="logo" alt="" />
             </a>
 
             <div className="section">

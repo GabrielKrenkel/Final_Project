@@ -4,9 +4,9 @@ import {
     Switch    
 } from "react-router-dom";
 import { EmpresaCadastrar } from "../pages/CadastrarEmpresas";
-import { Dashboard } from "../pages/Dashboard";
+import { Dashboard } from "../components/Dashboard";
 import { Home } from "../pages/Home";
-import { NotFound } from "../pages/NotFound";
+import { NotFound } from "../components/NotFound";
 import { PrivateRoute } from "./privateRoutes";
 import { RouteMap } from "../pages/VerificarDistancia"
 import { RetirarTicket } from "../pages/retirarSenha";

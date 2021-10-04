@@ -46,12 +46,26 @@ async function getCorp(req, res, next) {
 
 async function getTicket(req, res, next) {
     
+    const empresaId = req.params.id
+    const numTicket = req.params.numTicket
 
     try {
         
+        const allTickets = await Ticket.findOne( 
+            {
+                where: {
+                    empresa_id: empresaId,
+                    ticket: numTicket 
+
+                }
+            })
+
+        res.status(200).json(allTickets)
         
     } catch (err) {
         console.log(err);
+
+        next(err)
     }
 
 }
@@ -63,3 +77,4 @@ module.exports = {
     getCorp,
     getTicket
 }
+

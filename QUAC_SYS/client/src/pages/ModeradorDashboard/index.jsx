@@ -1,30 +1,55 @@
+import { useState } from "react";
 import { DashboardContainer } from "../../components/DashboardContaimer"
 import { api } from "../../services/api";
 
 export function Moderador() {
 
-    let senha = 1
+    const [senha, setSenha]= useState("")
+    const [ultimaSenha, setUltimaSenha] = useState("")
+    const [users, setUsers] = useState([])
 
-    async function getSenha(empresaId) {
+    async function getSenha() {
+
+        const numTicket = 1
+
+        const empresaId = localStorage.getItem('user-id')
         
-        const senhaCall = senha++
-        
-        console.log(senhaCall);
+        try {
+
+            const ticket = await api.get(`/empresas/funcionario/${empresaId}/${numTicket}`)
+
+            if (!ticket) {
+                return alert("Não há usuarios para chamar!")
+            }
+
+            const user = ticket.data
+
+            setUsers(user)
+
+            console.log(users);
+
+        } catch (err) {
+
+            console.log(err);
+
+        }
+
     }
 
     return (
         <>
         <DashboardContainer/>
+            <div>
+                <div className="user-container">
+                    <h1>Senha atual:</h1>
+                    <h2>{senha}</h2>
+                    <p>Senha anterior: {ultimaSenha}</p>
+                    <p>(aqui vai o nome do estabelecimento)</p>
+                </div>
 
-            <div className="user-container">
-                <h1>Senha atual:</h1>
-                <h2>(x)</h2>
-                <p>Senha anterior: (x)</p>
-                <p>(aqui vai o nome do estabelecimento)</p>
+
+                <button onClick={getSenha}>Proxima</button>
             </div>
-
-
-            <button onClick={getSenha}>Proxima</button>
         </>
     );
 }

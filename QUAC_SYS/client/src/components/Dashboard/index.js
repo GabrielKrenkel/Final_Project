@@ -1,7 +1,7 @@
-import { DevDashboard } from "../DevDashboard";
-import { UserDashboard } from "../../components/usuarios";
+import { DevDashboard } from "../../pages/DevDashboard";
+import { UserDashboard } from "../usuarios";
 import { NotFound } from "../NotFound";
-import { Moderador } from "../Moderador"
+import { Moderador } from "../../pages/ModeradorDashboard"
 
 export function Dashboard({ userRole }) {  
 

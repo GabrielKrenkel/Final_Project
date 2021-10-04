@@ -3,6 +3,7 @@ import "./index.css"
 import { useState } from "react";
 import authServices from "../../services/authServices";
 import image from "./quac.png"
+import {api} from '../../services/api'
 
 export function LoginAndRegister() {
     
@@ -24,10 +25,32 @@ export function LoginAndRegister() {
     //end partition
 
 
+    const [nameRegister, setNameRegister] = useState('');
+    const [emailRegister, setEmailRegister] = useState('');
+    const [phoneRegister, setPhoneRegister] = useState('');
+    const [passwordRegister, setPasswordRegister] = useState('');
+    
+    async function handleSubmitRegister() {
+        
+        const data = { nameRegister, emailRegister, phoneRegister, passwordRegister, role: "user" }
+
+        console.log(data);
+
+        const response = await api.post('/users', data);
+
+        if(response.status===201){
+
+            alert("Usuário cadastrado com sucesso")
+
+            window.location.replace("/");
+        }else{
+            alert("Erro ao cadastrar usuário")
+        }
+    }
+
     return (
         <>
             <a href="http://localhost:3000/" className="logo" target="_parent">
-                {/* <img src="https://dc737.4shared.com/img/V14pLOcyea/s24/17c3d8248e8/QAC?async&rand=0.8932856227083548" className="logo" alt="" /> */}
                 <img src={image} className="logo" alt="" />
             </a>
 
@@ -64,22 +87,22 @@ export function LoginAndRegister() {
                                                 <div className="section text-center">
                                                     <h4 className="mb-4 pb-3">Sign Up</h4>
                                                     <div className="form-group">
-                                                        <input type="text" name="logname" className="form-style" placeholder="Your Full Name" id="logname" autocomplete="off"/>
+                                                        <input type="text" name="logname" className="form-style" placeholder="Your Full Name" id="logname" autocomplete="off" value={nameRegister} onChange={e => setNameRegister(e.target.value)}/>
                                                         <i className="input-icon uil uil-user"></i>
                                                     </div>
                                                     <div className="form-group mt-2">
-                                                        <input type="text" name="logfone" className="form-style" placeholder="Your Fone" id="logfone" autocomplete="off"/>
+                                                        <input type="text" name="logfone" className="form-style" placeholder="Your Fone" id="logfone" autocomplete="off" value={phoneRegister} onChange={e => setPhoneRegister(e.target.value)}/>
                                                         <i className ="input-icon uil uil-at"></i>
                                                     </div>
                                                     <div className="form-group mt-2">
-                                                        <input type="email" name="logemail" className="form-style" placeholder="Your Email" id="logemail" autocomplete="off"/>
+                                                        <input type="email" name="logemail" className="form-style" placeholder="Your Email" id="logemail" autocomplete="off" value={emailRegister} onChange={e => setEmailRegister(e.target.value)}/>
                                                         <i className ="input-icon uil uil-at"></i>
                                                     </div>
                                                     <div className="form-group mt-2">
-                                                        <input type="password" name="logpass" className="form-style" placeholder="Your Password" id="logpass" autocomplete="off"/>
+                                                        <input type="password" name="logpass" className="form-style" placeholder="Your Password" id="logpass" autocomplete="off" value={passwordRegister} onChange={e => setPasswordRegister(e.target.value)}/>
                                                         <i className ="input-icon uil uil-lock-alt"></i>
                                                     </div>
-                                                    <a href="#" className="btn mt-4">submit</a>
+                                                    <button className="btn mt-4" onClick={() => handleSubmitRegister()}>Submit</button>
                                                 </div>
                                             </div>
                                         </div>

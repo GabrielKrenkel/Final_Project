@@ -3,13 +3,13 @@ const { User } = require("../db/models");
 
 async function createUser(req, res, next) {
 
-    const { name, email, phone, password } = req.body;     
+    const { nameRegister, emailRegister, phoneRegister, passwordRegister } = req.body;     
     try {        
         const [user, created] = await User.findOrCreate({
             where: {
-                email
+                email: emailRegister
             },
-            defaults: { name, email, phone, password, role: "user" }
+            defaults: { name: nameRegister, email: emailRegister, phone: phoneRegister, password: passwordRegister, role: "user" }
         });
 
         if (!created) {

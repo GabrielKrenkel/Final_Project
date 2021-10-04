@@ -19,7 +19,7 @@ export function Routes() {
             <Router>                 
                 <Switch>  
                     <Route exact path="/" component={Home} />  
-                    <Route path="/cadastrar" component={UsuarioCadastrar} /> 
+                    
 
                     <PrivateRoute path="/CadastrarEmpresas" permissions={["dev"]}>
                         <EmpresaCadastrar />

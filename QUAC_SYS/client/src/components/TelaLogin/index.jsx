@@ -2,7 +2,6 @@ import React from "react";
 import "./index.css"
 import { useState } from "react";
 import authServices from "../../services/authServices";
-import image from "./quac.png"
 import {api} from '../../services/api'
 
 export function LoginAndRegister() {
@@ -54,14 +53,12 @@ export function LoginAndRegister() {
 
     return (
         <>
-            <a href="http://localhost:3000/" className="logo" target="_parent">
-                <img src={image} className="logo" alt="" />
-            </a>
 
             <div className="section">
                 <div className="container">
                     <div className="row full-height justify-content-center">
                         <div className="col-12 text-center align-self-center py-5">
+                        <a href="http://localhost:3000/" className="logo" target="_parent"><p className="logo-titulo">QUAC SYSTEM</p></a>
                             <div className="section pb-5 pt-5 pt-sm-2 text-center">
                                 <h6 className="mb-0 pb-3"><span>Log In </span><span>Sign Up</span></h6>
                                 <input className="checkbox" type="checkbox" id="reg-log" name="reg-log"></input>
@@ -82,7 +79,7 @@ export function LoginAndRegister() {
                                                         <i className="input-icon-login uil uil-lock-alt"></i>
                                                     </div>
                                                     <button className="btn mt-4" onClick={handleSubmit}>Submit</button>
-                                                    <p className="mb-0 mt-4 text-center"><a href="#0" className="link">Forgot your password?</a></p>
+                                                    <p className="fyp"><a href="#0" className="link">Forgot your password?</a></p>
                                                 </div>
                                             </div>
                                         </div>
@@ -90,7 +87,7 @@ export function LoginAndRegister() {
                                             <div className="center-wrap">
                                                 <div className="section text-center">
                                                     <h4 className="mb-4 pb-3">Sign Up</h4>
-                                                    <form onSubmit={(e) => handleSubmitRegister(e)}>
+                                                    <form className="form-signup" onSubmit={(e) => handleSubmitRegister(e)}>
                                                     <div className="form-group">
                                                         <input type="text" name="logname" className="form-style" placeholder="Your Full Name" id="logname" autocomplete="off" value={nameRegister} onChange={e => setNameRegister(e.target.value)} required/>
                                                         <i className="input-icon uil uil-user"></i>

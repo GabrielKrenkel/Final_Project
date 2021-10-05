@@ -1,0 +1,40 @@
+body{
+    background-color :#1b1b1b;  
+}
+
+.btnhome {
+    margin-top: 10px;
+    border-radius: 4px;
+    height: 25px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0 30px;
+    display: inline-flex;
+    position: relative;
+    left: 120px;
+    justify-content: flex-end;
+    text-align: center;
+    border: none;
+    background-color: #ffeba7;
+    color: #000000;
+    box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
+    align-items: center;
+  }
+  .btnSenha{
+
+    border-radius: 4px;
+    height: 25px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 0 30px;
+    display: inline-flex;
+    justify-content: flex-end;
+    text-align: center;
+    border: none;
+    background-color: #ffeba7;
+    color: #000000;
+    box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);  
+    align-items: center;
+  }

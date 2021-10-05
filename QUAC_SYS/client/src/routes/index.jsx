@@ -9,7 +9,7 @@ import { Home } from "../pages/Home";
 import { NotFound } from "../components/NotFound";
 import { PrivateRoute } from "./privateRoutes";
 import { RouteMap } from "../pages/VerificarDistancia"
-import { RetirarTicket } from "../pages/retirarSenha";
+import { RetirarTicket } from "../pages/RetirarSenha";
 
 
 export function Routes() {

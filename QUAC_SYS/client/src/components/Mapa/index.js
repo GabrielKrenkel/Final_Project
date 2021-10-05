@@ -1,20 +1,22 @@
 /*global google*/
 import React, { Component } from "react";
 import { withGoogleMap, GoogleMap, DirectionsRenderer } from "react-google-maps";
+import "./styles.css"
 
-class Map extends Component {
-    
+export class Map extends Component {
+
     state = {
         directions: null,
         destination: { lat: +localStorage.getItem("latEMP"), lng: +localStorage.getItem("lonEMP") },
         distance: 0,
         time: 0
     };
+    
 
     componentDidMount() {
         // Obter a destination do banco de dados        
         const directionsService = new google.maps.DirectionsService();
-        const origin = { lat: +localStorage.getItem("latitude"), lng: +localStorage.getItem("longitude") };               
+        const origin = { lat: +localStorage.getItem("latitude"), lng: +localStorage.getItem("longitude") };
         directionsService.route(
             {
                 origin: origin,
@@ -33,8 +35,9 @@ class Map extends Component {
                     console.error(`error fetching directions ${result}`);
                 }
             }
-        );        
+        );
     }
+    
 
     calcRoute(origin, destination, directionsDisplay, directionsService) {
         let request = {
@@ -54,8 +57,7 @@ class Map extends Component {
             }
         });
     }
-
-
+   
 
     render() {
         const GoogleMapExample = withGoogleMap(props => (
@@ -70,14 +72,17 @@ class Map extends Component {
         ));
 
         return (
-            <div>
-                <GoogleMapExample
-                    containerElement={<div style={{ height: `500px`, width: "500px" }} />}
-                    mapElement={<div style={{ height: `100%` }} />}
-                />
-                <p>Distância dirigindo: {this.state.distance}</p>
-                <p>Tempo: {this.state.time}</p>                                
-            </div>
+            <>
+                <a href="http://localhost:3000/" className="logo" target="_parent"><p className="logo-titulo">QUAC SYSTEM</p></a>
+                <div className="container">
+                    <GoogleMapExample
+                        containerElement={<div className="maps" />}
+                        mapElement={<div style={{ height: `100%` }} />}
+                    />
+                    <p>Distância dirigindo: {this.state.distance}</p>
+                    <p>Tempo: {this.state.time}</p>
+                </div>
+            </>
         );
     }
 }

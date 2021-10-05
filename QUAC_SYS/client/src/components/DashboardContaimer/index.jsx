@@ -1,3 +1,4 @@
+import "./index.css"
 
 export function DashboardContainer({title, children}) {
 	function handleSignOut() {
@@ -10,7 +11,7 @@ export function DashboardContainer({title, children}) {
       <div className="dashboard-container">
         <header className="dashboard-header">
           <h1>{title}</h1>
-          <button onClick={handleSignOut}>Sign Out</button>       
+          <button className="btn-voltar" onClick={handleSignOut}>Sign Out</button>       
         </header>
         <div className="dashboard-content">
           {children}

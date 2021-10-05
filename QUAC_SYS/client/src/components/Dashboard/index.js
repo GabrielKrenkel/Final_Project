@@ -2,6 +2,7 @@ import { DevDashboard } from "../../pages/DevDashboard";
 import { UserDashboard } from "../usuarios";
 import { NotFound } from "../NotFound";
 import { Moderador } from "../../pages/ModeradorDashboard"
+import "./styles.css"
 
 export function Dashboard({ userRole }) {  
 

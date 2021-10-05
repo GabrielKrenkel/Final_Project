@@ -1,55 +1,78 @@
-body{
-    font-family: "Lucida Console", "Courier New", monospace;
-    text-align: center;
-    background-color :#253C59;   
-}
-.usercontainer{
-    padding-top: 7%;
-}
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+
 
 h1{
     font-size: 50px;
     font-family: "Lucida Console", "Courier New", monospace;
-    color: white;
+    color: #c4c3ca;
 }
 
-label {
-    font-size: 30px;
-    font-family: "Lucida Console", "Courier New", monospace;
-    color: white;
-} 
-
-.imputestabelecimento{
-    border: 10px;
-    padding: 10px 10px 10px 10px;
-    margin: 10px 20px 10px 10px;
-    border-radius: 5px;
-}  
-.button {
-    font-family: "Lucida Console", "Courier New", monospace;
-    background-color: #2D4B73; 
-    border-radius: 5px;
-    color: white;
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    color: #F2AB27; 
-    border: 2px solid #F2AB27 ;
-  }
-
-.card {
-    background-color: yellow; 
-    padding: 7px;
-    margin: 7px;
+.usercontainer{
+    padding-top: 10%;
 }
 
-.empresas {
+.form-group h1{
+    font-size: 35px;
+    font-family: 'Poppins';
+    color: #c4c3ca;
+}
+
+.empresas{
+    display: flex;
+    justify-content: center;
     display: flex;
     padding: 5px;
     flex-wrap: wrap;
+}
+
+.card{
+  background-color: #2a2b38;
+  background-image: url('https://us-prod.asyncgw.teams.microsoft.com/v1/objects/0-eus-d13-5b6a014338344b7adcdd45338240b9ad/views/imgpsh_mobile_save');
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  background-size: 150%;
+  padding: 7px;
+  margin: 7px;
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button_empresa{
+  border-radius: 4px;
+  height: 25px;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 200ms linear;
+  width: 200px;
+  padding: 0 10px;
+  letter-spacing: 1px;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffeba7;
+  color: #000000;
+  box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
+  border: solid 1px #1f2029;
+}
+
+.imputestabelecimento{
+    padding: 13px 20px;
+    padding-left: 55px;
+    height: 48px;
+    width: 80%;
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    outline: none;
+    color: #c4c3ca;
+    background-color: #1f2029;
+    border: none;
+    transition: all 200ms linear;
+    box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
+    border: solid 1px #c4c3ca;
+    margin-bottom: 20px;
 }

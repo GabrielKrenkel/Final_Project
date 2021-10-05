@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { DashboardContainer } from "../../components/DashboardContaimer"
 import { api } from "../../services/api";
 
@@ -7,24 +7,49 @@ export function Moderador() {
     const [senha, setSenha]= useState("")
     const [ultimaSenha, setUltimaSenha] = useState("")
     const [users, setUsers] = useState([])
+    const [empresaName, setEmpresas] = useState("")
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        
+        const empresaId = localStorage.getItem('user-id')
+
+        async function getEmpresa() {
+            try {
+                const empresas = (await api.get(`/empresas/${empresaId}`)).data;
+
+                setEmpresas(empresas.nome);
+            } catch (err) {
+                console.log(err);
+            }
+
+            setLoading(false);
+        }
+
+        getEmpresa();
+    }, []);
 
     async function getSenha() {
-
-        const numTicket = 1
 
         const empresaId = localStorage.getItem('user-id')
         
         try {
 
+            const numTicket = +senha + 1
+            
             const ticket = await api.get(`/empresas/funcionario/${empresaId}/${numTicket}`)
-
-            if (!ticket) {
-                return alert("Não há usuarios para chamar!")
+            
+            if (ticket.data === null) {
+                return alert("Não ha mais usuarios para chamar!")
             }
 
-            const user = ticket.data
-
-            setUsers(user)
+            console.log(ticket);
+            
+            setSenha(numTicket)
+            
+            setUltimaSenha(numTicket - 1)
+            
+            setUsers(ticket.data)
 
             console.log(users);
 
@@ -38,18 +63,24 @@ export function Moderador() {
 
     return (
         <>
-        <DashboardContainer/>
-            <div>
-                <div className="user-container">
-                    <h1>Senha atual:</h1>
-                    <h2>{senha}</h2>
-                    <p>Senha anterior: {ultimaSenha}</p>
-                    <p>(aqui vai o nome do estabelecimento)</p>
-                </div>
+            {
+                loading ?
+                <p>carregando...</p> :
+                <>
+                    <DashboardContainer/>
+                    <div>
+                        <div className="user-container">
+                            <h1>Senha atual:</h1>
+                            <h2>{senha}</h2>
+                            
+                            <p>{empresaName}</p>
+                        </div>
 
 
-                <button onClick={getSenha}>Proxima</button>
-            </div>
+                        <button onClick={getSenha}>Proxima</button>
+                    </div>
+                </>
+            }
         </>
     );
 }

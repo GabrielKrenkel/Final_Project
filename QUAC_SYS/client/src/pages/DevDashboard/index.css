@@ -1,22 +1,141 @@
-body{
-    font-family: "Lucida Console", "Courier New", monospace;
-    text-align: center;
-    background-color :#253C59;   
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900'); 
+
+.Modal_Emp{
+   position: fixed;
+   z-index: 1; /* Sit on top */
+   padding-top: 100px; /* Location of the box */
+   left: 0;
+   top: 0;
+   width: 100%; /* Full width */
+   height: 100%; /* Full height */
+   overflow: auto; /* Enable scroll if needed */
+   background-color: rgba(128, 128, 128, 0.562); /* Black w/ opacity */
+   
+}
+.modalContent{
+    background-image: url('https://senacsc754-my.sharepoint.com/personal/diego_santos3_alunos_sc_senac_br/Documents/Arquivos%20de%20Chat%20do%20Microsoft%20Teams/4364316faefc2a7731c6e788eb2bcecf%20-%20Copia.jpg');
+    margin-top: 130px;
+    margin-left: 15%;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 70%;
+    background-position: bottom center;
+    background-repeat: no-repeat;
 }
 
-.button {
-    font-family: "Lucida Console", "Courier New", monospace;
-    background-color: #2D4B73; 
-    border-radius: 5px;
-    color: white;
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    color: #F2AB27; 
-    border: 2px solid #F2AB27 ;
-  }
+.name {
+    padding-left: 20px;
+    height: 25px;
+    width: 80%;
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    outline: none;
+    color: #c4c3ca;
+    background-color: #1f2029;
+    border: none;
+    transition: all 200ms linear;
+    box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
+    border: solid 1px #c4c3ca;
+    
+}
+
+.endereco{
+    padding-left: 20px;
+    height: 25px;
+    width: 80%;
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    outline: none;
+    color: #c4c3ca;
+    background-color: #1f2029;
+    border: none;
+    transition: all 200ms linear;
+    box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
+    border: solid 1px #c4c3ca;
+    
+}
+
+.contato {
+    padding-left: 20px;
+    height: 25px;
+    width: 80%;
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    outline: none;
+    color: #c4c3ca;
+    background-color: #1f2029;
+    border: none;
+    transition: all 200ms linear;
+    box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
+    border: solid 1px #c4c3ca;
+   
+}
+
+
+.atendimento {
+    padding-left: 20px;
+    height: 25px;
+    width: 80%;
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    outline: none;
+    color: #c4c3ca;
+    background-color: #1f2029;
+    border: none;
+    transition: all 200ms linear;
+    box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
+    border: solid 1px #c4c3ca;
+    
+}
+
+
+.longitude {
+    padding-left: 20px;
+    height: 25px;
+    width: 80%;
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    outline: none;
+    color: #c4c3ca;
+    background-color: #1f2029;
+    border: none;
+    transition: all 200ms linear;
+    box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
+    border: solid 1px #c4c3ca;
+    
+}
+
+.latitude {
+    padding-left: 20px;
+    height: 25px;
+    width: 80%;
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    outline: none;
+    color: #c4c3ca;
+    background-color: #1f2029;
+    border: none;
+    transition: all 200ms linear;
+    box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
+    border: solid 1px #c4c3ca;
+    
+}
+

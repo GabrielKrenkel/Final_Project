@@ -58,7 +58,7 @@ export function DevDashboard() {
     }
 
     function showEmp(empresa) {
-        
+
         console.log(empresa.data);
 
         let nome = document.querySelector(".name")
@@ -81,7 +81,7 @@ export function DevDashboard() {
 
     function showModal(empresaId) {
         let Modal = document.querySelector(".Modal_Emp")
-        
+
         Modal.style = "display:block"
 
         sessionStorage.setItem("empresaId", empresaId)
@@ -90,12 +90,12 @@ export function DevDashboard() {
     function closeModal() {
 
         let Modal = document.querySelector(".Modal_Emp")
-        
+
         Modal.style = "display:none"
     }
 
     async function handleSubmit(e) {
-        
+
         e.preventDefault();
 
         const idEmpresa = sessionStorage.getItem("empresaId")
@@ -106,15 +106,15 @@ export function DevDashboard() {
         let horario_atendimento = document.querySelector(".atendimento").value
         let latitude = document.querySelector(".latitude").value
         let longitude = document.querySelector(".longitude").value
-        
-        const data = { nome, endereco, latitude, longitude, horario_atendimento, numero_contato}
+
+        const data = { nome, endereco, latitude, longitude, horario_atendimento, numero_contato }
 
         try {
-            
+
             const response = await api.put(`/developer/${idEmpresa}`, data);
 
             if (response.status === 201) {
-                
+
                 alert("Usuario atualizado com sucesso!!")
 
                 closeModal()
@@ -127,7 +127,7 @@ export function DevDashboard() {
         } catch (error) {
 
             console.log(error);
-        
+
         }
 
         setLoading(false);
@@ -146,12 +146,12 @@ export function DevDashboard() {
 
         setLoading(false);
     }
-    
+
     return (
 
         <>
 
-        <DashboardContainer/>
+            <DashboardContainer />
 
             <div className="admin-container">
                 <h1>Página de dev</h1>
@@ -164,7 +164,7 @@ export function DevDashboard() {
                     loading ?
                         <p>Carregando...</p> :
                         <table className="empresas">
-                             <tbody> 
+                            <tbody>
                                 <thead>
                                     <tr>
                                         <th>Nome</th>
@@ -175,7 +175,7 @@ export function DevDashboard() {
                                         <th>Longitude</th>
                                     </tr>
                                 </thead>
-                              
+
                                 {
                                     empresas.map(empresa => (
                                         <tr key={empresa.id}>
@@ -194,50 +194,40 @@ export function DevDashboard() {
                         </table>
                 }
 
-                
+
             </div>
 
-                <div className="Modal_Emp" style={ {display: "None"}}>
-                
-                <form  className="formulario" onSubmit={handleSubmit} >
-
-                    <label htmlFor="name" >
-                        Nome:
-                        <input className="name"  type="text" />
-                    </label>
-                <br />
-                    <label htmlFor="endereco">
-                        Endereço:
+            <div className="Modal_Emp" style={{ display: "None" }}>
+                <div className= "modalContent">
+               
+                    <form className="formulario" onSubmit={handleSubmit} >
+       
+                        <label htmlFor="name" >Nome:</label> <br />
+                        <input className="name" type="text" />
+                        
+                        <label htmlFor="endereco">Endereço:</label><br />
                         <input className="endereco" type="text" />
-                    </label>
-                <br />
-                    <label htmlFor="contato">
-                        Contato:
+                        
+                        <label htmlFor="contato">Contato:</label><br />
                         <input className="contato" type="text" />
-                    </label>
-
-<br />
-                    <label htmlFor="atendimento">
-                        Atendimento:
+                        
+                        <label htmlFor="atendimento">Atendimento:</label><br />
                         <input className="atendimento" type="text" />
-                    </label>
-<br />
-                    <label htmlFor="latitude">
-                        Latitude:
+                        
+                        <label htmlFor="latitude">Latitude:</label><br />
                         <input className="latitude" type="text" />
-                    </label>
-<br />
-                    <label htmlFor="longitude">
-                        longitude:
+                        
+                        <label htmlFor="longitude"> Longitude:</label><br />
                         <input className="longitude" type="text" />
-                    </label>
-<br /><br />
-                    <button>Salvar</button> 
-                    
-                    
-                </form>
-                    <button onClick={() => {closeModal()}}>Cancelar</button>
+                        
+                        <br />
+                        <button className="btnsalvar">Salvar</button>
+
+
+                    </form>
                 
+                    <button className="btnsalvar" onClick={() => { closeModal() }}>Cancelar</button>
+                </div>
             </div>
         </>
     );

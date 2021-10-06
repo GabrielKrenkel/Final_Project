@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { DashboardContainer } from "../../components/DashboardContaimer"
+import { api } from "../../services/api";
 
 export function Moderador() {
 

@@ -1,4 +1,3 @@
-/*global google*/
 import React, { Component } from "react";
 import { withGoogleMap, GoogleMap, DirectionsRenderer } from "react-google-maps";
 
@@ -6,7 +5,7 @@ class Map extends Component {
     
     state = {
         directions: null,
-        destination: { lat: -26.883233, lng: -49.246709 },
+        destination: { lat: +localStorage.getItem("latEMP"), lng: +localStorage.getItem("lonEMP") },
         distance: 0,
         time: 0
     };

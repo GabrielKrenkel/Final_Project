@@ -12,10 +12,11 @@ export function DevDashboard() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+
         async function getEmpresa() {
             try {
                 const empresas = (await api.get("/empresas")).data;
-                setEmpresas(empresas);                
+                setEmpresas(empresas);
             } catch (err) {
                 console.log(err);
             }
@@ -32,7 +33,7 @@ export function DevDashboard() {
 
             const empresasAtualizadas = empresas.filter(empresa => empresa.id !== idEmpresa);
 
-            setEmpresas(empresasAtualizadas);                 
+            setEmpresas(empresasAtualizadas);
         } catch (err) {
             console.log(err);
         }
@@ -40,63 +41,55 @@ export function DevDashboard() {
         setLoading(false);
     }
 
-    async function editEmp() {
-        try {
+    async function editEmp(idEmpresa) {
 
-
-
-            const putEmpresas = (await api.put(`/empresas/`)).data;
-
-                           
-        } catch (err) {
-            console.log(err);
-        }
-
-        setLoading(false);
+        
     }
-
     return (
         <DashboardContainer>
-            <div className="admin-container"> 
+            <div className="admin-container">
                 <h1>Página de dev</h1>
                 <button
-                onClick={goCadastrarEmpresa}>
+                    onClick={goCadastrarEmpresa}>
                     Cadastrar empresa
                 </button>
 
                 {
-                    loading ? 
-                    <p>Carregando...</p> :
-                    <table className="empresas">
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Endereço</th>
-                                <th>Telefone</th>
-                                <th>Horário de funcionamento</th>
-                                <th>Latitude</th>
-                                <th>Longitude</th>
-                            </tr>
-                        </thead>
-                        <tbody>                                    
-                            {
-                                empresas.map(empresa => (
-                                    <tr key={empresa.id}>
-                                        <td>{empresa.nome}</td>
-                                        <td>{empresa.endereco}</td>
-                                        <td>{empresa.numero_contato}</td>
-                                        <td>{empresa.horario_atendimento}</td>
-                                        <td>{empresa.latitude}</td>
-                                        <td>{empresa.longitude}</td>
-                                        <td><button onClick={editEmp}>Editar</button></td>
-                                        <td><button onClick={() => deleteEmp(empresa.id)}>Excluir</button></td>
+                    loading ?
+                        <p>Carregando...</p> :
+                        <table className="empresas">
+                            <tbody>
+                                <thead>
+                                    <tr>
+                                        <th>Nome</th>
+                                        <th>Endereço</th>
+                                        <th>Telefone</th>
+                                        <th>Horário de funcionamento</th>
+                                        <th>Latitude</th>
+                                        <th>Longitude</th>
                                     </tr>
-                                ))
-                            }
-                        </tbody>
-                    </table>
+                                </thead>
+
+                                {
+                                    empresas.map(empresa => (
+                                        <tr key={empresa.id}>
+                                            <td>{empresa.nome}</td>
+                                            <td>{empresa.endereco}</td>
+                                            <td>{empresa.numero_contato}</td>
+                                            <td>{empresa.horario_atendimento}</td>
+                                            <td>{empresa.latitude}</td>
+                                            <td>{empresa.longitude}</td>
+                                            <td><button onClick={() => editEmp(empresa.id)}>Editar</button></td>
+                                            <td><button onClick={() => deleteEmp(empresa.id)}>Excluir</button></td>
+                                        </tr>
+                                    ))
+                                }
+                            </tbody>
+                        </table>
                 }
-            </div>                               
-       </DashboardContainer>
+
+            
+            </div>
+        </DashboardContainer>
     );
 }

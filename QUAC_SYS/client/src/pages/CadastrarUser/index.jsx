@@ -15,7 +15,7 @@ export  function UsuarioCadastrar() {
 
         console.log(data);
 
-        const response = await api.post('/api/users', data);
+        const response = await api.post('/users', data);
 
         if(response.status===201){
 

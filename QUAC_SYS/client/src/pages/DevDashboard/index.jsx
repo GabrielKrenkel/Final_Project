@@ -132,7 +132,7 @@ export function DevDashboard() {
 
             if (response.status === 201) {
 
-                alert("Usuario atualizado com sucesso!!")
+                alert("Empresa atualizada com sucesso!!")
 
                 closeModal()
             }
@@ -255,7 +255,7 @@ export function DevDashboard() {
                         <input className="longitude" type="text" />
 
                         <br />
-                        <button className="btnsalvar">Salvar</button>
+                        <button className="salvarBtn">Salvar</button>
 
 
                     </form>

@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import React from "react";
+=======
+/*global google*/
+import React, { Component } from "react";
+>>>>>>> parent of 3b66d1b (atualizado css)
 import { withScriptjs } from "react-google-maps";
 import Map from '../../components/Mapa';
 import { useHistory } from "react-router-dom";

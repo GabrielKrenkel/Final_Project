@@ -17,18 +17,18 @@ export function Login() {
     }
 
     return (
-        <div className="containerlogin">
-            <h2 className="logintitle">Login</h2>
-            <form className="loginform" onSubmit={handleSubmit}>   
+        <div className="container-login">
+            <h2 className="login-title">Login</h2>
+            <form className="login-form" onSubmit={handleSubmit}>   
                 { error && <p className="error">{error}</p> }
-                <label className="labelemail">
+                <label>
                     Email
-                    <input  type="email" value={email} onChange={e => setEmail(e.target.value)} required />
+                    <input type="email" value={email} onChange={e => setEmail(e.target.value)} required />
                 </label> 
-                <label className="labelsenha">
+                <label>
                     Senha
                     <input type="password" value={password} onChange={e => setPassword(e.target.value)} required />
-                </label >       
+                </label>       
                 <button>login</button>
             </form>
             

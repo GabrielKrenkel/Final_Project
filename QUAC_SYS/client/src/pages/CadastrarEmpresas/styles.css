@@ -32,7 +32,7 @@ h2{
 label{
     margin-bottom: 0px;
     font-size: 17px;
-    font-family: "Lucida Console", "Courier New", monospace;
+    font-family: "Poppins", "Courier New", monospace;
 }
 
 .btnsalvar{
@@ -48,7 +48,7 @@ label{
     letter-spacing: 1px;
     align-items: center;
     justify-content: center;
-    background-color: #ffeba7;
+    background-color: #ffffff;
     color: #000000;
     box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
     border: solid 1px #1f2029;

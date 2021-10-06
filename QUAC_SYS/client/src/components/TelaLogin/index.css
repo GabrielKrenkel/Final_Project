@@ -72,7 +72,7 @@ h6 span{
   height: 36px;
   border-radius: 50%;
   color: #ffeba7;
-  background-color: black;
+  background-color: rgb(56, 56, 56);
   content: url('https://api.iconify.design/mdi/duck.svg?color=yellow');
   z-index: 20;
   top: -10px;
@@ -83,7 +83,7 @@ h6 span{
   transition: all 0.5s ease;
 }
 .checkbox:checked + label:before {
-  transform: translateX(44px) rotate(-360deg);
+  transform: translateX(44px) rotate(360deg);
 }
 
 .card-3d-wrap {
@@ -311,6 +311,9 @@ h6 span{
     margin-top: 10px;
     margin-bottom: 35px;
   }
+  span{
+    font-size: 1.5em;      
+  }
 }
 
 /* Medium - Landscape tablets */
@@ -320,8 +323,15 @@ h6 span{
 
 /* Large - notebooks/desktops */
 @media screen and (min-width: 1024px) {
-  
-  
+  .logo-titulo {
+    font-size: 50px;
+    color: #ffd139;
+    border: solid 2px #ffdc69;
+    display: inline-block;
+    padding: 0px 5px 0px 5px;
+    margin-top: 10px;
+    margin-bottom: 35px;
+  }
 }        
 
 /* Extra large - notebooks/desktops */

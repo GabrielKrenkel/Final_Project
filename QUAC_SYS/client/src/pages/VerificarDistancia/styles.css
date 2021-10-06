@@ -16,11 +16,12 @@ body{
     justify-content: flex-end;
     text-align: center;
     border: none;
-    background-color: #ffeba7;
+    background-color: #ffffff;
     color: #000000;
     box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
     align-items: center;
   }
+  
   .btnSenha{
 
     border-radius: 4px;

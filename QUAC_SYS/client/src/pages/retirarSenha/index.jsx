@@ -23,7 +23,9 @@ export function RetirarTicket () {
     }, []);
 
     async function retiraSenha() {    
+        
         const userId = localStorage.getItem("user-id")
+
         const empresaId = sessionStorage.getItem("empresaName")
         
         try {
@@ -31,19 +33,22 @@ export function RetirarTicket () {
             const { ticket } = (await api.post(`/users/${empresaId}`, { userId })).data;
 
             setSenha(ticket);
-            
+
         } catch (err) {
 
             console.log(err);
 
         }
+        setLoading(false)
     }
 
     return (
         <>
         <ReturnDeshboard/>
+        <br/>
+        <a href="http://localhost:3000/" className="logo" target="_parent"><p className="logo-titulo">QUAC SYSTEM</p></a>
         <br /><br />
-        <button onClick={retiraSenha}>Retirar Senha</button>
+        <button className="btn" onClick={() => retiraSenha()}>Retirar Senha</button>
 
         <div className="senhaUser">
             <br />

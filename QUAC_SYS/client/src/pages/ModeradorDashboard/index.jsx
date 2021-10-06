@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { DashboardContainer } from "../../components/DashboardContaimer"
 import { api } from "../../services/api";
+import { socket } from "../../services/chat";
 
 export function Moderador() {
 
@@ -26,7 +27,14 @@ export function Moderador() {
             setLoading(false);
         }
 
+        socket.connect();
+        socket.emit("join queue", empresaId);
+
         getEmpresa();
+
+        return () => {
+            socket.disconnect();
+        };
     }, []);
 
     async function getSenha() {
@@ -37,22 +45,14 @@ export function Moderador() {
 
             const numTicket = +senha + 1
             
-            const ticket = await api.get(`/empresas/funcionario/${empresaId}/${numTicket}`)
+            const ticket = (await api.get(`/empresas/funcionario/${empresaId}/${numTicket}`)).data
             
-            if (ticket.data === null) {
+            if (ticket === null) {
                 return alert("Não ha mais usuarios para chamar!")
             }
-
-            console.log(ticket);
-            
-            setSenha(numTicket)
-            
-            setUltimaSenha(numTicket - 1)
-            
-            setUsers(ticket.data)
-
-            console.log(users);
-
+                    
+            setSenha(numTicket)            
+            socket.emit("next ticket", ticket, empresaId);        
         } catch (err) {
 
             console.log(err);

@@ -47,14 +47,15 @@ h1{
   text-transform: uppercase;
   transition: all 200ms linear;
   width: 200px;
+  margin-bottom: 3px;
   padding: 0 10px;
   letter-spacing: 1px;
   align-items: center;
   justify-content: center;
-  background-color: #ffeba7;
+  background-color: #ffffff;
   color: #000000;
   box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
-  border: solid 1px #1f2029;
+  border: solid 0px;
 }
 
 .imputestabelecimento{

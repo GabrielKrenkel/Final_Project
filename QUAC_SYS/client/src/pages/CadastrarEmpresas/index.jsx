@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { ReturnDeshboard } from '../../components/ReturnButton';
 import { api } from '../../services/api'
+import "./styles.css"
 
 export function EmpresaCadastrar() {
     const [nome, setNome] = useState('');
@@ -44,7 +45,7 @@ export function EmpresaCadastrar() {
         <ReturnDeshboard/>
         <div>
             <h2>Cadastro de empresa</h2>
-
+            
             <form onSubmit={handleSubmit}>
                 <label htmlFor="text">Nome:</label>
                 <input className="imputesstabelecimento" type="text" value={nome} onChange={e => setNome(e.target.value)} placeholder="Nome completo" required />
@@ -68,7 +69,7 @@ export function EmpresaCadastrar() {
                 <input className="imputemail" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Digite o email" required />
 <br />
                 <label htmlFor="text">Senha:</label>
-                <input className="imputsenha" type="text" value={password} onChange={e => setPassword(e.target.value)} placeholder="Digite a senha" required />
+                <input className="imputsenha" type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Digite a senha" required />
 <br />
                 <button>Salvar</button>
             </form>

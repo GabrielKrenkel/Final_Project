@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { DashboardContainer } from "../../components/DashboardContaimer"
 import React, { useEffect, useState } from 'react';
 import { api } from "../../services/api";
+import "./index.css"
 
 
 export function DevDashboard() {
@@ -10,6 +11,8 @@ export function DevDashboard() {
     const goCadastrarEmpresa = () => history.push('./CadastrarEmpresas');
     const [empresas, setEmpresas] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [text, setText] = useState("");
+    const [filteredEmpresas, setFilteredEmpresas] = useState([]);
 
     useEffect(() => {
 
@@ -27,6 +30,20 @@ export function DevDashboard() {
 
         getEmpresa();
     }, []);
+
+    useEffect(() => {
+
+        const textToLowerCase = text.toLowerCase();
+        let filteredList = empresas.filter(empresa => {
+            if (text) {
+                return empresa.nome.toLowerCase().includes(textToLowerCase) ||
+                    empresa.endereco.toLowerCase().includes(textToLowerCase);
+            }
+            return false;
+        });
+
+        setFilteredEmpresas(filteredList.slice(0, 5));
+    }, [text, empresas]);
 
     async function deleteEmp(idEmpresa) {
         try {
@@ -107,6 +124,7 @@ export function DevDashboard() {
         let latitude = document.querySelector(".latitude").value
         let longitude = document.querySelector(".longitude").value
         
+        
         const data = { nome, endereco, latitude, longitude, horario_atendimento, numero_contato}
 
         try {
@@ -152,47 +170,73 @@ export function DevDashboard() {
         <>
 
         <DashboardContainer/>
-
+            <br/>
             <div className="admin-container">
-                <h1>Página de dev</h1>
+                <a href="http://localhost:3000/" className="logo" target="_parent"><p className="logo-titulo">QUAC SYSTEM</p></a>
                 <button
+                    className="btn"
                     onClick={goCadastrarEmpresa}>
                     Cadastrar empresa
                 </button>
 
+                <div className="usercontainer">
+
+                    <div className="form-group">
+                        <div className="col-xs-4">
+                            <input className="imputestabelecimento" type="text" id="to" placeholder="Digite o estabelecimento" onChange={(e) => setText(e.target.value)}/>
+                        </div>
+                    </div>
+
+
                 {
-                    loading ?
-                        <p>Carregando...</p> :
-                        <table className="empresas">
-                             <tbody> 
-                                <thead>
-                                    <tr>
-                                        <th>Nome</th>
-                                        <th>Endereço</th>
-                                        <th>Telefone</th>
-                                        <th>Horário de funcionamento</th>
-                                        <th>Latitude</th>
-                                        <th>Longitude</th>
-                                    </tr>
-                                </thead>
-                              
+                    (text === "") ?
+
+                        loading ?
+
+                            <p>Carregando...</p> :
+                            
+                            <div className="empresas">
                                 {
                                     empresas.map(empresa => (
-                                        <tr key={empresa.id}>
-                                            <td>{empresa.nome}</td>
-                                            <td>{empresa.endereco}</td>
-                                            <td>{empresa.numero_contato}</td>
-                                            <td>{empresa.horario_atendimento}</td>
-                                            <td>{empresa.latitude}</td>
-                                            <td>{empresa.longitude}</td>
-                                            <td><button onClick={() => editEmp(empresa.id)}>Editar</button></td>
-                                            <td><button onClick={() => deleteEmp(empresa.id)}>Excluir</button></td>
-                                        </tr>
+                                        <div key={empresa.id} className="card">
+                                            <p className="nome_empresa">Nome: {empresa.nome}</p>
+                                            <p className="endereco_empresa">Endereço: {empresa.endereco}</p>
+                                            <p className="contato_empresa">Contato: {empresa.numero_contato}</p>
+                                            <p className="horario_empresa">Horario De Atendimento: {empresa.horario_atendimento}</p>
+                                            <p className="latitude_empresa">Latitude: {empresa.latitude}</p>
+                                            <p className="longitude_empresa">Longitude: {empresa.longitude}</p>
+                                            <button className="button_empresa" onClick={() => deleteEmp(empresa.id)}>Excluir</button>
+                                            <button className="button_empresa" onClick={() => editEmp(empresa.id)}>Editar</button>
+                                        </div>
                                     ))
                                 }
-                            </tbody>
-                        </table>
-                }
+                            </div> :
+
+                        loading ?
+
+                        <p>Carregando...</p> :
+
+                            <div className="empresas">
+                                {
+                                    !!filteredEmpresas.length &&
+                                    filteredEmpresas.map(empresa => (
+                                        <div key={empresa.id} className="card">
+                                            <p className="nome_empresa">Nome: {empresa.nome}</p>
+                                            <p className="endereco_empresa">Endereço: {empresa.endereco}</p>
+                                            <p className="contato_empresa">Contato: {empresa.numero_contato}</p>
+                                            <p className="horario_empresa">Horario De Atendimento: {empresa.horario_atendimento}</p>
+                                            <p className="latitude_empresa">Latitude: {empresa.latitude}</p>
+                                            <p className="longitude_empresa">Longitude: {empresa.longitude}</p>
+                                            <button className="button_empresa" onClick={() => deleteEmp(empresa.id)}>Excluir</button>
+                                            <button className="button_empresa" onClick={() => editEmp(empresa.id)}>Editar</button>
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                    }
+
+
+            </div>
 
                 
             </div>

@@ -21,7 +21,7 @@ export function RouteMap() {
     }
 
 
-    const [empresa, setEmpresas] = useState([]);
+    const [,setEmpresas] = useState([]);
 
     useEffect(() => {
 

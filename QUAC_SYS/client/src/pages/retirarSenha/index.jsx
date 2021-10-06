@@ -1,11 +1,26 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { ReturnDeshboard } from "../../components/ReturnButton";
 import { api } from "../../services/api";
-
+import { socket } from "../../services/chat";
 
 export function RetirarTicket () {
     const [senha, setSenha] = useState("");
-    const [loading, setLoading] = useState(true)
+    const [currentTicket, setCurrentTicket] = useState(0);
+
+    useEffect(() => {
+        const empresaId = sessionStorage.getItem("empresaName")
+
+        socket.connect();
+        socket.emit("join queue", empresaId);        
+        socket.on("next ticket", ticket => {
+            console.log("Novo ticket: " + ticket);
+            setCurrentTicket(ticket.ticket);
+        });
+
+        return () => {
+            socket.disconnect();
+        }
+    }, []);
 
     async function retiraSenha() {    
         
@@ -37,11 +52,8 @@ export function RetirarTicket () {
 
         <div className="senhaUser">
             <br />
-            {
-                loading ? 
-                <p></p>:
-                senha
-            }
+            {senha}
+            <p>{currentTicket}</p>
         </div>
         </>
     );

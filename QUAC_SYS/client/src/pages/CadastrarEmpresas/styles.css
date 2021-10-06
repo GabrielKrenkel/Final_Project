@@ -1,105 +1,56 @@
-body{
-    font-family: "Lucida Console", "Courier New", monospace;
-    text-align: center;
-    background-color :#253C59;   
-}
-form{
-    padding-top: 7%;
-}
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
+
 
 h2{
-    font-size: 50px;
-    font-family: "Lucida Console", "Courier New", monospace;
-    color: white;
-}
-
-label {
+    margin-top: 15px;
+    margin-bottom: 20px;
     font-size: 30px;
-    color: white;
-} 
-.imputesstabelecimento{
-    border: 10px;
-    padding: 10px 10px 10px 10px;
-    margin: 10px 20px 10px 10px;
-    border-radius: 5px;
-}
-.imputlongitude{
-    border: 10px;
-    padding: 10px 10px 10px 10px;
-    margin: 10px 20px 10px 10px;
-    border-radius: 5px;
-}
-.imputlatitude{
-    border: 10px;
-    padding: 10px 10px 10px 10px;
-    margin: 10px 20px 10px 10px;
-    border-radius: 5px;
+    font-family: "Poppins", "Courier New", monospace;
+    color: #c4c3ca;
 }
 
-.imputendereco{
-    border: 10px;
-    padding: 10px 10px 10px 10px;
-    margin: 10px 20px 10px 10px;
-    border-radius: 5px;
+
+.imput {
+    padding-left: 20px;
+    height: 35px;
+    width: 80%;
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    outline: none;
+    color: #c4c3ca;
+    background-color: #1f2029;
+    border: none;
+    transition: all 200ms linear;
+    box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
+    border: solid 1px #c4c3ca;
+    margin-bottom: 5px;
 }
 
-.imputhorario{
-    border: 10px;
-    padding: 10px 10px 10px 10px;
-    margin: 10px 20px 10px 10px;
-    border-radius: 5px;
-}
-
-.imputemail{
-    border: 10px;
-    padding: 10px 10px 10px 10px;
-    margin: 10px 20px 10px 10px;
-    border-radius: 5px;
-}
-.imputsenha{
-    border: 10px;
-    padding: 10px 10px 10px 10px;
-    margin: 10px 20px 10px 10px;
-    border-radius: 5px;
-}  
-
-.imputtelefone{
-    border: 10px;
-    padding: 10px 10px 10px 10px;
-    margin: 10px 20px 10px 10px;
-    border-radius: 5px;
-}  
-
-.imputsub {
+label{
+    margin-bottom: 0px;
+    font-size: 17px;
     font-family: "Lucida Console", "Courier New", monospace;
-    background-color: #2D4B73; 
-    border-radius: 5px;
-    color: white;
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    color: #F2AB27; 
-    border: 2px solid #F2AB27 ;
-  }
-  
-  .confirm {
-    font-family: "Lucida Console", "Courier New", monospace;
-    background-color: #2D4B73; 
-    border-radius: 5px;
-    color: white;
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    color: #F2AB27; 
-    border: 2px solid #F2AB27 ;
-  }
+}
+
+.btnsalvar{
+    margin-top: 25px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+    height: 25px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 200ms linear;
+    padding: 0 20px;
+    letter-spacing: 1px;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffeba7;
+    color: #000000;
+    box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
+    border: solid 1px #1f2029;
+}
+

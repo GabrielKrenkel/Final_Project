@@ -75,7 +75,7 @@ export function DevDashboard() {
     }
 
     function showEmp(empresa) {
-        
+
         console.log(empresa.data);
 
         let nome = document.querySelector(".name")
@@ -98,7 +98,7 @@ export function DevDashboard() {
 
     function showModal(empresaId) {
         let Modal = document.querySelector(".Modal_Emp")
-        
+
         Modal.style = "display:block"
 
         sessionStorage.setItem("empresaId", empresaId)
@@ -107,12 +107,12 @@ export function DevDashboard() {
     function closeModal() {
 
         let Modal = document.querySelector(".Modal_Emp")
-        
+
         Modal.style = "display:none"
     }
 
     async function handleSubmit(e) {
-        
+
         e.preventDefault();
 
         const idEmpresa = sessionStorage.getItem("empresaId")
@@ -123,17 +123,16 @@ export function DevDashboard() {
         let horario_atendimento = document.querySelector(".atendimento").value
         let latitude = document.querySelector(".latitude").value
         let longitude = document.querySelector(".longitude").value
-        
-        
-        const data = { nome, endereco, latitude, longitude, horario_atendimento, numero_contato}
+
+        const data = { nome, endereco, latitude, longitude, horario_atendimento, numero_contato }
 
         try {
-            
+
             const response = await api.put(`/developer/${idEmpresa}`, data);
 
             if (response.status === 201) {
-                
-                alert("Usuario atualizado com sucesso!!")
+
+                alert("Empresa atualizada com sucesso!!")
 
                 closeModal()
             }
@@ -145,7 +144,7 @@ export function DevDashboard() {
         } catch (error) {
 
             console.log(error);
-        
+
         }
 
         setLoading(false);
@@ -164,13 +163,13 @@ export function DevDashboard() {
 
         setLoading(false);
     }
-    
+
     return (
 
         <>
 
-        <DashboardContainer/>
-            <br/>
+            <DashboardContainer />
+
             <div className="admin-container">
                 <a href="http://localhost:3000/" className="logo" target="_parent"><p className="logo-titulo">QUAC SYSTEM</p></a>
                 <button
@@ -183,105 +182,86 @@ export function DevDashboard() {
 
                     <div className="form-group">
                         <div className="col-xs-4">
-                            <input className="imputestabelecimento" type="text" id="to" placeholder="Digite o estabelecimento" onChange={(e) => setText(e.target.value)}/>
+                            <input className="imputestabelecimento" type="text" id="to" placeholder="Digite o estabelecimento" onChange={(e) => setText(e.target.value)} />
                         </div>
                     </div>
 
+                    <div>
+                        {
+                            (text === "") ?
 
-                {
-                    (text === "") ?
+                                loading ?
 
-                        loading ?
+                                    <p>Carregando...</p> :
 
-                            <p>Carregando...</p> :
-                            
-                            <div className="empresas">
-                                {
-                                    empresas.map(empresa => (
-                                        <div key={empresa.id} className="card">
-                                            <p className="nome_empresa">Nome: {empresa.nome}</p>
-                                            <p className="endereco_empresa">Endereço: {empresa.endereco}</p>
-                                            <p className="contato_empresa">Contato: {empresa.numero_contato}</p>
-                                            <p className="horario_empresa">Horario De Atendimento: {empresa.horario_atendimento}</p>
-                                            <p className="latitude_empresa">Latitude: {empresa.latitude}</p>
-                                            <p className="longitude_empresa">Longitude: {empresa.longitude}</p>
-                                            <button className="button_empresa" onClick={() => deleteEmp(empresa.id)}>Excluir</button>
-                                            <button className="button_empresa" onClick={() => editEmp(empresa.id)}>Editar</button>
-                                        </div>
-                                    ))
-                                }
-                            </div> :
+                                    <div className="empresas">
+                                        {
+                                            empresas.map(empresa => (
+                                                <div key={empresa.id} className="card">
+                                                    <p className="nome_empresa">Nome: {empresa.nome}</p>
+                                                    <p className="endereco_empresa">Endereço: {empresa.endereco}</p>
+                                                    <p className="contato_empresa">Contato: {empresa.numero_contato}</p>
+                                                    <p className="horario_empresa">Horario De Atendimento: {empresa.horario_atendimento}</p>
+                                                    <button className="button_empresa" onClick={() => calcRoute(empresa.id)}>Calcular Rota</button>
+                                                </div>
+                                            ))
+                                        }
+                                    </div> :
 
-                        loading ?
+                                loading ?
 
-                        <p>Carregando...</p> :
+                                    <p>Carregando...</p> :
 
-                            <div className="empresas">
-                                {
-                                    !!filteredEmpresas.length &&
-                                    filteredEmpresas.map(empresa => (
-                                        <div key={empresa.id} className="card">
-                                            <p className="nome_empresa">Nome: {empresa.nome}</p>
-                                            <p className="endereco_empresa">Endereço: {empresa.endereco}</p>
-                                            <p className="contato_empresa">Contato: {empresa.numero_contato}</p>
-                                            <p className="horario_empresa">Horario De Atendimento: {empresa.horario_atendimento}</p>
-                                            <p className="latitude_empresa">Latitude: {empresa.latitude}</p>
-                                            <p className="longitude_empresa">Longitude: {empresa.longitude}</p>
-                                            <button className="button_empresa" onClick={() => deleteEmp(empresa.id)}>Excluir</button>
-                                            <button className="button_empresa" onClick={() => editEmp(empresa.id)}>Editar</button>
-                                        </div>
-                                    ))
-                                }
-                            </div>
-                    }
-
-
+                                    <div className="empresas">
+                                        {
+                                            !!filteredEmpresas.length &&
+                                            filteredEmpresas.map(empresa => (
+                                                <div key={empresa.id} className="card">
+                                                    <p className="nome_empresa">Nome: {empresa.nome}</p>
+                                                    <p className="endereco_empresa">Endereço: {empresa.endereco}</p>
+                                                    <p className="contato_empresa">Contato: {empresa.numero_contato}</p>
+                                                    <p className="horario_empresa">Horario De Atendimento: {empresa.horario_atendimento}</p>
+                                                    <button className="button_empresa" onClick={() => calcRoute(empresa.id)}>Calcular Rota</button>
+                                                </div>
+                                            ))
+                                        }
+                                    </div>
+                        }
+                    </div>
+                </div>
             </div>
 
-                
-            </div>
+            <div className="Modal_Emp" style={{ display: "None" }}>
+                <div className="modalContent">
 
-                <div className="Modal_Emp" style={ {display: "None"}}>
-                
-                <form  className="formulario" onSubmit={handleSubmit} >
+                    <form className="formulario" onSubmit={handleSubmit} >
 
-                    <label htmlFor="name" >
-                        Nome:
-                        <input className="name"  type="text" />
-                    </label>
-                <br />
-                    <label htmlFor="endereco">
-                        Endereço:
+                        <label htmlFor="name" >Nome:</label> <br />
+                        <input className="name" type="text" />
+
+                        <label htmlFor="endereco">Endereço:</label><br />
                         <input className="endereco" type="text" />
-                    </label>
-                <br />
-                    <label htmlFor="contato">
-                        Contato:
-                        <input className="contato" type="text" />
-                    </label>
 
-<br />
-                    <label htmlFor="atendimento">
-                        Atendimento:
+                        <label htmlFor="contato">Contato:</label><br />
+                        <input className="contato" type="text" />
+
+                        <label htmlFor="atendimento">Atendimento:</label><br />
                         <input className="atendimento" type="text" />
-                    </label>
-<br />
-                    <label htmlFor="latitude">
-                        Latitude:
+
+                        <label htmlFor="latitude">Latitude:</label><br />
                         <input className="latitude" type="text" />
-                    </label>
-<br />
-                    <label htmlFor="longitude">
-                        longitude:
+
+                        <label htmlFor="longitude"> Longitude:</label><br />
                         <input className="longitude" type="text" />
-                    </label>
-<br /><br />
-                    <button>Salvar</button> 
-                    
-                    
-                </form>
-                    <button onClick={() => {closeModal()}}>Cancelar</button>
-                
+
+                        <br />
+                        <button className="salvarBtn">Salvar</button>
+
+
+                    </form>
+
+                    <button className="btnsalvar" onClick={() => { closeModal() }}>Cancelar</button>
+                </div>
             </div>
         </>
     );

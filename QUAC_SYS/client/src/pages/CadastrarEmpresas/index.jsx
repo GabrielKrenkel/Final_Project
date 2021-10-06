@@ -69,7 +69,7 @@ export function EmpresaCadastrar() {
                 <input className="imput" type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Digite o email" required />
 <br />
                 <label htmlFor="text">Senha:</label><br/>
-                <input className="imput" type="text" value={password} onChange={e => setPassword(e.target.value)} placeholder="Digite a senha" required />
+                <input className="imput" type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Digite a senha" required />
 <br />
                 <button className="btnsalvar"  >Salvar</button>
             </form>

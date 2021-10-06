@@ -32,11 +32,12 @@ h1{
   background-repeat: no-repeat;
   background-size: 150%;
   padding: 7px;
-  margin: 7px;
-  width: 90%;
+  margin: 15px;
+  width: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
+  border: 1px solid white
 }
 
 .button_empresa{
@@ -61,7 +62,7 @@ h1{
     padding: 13px 20px;
     padding-left: 55px;
     height: 48px;
-    width: 80%;
+    width: 300px;
     font-weight: 500;
     border-radius: 4px;
     font-size: 14px;
@@ -76,3 +77,137 @@ h1{
     border: solid 1px #c4c3ca;
     margin-bottom: 20px;
 }
+
+/* Small - Tablets */
+@media screen and (min-width: 600px) {
+    .logo-titulo {
+      font-size: 50px;
+      color: #ffd139;
+      border: solid 2px #ffdc69;
+      display: inline-block;
+      padding: 0px 5px 0px 5px;
+      margin-top: 10px;
+      margin-bottom: 35px;
+    }
+    .card{
+        background-color: #2a2b38;
+        background-image: url('https://us-prod.asyncgw.teams.microsoft.com/v1/objects/0-eus-d13-5b6a014338344b7adcdd45338240b9ad/views/imgpsh_mobile_save');
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        background-size: 150%;
+        padding: 7px;
+        margin: 15px;
+        width: 350px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid white
+      }
+
+      .imputestabelecimento{
+        padding: 13px 20px;
+        padding-left: 55px;
+        height: 48px;
+        width: 350px;
+        font-weight: 500;
+        border-radius: 4px;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: 0.5px;
+        outline: none;
+        color: #c4c3ca;
+        background-color: #1f2029;
+        border: none;
+        transition: all 200ms linear;
+        box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
+        border: solid 1px #c4c3ca;
+        margin-bottom: 20px;
+    }
+  }
+  
+  /* Medium - Landscape tablets */
+  @media screen and (min-width: 768px) {
+    .card{
+        background-color: #2a2b38;
+        background-image: url('https://us-prod.asyncgw.teams.microsoft.com/v1/objects/0-eus-d13-5b6a014338344b7adcdd45338240b9ad/views/imgpsh_mobile_save');
+        background-position: bottom center;
+        background-repeat: no-repeat;
+        background-size: 150%;
+        padding: 7px;
+        margin: 15px;
+        width: 345px;
+        display: grid;
+        border: 1px solid white
+      }
+      .imputestabelecimento{
+        padding: 13px 20px;
+        padding-left: 55px;
+        height: 48px;
+        width: 720px;
+        font-weight: 500;
+        border-radius: 4px;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: 0.5px;
+        outline: none;
+        color: #c4c3ca;
+        background-color: #1f2029;
+        border: none;
+        transition: all 200ms linear;
+        box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
+        border: solid 1px #c4c3ca;
+        margin-bottom: 20px;
+    }
+    .form-group h1{
+        font-size: 50px;
+        font-family: 'Poppins';
+        color: #c4c3ca;
+    }
+    .logo-titulo p {
+        font-size: 10px;
+        color: #ffd139;
+        border: solid 2px #ffdc69;
+        display: inline-block;
+        padding: 0px 5px 0px 5px;
+        margin-top: 10px;
+        margin-bottom: 35px;
+        display: inline-flex;
+        position: absolute;
+        left: 20px;
+        top: 0px
+      }
+  }
+  
+  /* Large - notebooks/desktops */
+  @media screen and (min-width: 1024px) {
+    .logo-titulo {
+        font-size: 30px;
+        color: #ffd139;
+        border: solid 2px #ffdc69;
+        display: inline-block;
+        padding: 0px 5px 0px 5px;
+        margin-top: 10px;
+        margin-bottom: 35px;
+        display: inline-flex;
+        position: absolute;
+        left: 20px;
+        top: 0px
+      }
+  }        
+  
+  /* Extra large - notebooks/desktops */
+  @media screen and (min-width: 1200px) {
+    .logo-titulo {
+        font-size: 50px;
+        color: #ffd139;
+        border: solid 2px #ffdc69;
+        display: inline-block;
+        padding: 0px 5px 0px 5px;
+        margin-top: 10px;
+        margin-bottom: 35px;
+        display: inline-flex;
+        position: absolute;
+        left: 20px;
+        top: 0px
+      }
+  }  

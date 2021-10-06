@@ -5,14 +5,14 @@ h2{
     margin-top: 15px;
     margin-bottom: 20px;
     font-size: 30px;
-    font-family: "Lucida Console", "Courier New", monospace;
+    font-family: "Poppins", "Courier New", monospace;
     color: #c4c3ca;
 }
 
 
 .imput {
     padding-left: 20px;
-    height: 25px;
+    height: 35px;
     width: 80%;
     font-weight: 500;
     border-radius: 4px;
@@ -53,3 +53,4 @@ label{
     box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
     border: solid 1px #1f2029;
 }
+

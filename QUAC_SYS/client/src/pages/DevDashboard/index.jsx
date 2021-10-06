@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { DashboardContainer } from "../../components/DashboardContaimer"
 import React, { useEffect, useState } from 'react';
 import { api } from "../../services/api";
+import "./index.css"
 
 
 export function DevDashboard() {
@@ -10,6 +11,8 @@ export function DevDashboard() {
     const goCadastrarEmpresa = () => history.push('./CadastrarEmpresas');
     const [empresas, setEmpresas] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [text, setText] = useState("");
+    const [filteredEmpresas, setFilteredEmpresas] = useState([]);
 
     useEffect(() => {
 
@@ -27,6 +30,20 @@ export function DevDashboard() {
 
         getEmpresa();
     }, []);
+
+    useEffect(() => {
+
+        const textToLowerCase = text.toLowerCase();
+        let filteredList = empresas.filter(empresa => {
+            if (text) {
+                return empresa.nome.toLowerCase().includes(textToLowerCase) ||
+                    empresa.endereco.toLowerCase().includes(textToLowerCase);
+            }
+            return false;
+        });
+
+        setFilteredEmpresas(filteredList.slice(0, 5));
+    }, [text, empresas]);
 
     async function deleteEmp(idEmpresa) {
         try {
@@ -154,78 +171,95 @@ export function DevDashboard() {
             <DashboardContainer />
 
             <div className="admin-container">
-                <h1>Página de dev</h1>
+                <a href="http://localhost:3000/" className="logo" target="_parent"><p className="logo-titulo">QUAC SYSTEM</p></a>
                 <button
+                    className="btn"
                     onClick={goCadastrarEmpresa}>
                     Cadastrar empresa
                 </button>
 
-                {
-                    loading ?
-                        <p>Carregando...</p> :
-                        <table className="empresas">
-                            <tbody>
-                                <thead>
-                                    <tr>
-                                        <th>Nome</th>
-                                        <th>Endereço</th>
-                                        <th>Telefone</th>
-                                        <th>Horário de funcionamento</th>
-                                        <th>Latitude</th>
-                                        <th>Longitude</th>
-                                    </tr>
-                                </thead>
+                <div className="usercontainer">
 
-                                {
-                                    empresas.map(empresa => (
-                                        <tr key={empresa.id}>
-                                            <td>{empresa.nome}</td>
-                                            <td>{empresa.endereco}</td>
-                                            <td>{empresa.numero_contato}</td>
-                                            <td>{empresa.horario_atendimento}</td>
-                                            <td>{empresa.latitude}</td>
-                                            <td>{empresa.longitude}</td>
-                                            <td><button onClick={() => editEmp(empresa.id)}>Editar</button></td>
-                                            <td><button onClick={() => deleteEmp(empresa.id)}>Excluir</button></td>
-                                        </tr>
-                                    ))
-                                }
-                            </tbody>
-                        </table>
-                }
+                    <div className="form-group">
+                        <div className="col-xs-4">
+                            <input className="imputestabelecimento" type="text" id="to" placeholder="Digite o estabelecimento" onChange={(e) => setText(e.target.value)} />
+                        </div>
+                    </div>
 
+                    <div>
+                        {
+                            (text === "") ?
 
+                                loading ?
+
+                                    <p>Carregando...</p> :
+
+                                    <div className="empresas">
+                                        {
+                                            empresas.map(empresa => (
+                                                <div key={empresa.id} className="card">
+                                                    <p className="nome_empresa">Nome: {empresa.nome}</p>
+                                                    <p className="endereco_empresa">Endereço: {empresa.endereco}</p>
+                                                    <p className="contato_empresa">Contato: {empresa.numero_contato}</p>
+                                                    <p className="horario_empresa">Horario De Atendimento: {empresa.horario_atendimento}</p>
+                                                    <button className="button_empresa" onClick={() => calcRoute(empresa.id)}>Calcular Rota</button>
+                                                </div>
+                                            ))
+                                        }
+                                    </div> :
+
+                                loading ?
+
+                                    <p>Carregando...</p> :
+
+                                    <div className="empresas">
+                                        {
+                                            !!filteredEmpresas.length &&
+                                            filteredEmpresas.map(empresa => (
+                                                <div key={empresa.id} className="card">
+                                                    <p className="nome_empresa">Nome: {empresa.nome}</p>
+                                                    <p className="endereco_empresa">Endereço: {empresa.endereco}</p>
+                                                    <p className="contato_empresa">Contato: {empresa.numero_contato}</p>
+                                                    <p className="horario_empresa">Horario De Atendimento: {empresa.horario_atendimento}</p>
+                                                    <button className="button_empresa" onClick={() => calcRoute(empresa.id)}>Calcular Rota</button>
+                                                </div>
+                                            ))
+                                        }
+                                    </div>
+                        }
+                    </div>
+                </div>
             </div>
 
             <div className="Modal_Emp" style={{ display: "None" }}>
-                <div className= "modalContent">
-               
+                <div className="modalContent">
+
                     <form className="formulario" onSubmit={handleSubmit} >
-       
+
                         <label htmlFor="name" >Nome:</label> <br />
                         <input className="name" type="text" />
-                        
+
                         <label htmlFor="endereco">Endereço:</label><br />
                         <input className="endereco" type="text" />
-                        
+
                         <label htmlFor="contato">Contato:</label><br />
                         <input className="contato" type="text" />
-                        
+
                         <label htmlFor="atendimento">Atendimento:</label><br />
                         <input className="atendimento" type="text" />
-                        
+
                         <label htmlFor="latitude">Latitude:</label><br />
                         <input className="latitude" type="text" />
-                        
+
                         <label htmlFor="longitude"> Longitude:</label><br />
                         <input className="longitude" type="text" />
-                        
+
                         <br />
                         <button className="salvarBtn">Salvar</button>
 
 
                     </form>
-                
+
                     <button className="btnsalvar" onClick={() => { closeModal() }}>Cancelar</button>
                 </div>
             </div>

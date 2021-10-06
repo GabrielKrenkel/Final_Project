@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ReturnDeshboard } from "../../components/ReturnButton";
 import { api } from "../../services/api";
 import { socket } from "../../services/chat";
@@ -6,7 +6,7 @@ import { socket } from "../../services/chat";
 export function RetirarTicket () {
     const [senha, setSenha] = useState("");
     const [currentTicket, setCurrentTicket] = useState(0);
-
+    const [loading, setLoading] = useState(true)
     useEffect(() => {
         const empresaId = sessionStorage.getItem("empresaName")
 

@@ -202,7 +202,10 @@ export function DevDashboard() {
                                                     <p className="endereco_empresa">Endereço: {empresa.endereco}</p>
                                                     <p className="contato_empresa">Contato: {empresa.numero_contato}</p>
                                                     <p className="horario_empresa">Horario De Atendimento: {empresa.horario_atendimento}</p>
-                                                    <button className="button_empresa" onClick={() => calcRoute(empresa.id)}>Calcular Rota</button>
+                                                    <p className="latitude_empresa">Latitude: {empresa.latitude}</p>
+                                                    <p className="longitude_empresa">Longitude: {empresa.longitude}</p>
+                                                    <button className="button_empresa" onClick={() => deleteEmp(empresa.id)}>Excluir</button>
+                                                    <button className="button_empresa" onClick={() => editEmp(empresa.id)}>Editar</button>
                                                 </div>
                                             ))
                                         }
@@ -221,7 +224,10 @@ export function DevDashboard() {
                                                     <p className="endereco_empresa">Endereço: {empresa.endereco}</p>
                                                     <p className="contato_empresa">Contato: {empresa.numero_contato}</p>
                                                     <p className="horario_empresa">Horario De Atendimento: {empresa.horario_atendimento}</p>
-                                                    <button className="button_empresa" onClick={() => calcRoute(empresa.id)}>Calcular Rota</button>
+                                                    <p className="latitude_empresa">Latitude: {empresa.latitude}</p>
+                                                    <p className="longitude_empresa">Longitude: {empresa.longitude}</p>
+                                                    <button className="button_empresa" onClick={() => deleteEmp(empresa.id)}>Excluir</button>
+                                                    <button className="button_empresa" onClick={() => editEmp(empresa.id)}>Editar</button>
                                                 </div>
                                             ))
                                         }

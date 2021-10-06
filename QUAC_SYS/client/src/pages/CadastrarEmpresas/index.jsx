@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { ReturnDeshboard } from '../../components/ReturnButton';
 import { api } from '../../services/api'
-import "./index.css"
+
+
 export function EmpresaCadastrar() {
     const [nome, setNome] = useState('');
     const [endereco, setEndereco] = useState('');

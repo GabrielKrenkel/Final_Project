@@ -2,12 +2,14 @@ import { useState, useEffect } from "react";
 import { DashboardContainer } from "../../components/DashboardContaimer"
 import { api } from "../../services/api";
 import { socket } from "../../services/chat";
+import { useHistory } from "react-router-dom";
 
 export function Moderador() {
-
+    
+    const history = useHistory();
+    const goMostrarSenha = () => history.push('./MostrarSenha');
     const [senha, setSenha]= useState("")
-    const [ultimaSenha, setUltimaSenha] = useState("")
-    const [users, setUsers] = useState([])
+
     const [empresaName, setEmpresas] = useState("")
     const [loading, setLoading] = useState(true);
 
@@ -28,10 +30,13 @@ export function Moderador() {
         }
 
         socket.connect();
+
         socket.emit("join queue", empresaId);
 
         getEmpresa();
 
+        socket.emit("create queue", empresaId)
+        
         return () => {
             socket.disconnect();
         };
@@ -51,7 +56,8 @@ export function Moderador() {
                 return alert("Não ha mais usuarios para chamar!")
             }
                     
-            setSenha(numTicket)            
+            setSenha(numTicket)  
+                      
             socket.emit("next ticket", ticket, empresaId);        
         } catch (err) {
 
@@ -78,6 +84,8 @@ export function Moderador() {
 
 
                         <button onClick={getSenha}>Proxima</button>
+
+                        <button onClick={goMostrarSenha}>TelaMostrarSenha</button>
                     </div>
                 </>
             }

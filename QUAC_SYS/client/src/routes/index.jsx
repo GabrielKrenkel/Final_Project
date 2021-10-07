@@ -9,7 +9,9 @@ import { Home } from "../pages/Home";
 import { NotFound } from "../components/NotFound";
 import { PrivateRoute } from "./privateRoutes";
 import { RouteMap } from "../pages/VerificarDistancia"
-import { RetirarTicket } from "../pages/RetirarSenha";
+import { RetirarTicket } from "../pages/retirarSenha";
+import { MostrarSenha } from "../pages/MostrarSenha";
+
 
 
 export function Routes() {
@@ -23,6 +25,10 @@ export function Routes() {
                     <PrivateRoute path="/CadastrarEmpresas" permissions={["dev"]}>
                         <EmpresaCadastrar />
                     </PrivateRoute>  
+
+                    <PrivateRoute path="/MostrarSenha" permissions={["moderador"]}>
+                        <MostrarSenha/>
+                    </PrivateRoute>
 
                     <PrivateRoute path="/VerificaDistancia" permissions={["user"]}>
                         <RouteMap/>

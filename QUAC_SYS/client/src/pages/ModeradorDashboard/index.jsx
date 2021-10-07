@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 export function Moderador() {
     
     const history = useHistory();
-    const goMostrarSenha = () => history.push('./MostrarSenha');
+    const goMostrarSenha = () => history.push(`./MostrarSenha/`);
     const [senha, setSenha]= useState("")
 
     const [empresaName, setEmpresas] = useState("")

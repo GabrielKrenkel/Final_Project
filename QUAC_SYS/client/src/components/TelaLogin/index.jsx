@@ -11,12 +11,15 @@ export function LoginAndRegister() {
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
 
-    async function handleSubmit() {
+    async function handleSubmit(e) {
         
+        e.preventDefault()
+
         try {
-            await authServices.signIn(email, password);     
-                   
-            window.location.replace("/dashboard");
+             await authServices.signIn(email, password);     
+            
+            
+            
         } catch (err) {
             setError(err.message);
         }
@@ -70,6 +73,7 @@ export function LoginAndRegister() {
                                                 <div className="section text-center">
                                                     <h4 className="mb-4 pb-3">Log In</h4>
                                                     { error && <p className="error">{error}</p> }
+                                                    <form onSubmit={handleSubmit}>
                                                     <div className="form-group">
                                                         <input type="email" name="logemail" className="form-style" placeholder="Your Email" id="logemail" autocomplete="off" value={email} onChange={e => setEmail(e.target.value)} required/>
                                                         <i className="input-icon-login uil uil-at"></i>
@@ -78,7 +82,8 @@ export function LoginAndRegister() {
                                                         <input type="password" name="logpass" className="form-style" placeholder="Your Password" id="logpass" autocomplete="off" value={password} onChange={e => setPassword(e.target.value)} required/>
                                                         <i className="input-icon-login uil uil-lock-alt"></i>
                                                     </div>
-                                                    <button className="btn mt-4" onClick={handleSubmit}>Submit</button>
+                                                    <button className="btn mt-4">Submit</button>
+                                                    </form>
                                                     <p className="fyp"><a href="#0" className="link">Forgot your password?</a></p>
                                                 </div>
                                             </div>

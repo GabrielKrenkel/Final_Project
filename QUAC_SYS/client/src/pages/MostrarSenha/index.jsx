@@ -4,7 +4,6 @@ import { socket } from "../../services/chat";
 export function MostrarSenha() {
     
     const [currentTicket, setCurrentTicket] = useState(0);
-    const [loading, setLoading] = useState(true)
     
     useEffect(() => {
         const empresaId = sessionStorage.getItem("empresaName")

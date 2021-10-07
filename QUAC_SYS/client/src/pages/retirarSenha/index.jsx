@@ -6,7 +6,6 @@ import { socket } from "../../services/chat";
 export function RetirarTicket () {
     const [senha, setSenha] = useState("");
     const [currentTicket, setCurrentTicket] = useState(0);
-    const [loading, setLoading] = useState(true)
     
     useEffect(() => {
         const empresaId = sessionStorage.getItem("empresaName")
@@ -46,7 +45,6 @@ export function RetirarTicket () {
             console.log(err);
 
         }
-        setLoading(false)
     }
 
     return (

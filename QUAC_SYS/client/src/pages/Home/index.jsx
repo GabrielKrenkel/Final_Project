@@ -10,22 +10,9 @@ export function Home() {
   }
 
   return (
-<<<<<<< HEAD
+
     <>
       <LoginAndRegister/>
     </>
-=======
-    <div className="container-home">        
-        <h1 className="home-title">trabalho final</h1>
-      <Login />  
-      <div>
-        <button
-        onClick={goCadastrar}>
-          Cadastrar
-        </button>  
-      </div>                                 
-    </div>
-
->>>>>>> estilizacao2
   );  
 }

@@ -49,14 +49,14 @@ export function EmpresaCadastrar() {
             <h2>Cadastro da empresa</h2>
 
             <form onSubmit={handleSubmit}>
-<<<<<<< HEAD
+
                 <label htmlFor="text">Nome:</label><br/>
-                <input className="imput" type="text" value={nome} onChange={e => setNome(e.target.value)} placeholder="Nome completo" required />
+                <input className="imput" type="text" value={nome} onChange={e => setNome(e.target.value)} placeholder="Ex: DWAYEL Tech" required />
 <br />
                 <label htmlFor="text">Endereço:</label><br/>
                 <input  className="imput" type="text" value={endereco} onChange={e => setEndereco(e.target.value)} placeholder="Endereço da empresa" required />
 <br />
-                <label htmlFor="text">Atendimento</label><br/>
+                <label htmlFor="text">Atendimento:</label><br/>
                 <input className="imput" type="" value={horario_atendimento} onChange={e => setHorario_atendimento(e.target.value)} placeholder="Horário de atendimento" required />
 <br />
                 <label htmlFor="text">Telefone:</label><br/>
@@ -75,33 +75,6 @@ export function EmpresaCadastrar() {
                 <input className="imput" type="password" value={password} onChange={e => setPassword(e.target.value)} placeholder="Digite a senha" required />
 <br />
                 <button className="btnsalvar"  >Salvar</button>
-=======
-                <label htmlFor="text">Nome:</label>
-                <input type="text" value={nome} onChange={e => setNome(e.target.value)} placeholder="Nome completo" required />
-
-                <label htmlFor="text">Endereço:</label>
-                <input type="text" value={endereco} onChange={e => setEndereco(e.target.value)} placeholder="Endereço da empresa" required />
-
-                <label htmlFor="text">Horário de atendimento</label>
-                <input type="" value={horario_atendimento} onChange={e => setHorario_atendimento(e.target.value)} placeholder="Horário de atendimento" required />
-
-                <label htmlFor="text">Telefone:</label>
-                <input type="tel" value={numero_contato} onChange={e => setNumero_contato(e.target.value)} placeholder="Telefone" required />
-
-                <label htmlFor="text">Latitude:</label>
-                <input type="text" value={latitude} onChange={e => setLatitude(e.target.value)} placeholder="Latitude" required />
-
-                <label htmlFor="text">Longitude:</label>
-                <input type="text" value={longitude} onChange={e => setLongitude(e.target.value)} placeholder="Longitude" required />
-
-                <label htmlFor="text">Email:</label>
-                <input type="email" value={email} onChange={e => setEmail(e.target.value)} placeholder="Digite o email" required />
-
-                <label htmlFor="text">Senha:</label>
-                <input type="text" value={password} onChange={e => setPassword(e.target.value)} placeholder="Digite a senha" required />
-
-                <button>Salvar</button>
->>>>>>> estilizacao2
             </form>
         </div>
         

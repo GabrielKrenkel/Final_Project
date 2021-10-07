@@ -1,3 +1,5 @@
+/*global google*/
+import React, { Component } from "react";
 import React, { useEffect, useState } from "react";
 import { withScriptjs } from "react-google-maps";
 import Map from '../../components/Mapa';

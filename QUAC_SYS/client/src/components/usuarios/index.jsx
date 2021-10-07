@@ -64,26 +64,15 @@ export function UserDashboard() {
 
 
     return (
-<<<<<<< HEAD
         <>
         <DashboardContainer/>
             <div className="usercontainer">
             <a href="http://localhost:3000/" className="logo" target="_parent"><p className="logo-titulo">QUAC SYSTEM</p></a>
-=======
-        <DashboardContainer >
-            <div className="user-container">
-                <h1>Página de usuários</h1>
-
->>>>>>> estilizacao2
                 <div className="form-group">
                     <h1>Escolha o estabelecimento</h1>
                     <label htmlFor="to" className="paraOndeLabel"></label>
                     <div className="col-xs-4">
-<<<<<<< HEAD
                         <input className="imputestabelecimento" type="text" id="to" placeholder="Digite o estabelecimento" onChange={(e) => setText(e.target.value)}/>
-=======
-                        <input type="text" id="to" placeholder="Estabelecimento" className="form-control" />
->>>>>>> estilizacao2
                     </div>
                 </div>
 

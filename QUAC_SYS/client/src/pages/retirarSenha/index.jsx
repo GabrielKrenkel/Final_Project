@@ -59,8 +59,10 @@ export function RetirarTicket () {
 
         <div className="senhaUser">
             <br />
+            <p className="retirar_senha">
             {senha}
-            <p>{currentTicket}</p>
+            </p>
+            <p className="senha_atual">{currentTicket}</p>
         </div>
         </>
     );

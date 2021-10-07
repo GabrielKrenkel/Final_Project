@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { ReturnDeshboard } from "../../components/ReturnButton";
 import { api } from "../../services/api";
 import { socket } from "../../services/chat";
+import "./styles.css"
 
 export function RetirarTicket () {
     const [senha, setSenha] = useState("");
@@ -58,9 +59,9 @@ export function RetirarTicket () {
         <div className="senhaUser">
             <br />
             <p className="retirar_senha">
-            {senha}
+            Sua Senha: {senha}
             </p>
-            <p className="senha_atual">{currentTicket}</p>
+            <p className="senha_atual">Última senha: {currentTicket}</p>
         </div>
         </>
     );

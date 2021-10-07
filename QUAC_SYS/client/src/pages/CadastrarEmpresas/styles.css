@@ -1,14 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900');
 
-
-h2{
+.titulo_cadastro{
     margin-top: 15px;
     margin-bottom: 20px;
-    font-size: 30px;
+    font-size: 25px;
     font-family: "Poppins", "Courier New", monospace;
     color: #c4c3ca;
+    text-transform: uppercase;
 }
-
 
 .imput {
     padding-left: 20px;
@@ -27,12 +26,16 @@ h2{
     box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
     border: solid 1px #c4c3ca;
     margin-bottom: 5px;
+    text-transform: uppercase;
 }
 
-label{
+.label_cadastro{
     margin-bottom: 0px;
-    font-size: 17px;
+    font-size: 15px;
     font-family: "Poppins", "Courier New", monospace;
+    text-transform: uppercase;
+    position: absolute;
+    left: 37px;
 }
 
 .btnsalvar{
@@ -54,3 +57,58 @@ label{
     border: solid 1px #1f2029;
 }
 
+  /* Small - Tablets */
+  @media screen and (min-width: 600px) {
+    .label_cadastro{
+    position: absolute;
+    left: 60px;
+    }
+}
+
+/* Medium - Landscape tablets */
+@media screen and (min-width: 768px) {
+    .label_cadastro{
+    position: absolute;
+    left: 78px;
+    }
+}
+
+ /* Large - notebooks/desktops */
+ @media screen and (min-width: 1024px) {
+    .imput{
+        width: 750px;
+        height: 45px;
+    }
+
+    .label_cadastro{
+        position: absolute;
+        left: 138px;
+        font-size: 17px ;
+        margin-bottom: 9px;
+    }
+
+    .titulo_cadastro{
+        font-size: 40px;
+    }    
+}     
+
+ /* Extra large - notebooks/desktops */
+ @media screen and (min-width: 1200px) {
+    .label_cadastro{
+        position: absolute;
+        left: 225px;
+        font-size: 17px ;
+        margin-bottom: 9px;
+    }
+   
+}  
+
+@media screen and (min-width: 1920px) {
+    .label_cadastro{
+        position: absolute;
+        left: 585px;
+        font-size: 17px ;
+        margin-bottom: 9px;
+    }
+   
+} 

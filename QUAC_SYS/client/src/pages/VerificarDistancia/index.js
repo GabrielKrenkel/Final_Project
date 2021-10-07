@@ -57,7 +57,7 @@ export function RouteMap() {
 
     return (
         <>
-            <button className="btnhome" onClick={() => clear()}>Home</button>
+            <button className="btnhome" onClick={() => clear()}>Cancelar</button>
             <div>
                 <MapLoader
                     googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1NvDncK1bxyaAVTEt69j-C9csOm1ETOg"

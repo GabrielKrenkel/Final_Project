@@ -8,7 +8,7 @@ export function ReturnDeshboard() {
 
     return (
         <>
-            <button className="btnhome"onClick={Replace}>Home</button>
+            <button className="btnhome"onClick={Replace}>Cancelar</button>
         </>
     );
 }

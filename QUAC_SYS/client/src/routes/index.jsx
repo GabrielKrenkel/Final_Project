@@ -12,6 +12,8 @@ import { RouteMap } from "../pages/VerificarDistancia"
 import { RetirarTicket } from "../pages/retirarSenha";
 import { MostrarSenha } from "../pages/MostrarSenha";
 
+
+
 export function Routes() {
     return (
         <>            

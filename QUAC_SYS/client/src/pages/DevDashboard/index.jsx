@@ -169,9 +169,11 @@ export function DevDashboard() {
         <>
 
             <DashboardContainer />
-
+            <br/>
+            <br/>
             <div className="admin-container">
                 <a href="http://localhost:3000/" className="logo" target="_parent"><p className="logo-titulo">QUAC SYSTEM</p></a>
+                <br/>
                 <button
                     className="btn"
                     onClick={goCadastrarEmpresa}>
@@ -238,35 +240,33 @@ export function DevDashboard() {
             </div>
 
             <div className="Modal_Emp" style={{ display: "None" }}>
+
                 <div className="modalContent">
 
                     <form className="formulario" onSubmit={handleSubmit} >
 
                         <label htmlFor="name" >Nome:</label> <br />
                         <input className="name" type="text" />
-
+                        <br/>
                         <label htmlFor="endereco">Endereço:</label><br />
                         <input className="endereco" type="text" />
-
+                        <br/>
                         <label htmlFor="contato">Contato:</label><br />
                         <input className="contato" type="text" />
-
+                        <br/>
                         <label htmlFor="atendimento">Atendimento:</label><br />
                         <input className="atendimento" type="text" />
-
+                        <br/>
                         <label htmlFor="latitude">Latitude:</label><br />
                         <input className="latitude" type="text" />
-
+                        <br/>
                         <label htmlFor="longitude"> Longitude:</label><br />
                         <input className="longitude" type="text" />
-
                         <br />
                         <button className="salvarBtn">Salvar</button>
-
-
                     </form>
 
-                    <button className="btnsalvar" onClick={() => { closeModal() }}>Cancelar</button>
+                    <button className="btnsalvar" onClick={() => { closeModal() }}>Cancelar</button>             
                 </div>
             </div>
         </>

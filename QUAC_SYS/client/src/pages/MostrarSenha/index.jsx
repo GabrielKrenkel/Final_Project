@@ -6,7 +6,10 @@ export function MostrarSenha() {
     const [currentTicket, setCurrentTicket] = useState(0);
     
     useEffect(() => {
-        const empresaId = sessionStorage.getItem("empresaName")
+        
+        const paramBusca = new URLSearchParams(window.location.search);
+
+        const empresaId = paramBusca.get("empId")
 
         socket.connect();
 
@@ -24,6 +27,7 @@ export function MostrarSenha() {
         return () => {
             socket.disconnect();
         }
+
     }, []);
     
     

@@ -7,7 +7,9 @@ import { useHistory } from "react-router-dom";
 export function Moderador() {
     
     const history = useHistory();
-    const goMostrarSenha = () => history.push(`./MostrarSenha/`);
+    const paramBusca = new URLSearchParams(window.location.search);
+    const empId = paramBusca.get("userId")
+    const goMostrarSenha = () => history.push(`/MostrarSenha/?empId=${empId}`);
     const [senha, setSenha]= useState("")
 
     const [empresaName, setEmpresas] = useState("")
@@ -15,7 +17,9 @@ export function Moderador() {
 
     useEffect(() => {
         
-        const empresaId = localStorage.getItem('user-id')
+        const paramsBusca = new URLSearchParams(window.location.search);
+            
+        const empresaId = paramsBusca.get("userId")
 
         async function getEmpresa() {
             try {
@@ -44,7 +48,9 @@ export function Moderador() {
 
     async function getSenha() {
 
-        const empresaId = localStorage.getItem('user-id')
+        const paramsBusca = new URLSearchParams(window.location.search);
+            
+        const empresaId = paramsBusca.get("userId")
         
         try {
 

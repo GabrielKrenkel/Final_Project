@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { ReturnDeshboard } from "../../components/ReturnButton";
+import { useHistory } from "react-router-dom";
 import { api } from "../../services/api";
 import { socket } from "../../services/chat";
 
 export function RetirarTicket() {
 
-    let paramBusca = new URLSearchParams(window.location.search);
+    const paramBusca = new URLSearchParams(window.location.search);
 
+    const history = useHistory()
     const [senha, setSenha] = useState("");
     const [currentTicket, setCurrentTicket] = useState(0);
-    
+    const userId = paramBusca.get("userId")
 
         useEffect(() => {
 
@@ -19,7 +20,7 @@ export function RetirarTicket() {
             
             socket.connect();
 
-            socket.emit("join queue", +empresaId);
+            socket.emit("join queue", empresaId);
 
             socket.on("current ticket", lastTicket => {
                 setCurrentTicket(lastTicket)
@@ -57,7 +58,7 @@ export function RetirarTicket() {
 
     return (
         <>
-            <ReturnDeshboard />
+            <button className="btnhome"onClick={() => history.push(`/dashboard/?userId=${userId}`)}>Home</button>
             <br />
             <a href="http://localhost:3000/" className="logo" target="_parent"><p className="logo-titulo">QUAC SYSTEM</p></a>
             <br /><br />

@@ -2,6 +2,7 @@ import React from "react";
 import "./index.css"
 import { useState } from "react";
 import authServices from "../../services/authServices";
+import { useHistory } from "react-router-dom";
 import {api} from '../../services/api'
 
 export function LoginAndRegister() {
@@ -10,19 +11,26 @@ export function LoginAndRegister() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
+    const history = useHistory()
 
     async function handleSubmit(e) {
         
         e.preventDefault()
 
         try {
-             await authServices.signIn(email, password);     
-            
-            
+            const login = await authServices.signIn(email, password);     
+
+            userRedirect(login)
             
         } catch (err) {
             setError(err.message);
         }
+    }
+
+    function userRedirect(idUser) {
+        
+        history.push(`/dashboard/?userId=${idUser}`)
+
     }
     //end partition
 

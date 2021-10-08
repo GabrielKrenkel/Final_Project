@@ -10,7 +10,8 @@ export function RouteMap() {
     let paramBusca = new URLSearchParams(window.location.search);
 
     const empresaId = paramBusca.get("empId");
-    const userId = paramBusca.get("userId")
+
+    const userId = paramBusca.get("userId");
 
     const [latEmp, setLatEmp] = useState("")
     const [lonEmp, setLonEmp] = useState("")
@@ -52,7 +53,7 @@ export function RouteMap() {
 
     return (
         <>
-            <button className="btnhome" onClick={() => { window.location.replace(`/dashboard/?userId=${userId}`); }}>Home</button>
+            <button className="btnhome" onClick={() => { history.push(`/dashboard/?userId=${userId}`); }}>Home</button>
             <div>
                 <MapLoader
                     googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1NvDncK1bxyaAVTEt69j-C9csOm1ETOg"

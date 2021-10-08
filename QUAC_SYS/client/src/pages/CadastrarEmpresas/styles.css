@@ -20,14 +20,19 @@
     letter-spacing: 0.5px;
     outline: none;
     color: #c4c3ca;
-    background-color: #1f2029;
+    background-color: #2b2b2b;
     border: none;
     transition: all 200ms linear;
     box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
-    border: solid 1px #c4c3ca;
-    margin-bottom: 5px;
-    text-transform: uppercase;
+    margin-bottom: 20px;
+    border: solid 1px rgb(80, 80, 80)
 }
+.imput:focus{
+outline: none;
+  border-color: #686868;
+  box-shadow: 0 0 2px #696969;
+}
+
 
 .label_cadastro{
     margin-bottom: 0px;

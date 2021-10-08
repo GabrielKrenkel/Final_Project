@@ -88,11 +88,14 @@ export function UserDashboard() {
                                 {
                                     empresas.map(empresa => (
                                         <div key={empresa.id} className="card">
-                                            <p className="nome_empresa">Nome: {empresa.nome}</p>
-                                            <p className="endereco_empresa">Endereço: {empresa.endereco}</p>
-                                            <p className="contato_empresa">Contato: {empresa.numero_contato}</p>
-                                            <p className="horario_empresa">Horario De Atendimento: {empresa.horario_atendimento}</p>
-                                            <button className="button_empresa" onClick={() => calcRoute(empresa.id)}>Calcular Rota</button>
+                                            <div className="div-info">
+                                                <p className="nome_empresa"><i class="card-icon uil uil-building"></i> {empresa.nome}</p>
+                                                <p className="endereco_empresa"><i class="card-icon uil uil-location-point"></i> {empresa.endereco}</p>
+                                                <p className="contato_empresa"><i class="card-icon uil uil-phone"></i> {empresa.numero_contato}</p>
+                                                <p className="horario_empresa"><i class="card-icon uil uil-clock"></i> {empresa.horario_atendimento}</p>
+                                            </div>
+                                                <button className="button_empresa" onClick={() => calcRoute(empresa.id)}>Calcular Rota</button>
+                                            
                                         </div>
                                     ))
                                 }

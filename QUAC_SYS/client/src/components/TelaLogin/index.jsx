@@ -78,8 +78,9 @@ export function LoginAndRegister() {
                                                         <input type="password" name="logpass" className="form-style" placeholder="Your Password" id="logpass" autocomplete="off" value={password} onChange={e => setPassword(e.target.value)} required/>
                                                         <i className="input-icon-login uil uil-lock-alt"></i>
                                                     </div>
-                                                    <button className="btn mt-4" onClick={handleSubmit}>Submit</button>
                                                     <p className="fyp"><a href="#0" className="link">Forgot your password?</a></p>
+                                                    <button className="btn mt-4" onClick={handleSubmit}>Submit</button>
+                                                    
                                                 </div>
                                             </div>
                                         </div>

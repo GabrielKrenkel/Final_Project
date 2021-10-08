@@ -37,6 +37,7 @@ h6 span{
   padding: 0 20px;
   text-transform: uppercase;
   font-weight: 700;
+  color: rgb(216, 212, 212);
 }
 .section{
   position: relative;
@@ -62,7 +63,7 @@ h6 span{
   padding: 0;
   margin: 10px auto;
   cursor: pointer;
-  background-color: #ffffff;
+  background-color: #dfdfdf;
 }
 .checkbox:checked + label:before,
 .checkbox:not(:checked) + label:before{
@@ -124,6 +125,7 @@ h6 span{
   -moz-backface-visibility: hidden;
   -o-backface-visibility: hidden;
   backface-visibility: hidden;
+  border: solid 1px rgb(66, 66, 66);
 }
 .card-back {
   transform: rotateY(180deg);
@@ -160,17 +162,17 @@ h6 span{
   letter-spacing: 0.5px;
   outline: none;
   color: #c4c3ca;
-  background-color: #1f2029;
-  border: none;
+  background-color: #2b2b2b;
+  border: solid 1px rgb(66, 66, 66);
   -webkit-transition: all 200ms linear;
   transition: all 200ms linear;
   box-shadow: 0 4px 8px 0 rgba(21,21,21,.2);
 }
 .form-style:focus,
-.form-style:active {
-  border: none;
+.form-style:active{
   outline: none;
-  box-shadow: 0 4px 8px 0 rgba(21,21,21,.2);
+      border-color: #686868;
+      box-shadow: 0 0 2px #696969;
 }
 .input-icon {
   position: absolute;
@@ -273,15 +275,13 @@ h6 span{
 
 .btn:active,
 .btn:focus{  
-  background-color: rgba(16,39,112,.2);
-  color: #ffeba7;
-  box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
+  box-shadow: 0 8px 24px 0 rgb(182, 182, 182);
 }
-.btn:hover{  
-  background-color: rgba(16,39,112,.2);
-  color: #ffeba7;
+/* .btn:hover{  
+  background-color: rgba(16,39,112, 0.2);
+  color: #ffffff;
   box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
-}
+} */
 
 .logo-titulo {
   font-size: 40px;
@@ -297,7 +297,9 @@ h6 span{
 }
 
 .fyp{
-  margin-top: 10px;
+  margin-top: 20px;
+  position: relative;
+  left: 100px;
 }
 
  /* Small - Tablets */
@@ -308,12 +310,13 @@ h6 span{
     border: solid 2px #ffdc69;
     display: inline-block;
     padding: 0px 5px 0px 5px;
-    margin-top: 10px;
+    margin-top: -8px;
     margin-bottom: 35px;
   }
   span{
     font-size: 1.5em;      
   }
+
 }
 
 /* Medium - Landscape tablets */

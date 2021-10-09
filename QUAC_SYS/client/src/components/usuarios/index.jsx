@@ -6,24 +6,21 @@ import "./index.css"
 
 export function UserDashboard() {
 
+    const [latitude, setLatitude] = useState("")
+    const [longitude, setLongitude] = useState("")
+
+    let paramBusca = new URLSearchParams(window.location.search);
+ 
+    const userId = paramBusca.get("userId");
+
     const history = useHistory();
+
     function calcRoute(empresaName) {
 
-        sessionStorage.setItem("empresaName", empresaName)
-
-        history.push('./VerificaDistancia');
+        history.push(`/VerificaDistancia/?userId=${userId}&lat=${latitude}&lon=${longitude}&empId=${empresaName}`);
     };
 
-    const successCallback = (position) => {
-        const latitude = position.coords.latitude
-        const longitude = position.coords.longitude
-        localStorage.setItem("latitude", latitude);
-        localStorage.setItem("longitude", longitude);
-    }
-    const errorCallback = (error) => {
-        console.error(error);
-    }
-    navigator.geolocation.getCurrentPosition(successCallback, errorCallback)
+    
 
     const [empresas, setEmpresas] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -43,6 +40,18 @@ export function UserDashboard() {
         }
 
         getEmpresa();
+
+        const successCallback = (position) => {
+            setLatitude(position.coords.latitude)
+            setLongitude(position.coords.longitude)
+        }
+    
+        const errorCallback = (error) => {
+            console.error(error);
+        }
+    
+        navigator.geolocation.getCurrentPosition(successCallback, errorCallback)
+        
     }, []);
 
     const [text, setText] = useState("");

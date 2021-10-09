@@ -11,6 +11,4 @@ router.get("/", authentication(["user", "moderador", "dev"], usersControllers.ge
 
 router.post("/refreshToken", authControllers.refresh);
 
-router.get("/", authentication(["user", "moderador", "dev"], empresaControllers.getEmpresa));
-
 module.exports = router;

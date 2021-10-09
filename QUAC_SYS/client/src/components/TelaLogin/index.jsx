@@ -2,6 +2,7 @@ import React from "react";
 import "./index.css"
 import { useState } from "react";
 import authServices from "../../services/authServices";
+import { useHistory } from "react-router-dom";
 import {api} from '../../services/api'
 
 export function LoginAndRegister() {
@@ -10,16 +11,26 @@ export function LoginAndRegister() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState(null);
+    const history = useHistory()
 
-    async function handleSubmit() {
+    async function handleSubmit(e) {
         
+        e.preventDefault()
+
         try {
-            await authServices.signIn(email, password);     
-                   
-            window.location.replace("/dashboard");
+            const login = await authServices.signIn(email, password);     
+
+            userRedirect(login)
+            
         } catch (err) {
             setError(err.message);
         }
+    }
+
+    function userRedirect(idUser) {
+        
+        history.push(`/dashboard/?userId=${idUser}`)
+
     }
     //end partition
 
@@ -70,6 +81,7 @@ export function LoginAndRegister() {
                                                 <div className="section text-center">
                                                     <h4 className="mb-4 pb-3">Log In</h4>
                                                     { error && <p className="error">{error}</p> }
+                                                    <form onSubmit={handleSubmit}>
                                                     <div className="form-group">
                                                         <input type="email" name="logemail" className="form-style" placeholder="Your Email" id="logemail" autocomplete="off" value={email} onChange={e => setEmail(e.target.value)} required/>
                                                         <i className="input-icon-login uil uil-at"></i>
@@ -78,6 +90,9 @@ export function LoginAndRegister() {
                                                         <input type="password" name="logpass" className="form-style" placeholder="Your Password" id="logpass" autocomplete="off" value={password} onChange={e => setPassword(e.target.value)} required/>
                                                         <i className="input-icon-login uil uil-lock-alt"></i>
                                                     </div>
+                                                    <button className="btn mt-4">Submit</button>
+                                                    </form>
+
                                                     <p className="fyp"><a href="#0" className="link">Forgot your password?</a></p>
                                                     <button className="btn mt-4" onClick={handleSubmit}>Submit</button>
                                                     

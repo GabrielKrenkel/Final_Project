@@ -9,6 +9,7 @@ async function retirarTicket(req, res, next) {
     const expirationTime = Date.now() + ms(process.env.TICKET_EXPIRATION);
     const { userId } = req.body
 
+    console.log(empresa_id);
     try {
         // Obter o último ticket
         const lastTicket = await Ticket.findOne({

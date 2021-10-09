@@ -5,18 +5,31 @@ import "./styles.css"
 
 export class Map extends Component {
 
-    state = {
-        directions: null,
-        destination: { lat: +localStorage.getItem("latEMP"), lng: +localStorage.getItem("lonEMP") },
-        distance: 0,
-        time: 0
-    };
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            directions: null,
+            destination: { lat: +props.lat, lng: +props.lon },
+            distance: 0,
+            time: 0
+        };
+    }
+
     
 
+
     componentDidMount() {
+
+        let paramsBusca = new URLSearchParams(window.location.search);
+
+        const lat = paramsBusca.get("lat");
+
+        const lng = paramsBusca.get("lon");
+
         // Obter a destination do banco de dados        
         const directionsService = new google.maps.DirectionsService();
-        const origin = { lat: +localStorage.getItem("latitude"), lng: +localStorage.getItem("longitude") };
+        const origin = { lat: +lat, lng: +lng };
         directionsService.route(
             {
                 origin: origin,
@@ -37,7 +50,7 @@ export class Map extends Component {
             }
         );
     }
-    
+
 
     calcRoute(origin, destination, directionsDisplay, directionsService) {
         let request = {
@@ -57,7 +70,7 @@ export class Map extends Component {
             }
         });
     }
-   
+
 
     render() {
         const GoogleMapExample = withGoogleMap(props => (

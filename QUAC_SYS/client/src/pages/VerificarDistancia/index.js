@@ -1,9 +1,11 @@
+
 import React, { useEffect, useState } from "react";
 import { withScriptjs } from "react-google-maps";
 import Map from '../../components/Mapa';
 import { useHistory } from "react-router-dom";
 import { api } from "../../services/api";
 import "./styles.css"
+
 
 export function RouteMap() {
 
@@ -54,6 +56,7 @@ export function RouteMap() {
     return (
         <>
             <button className="btnhome" onClick={() => { history.push(`/dashboard/?userId=${userId}`); }}>Home</button>
+
             <div>
                 <MapLoader
                     googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1NvDncK1bxyaAVTEt69j-C9csOm1ETOg"

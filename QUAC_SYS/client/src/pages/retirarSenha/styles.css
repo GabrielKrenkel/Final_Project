@@ -1,0 +1,29 @@
+
+.senha_atual{
+    font-size: 50px;
+}
+.retirar_senha{
+    font-size: 50px;
+}
+
+@media screen and (min-width: 600px) {
+
+}
+
+/* Medium - Landscape tablets */
+@media screen and (min-width: 768px) {
+
+}
+
+ /* Large - notebooks/desktops */
+ @media screen and (min-width: 1024px) {
+  
+}     
+
+ /* Extra large - notebooks/desktops */
+ @media screen and (min-width: 1200px) {
+    
+}  
+@media screen and (min-width: 1920px) {
+   
+} 

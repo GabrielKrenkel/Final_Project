@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900'); 
 
 .Modal_Emp{
@@ -42,6 +43,24 @@
     transition: all 200ms linear;
     box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
     border: solid 1px #c4c3ca;
+}
+.email{
+    padding-left: 20px;
+    height: 25px;
+    width: 80%;
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    outline: none;
+    color: #c4c3ca;
+    background-color: #1f2029;
+    border: none;
+    transition: all 200ms linear;
+    box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
+    border: solid 1px #c4c3ca;
+      
 }
 
 .endereco{
@@ -206,4 +225,5 @@
   @media screen and (min-width: 1200px) {
    
   }  
+
 

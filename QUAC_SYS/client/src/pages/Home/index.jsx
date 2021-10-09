@@ -10,6 +10,7 @@ export function Home() {
   }
 
   return (
+
     <>
       <LoginAndRegister/>
     </>

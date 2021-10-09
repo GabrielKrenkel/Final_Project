@@ -1,5 +1,9 @@
 .container{
     margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .maps{
     margin-top: 25px;
@@ -7,3 +11,43 @@
     width: 330px;
     margin-bottom: 25px;
 }
+
+
+  /* Small - Tablets */
+  @media screen and (min-width: 600px) {
+    .maps{
+        margin-top: 25px;
+        height: 350px;
+        width: 510px;
+        margin-bottom: 25px;
+    
+    }
+    .p_distancia{
+        font-size: 30px;
+    }
+    .p_tempo{
+        font-size: 30px;
+
+    }
+    .btnSenha{
+        margin-top: 70px;
+    }
+}
+
+/* Medium - Landscape tablets */
+@media screen and (min-width: 768px) {
+
+}
+
+ /* Large - notebooks/desktops */
+ @media screen and (min-width: 1024px) {
+   
+}     
+
+ /* Extra large - notebooks/desktops */
+ @media screen and (min-width: 1200px) {
+    
+}  
+@media screen and (min-width: 1920px) {
+   
+} 

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { api } from "../../services/api";
 import { socket } from "../../services/chat";
+import "./styles.css"
 
 export function RetirarTicket() {
 
@@ -10,7 +11,9 @@ export function RetirarTicket() {
     const history = useHistory()
     const [senha, setSenha] = useState("");
     const [currentTicket, setCurrentTicket] = useState(0);
+
     const userId = paramBusca.get("userId")
+
 
         useEffect(() => {
 
@@ -66,9 +69,12 @@ export function RetirarTicket() {
 
             <div className="senhaUser">
                 <br />
-                {senha}
+                {
+                  senha
+                }
                 <p>{currentTicket}</p>
             </div>
+
         </>
     );
 }

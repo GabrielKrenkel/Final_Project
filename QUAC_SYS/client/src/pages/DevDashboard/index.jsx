@@ -84,6 +84,7 @@ export function DevDashboard() {
         let atendimento = document.querySelector(".atendimento")
         let latitude = document.querySelector(".latitude")
         let longitude = document.querySelector(".longitude")
+        let email = document.querySelector(".email")
 
         nome.value = empresa.data.nome
         endereco.value = empresa.data.endereco
@@ -91,6 +92,7 @@ export function DevDashboard() {
         atendimento.value = empresa.data.horario_atendimento
         latitude.value = empresa.data.latitude
         longitude.value = empresa.data.longitude
+        email.value = empresa.data.email
 
 
         showModal(empresa.data.id)
@@ -120,11 +122,13 @@ export function DevDashboard() {
         let nome = document.querySelector(".name").value
         let endereco = document.querySelector(".endereco").value
         let numero_contato = document.querySelector(".contato").value
+        let email = document.querySelector(".email")
         let horario_atendimento = document.querySelector(".atendimento").value
         let latitude = document.querySelector(".latitude").value
         let longitude = document.querySelector(".longitude").value
 
-        const data = { nome, endereco, latitude, longitude, horario_atendimento, numero_contato }
+
+        const data = { nome, endereco, latitude, longitude, horario_atendimento, numero_contato, email }
 
         try {
 
@@ -203,6 +207,7 @@ export function DevDashboard() {
                                                     <p className="nome_empresa">Nome: {empresa.nome}</p>
                                                     <p className="endereco_empresa">Endereço: {empresa.endereco}</p>
                                                     <p className="contato_empresa">Contato: {empresa.numero_contato}</p>
+                                                    <p className="email_empresa">Email: {empresa.email}</p>
                                                     <p className="horario_empresa">Horario De Atendimento: {empresa.horario_atendimento}</p>
                                                     <p className="latitude_empresa">Latitude: {empresa.latitude}</p>
                                                     <p className="longitude_empresa">Longitude: {empresa.longitude}</p>
@@ -225,6 +230,7 @@ export function DevDashboard() {
                                                     <p className="nome_empresa">Nome: {empresa.nome}</p>
                                                     <p className="endereco_empresa">Endereço: {empresa.endereco}</p>
                                                     <p className="contato_empresa">Contato: {empresa.numero_contato}</p>
+                                                    <p className="email_empresa">Email: {empresa.email}</p>
                                                     <p className="horario_empresa">Horario De Atendimento: {empresa.horario_atendimento}</p>
                                                     <p className="latitude_empresa">Latitude: {empresa.latitude}</p>
                                                     <p className="longitude_empresa">Longitude: {empresa.longitude}</p>
@@ -253,6 +259,9 @@ export function DevDashboard() {
                         <br/>
                         <label htmlFor="contato">Contato:</label><br />
                         <input className="contato" type="text" />
+                        <br/>
+                        <label htmlFor="email">Email:</label><br/>
+                        <input className="email" type="email"/>
                         <br/>
                         <label htmlFor="atendimento">Atendimento:</label><br />
                         <input className="atendimento" type="text" />

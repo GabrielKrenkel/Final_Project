@@ -11,6 +11,11 @@ h1{
     padding-top: 10%;
 }
 
+.card-icon{
+  color: #ffdc69;
+  font-size: 18px;
+}
+
 .form-group h1{
     font-size: 35px;
     font-family: 'Poppins';
@@ -37,7 +42,7 @@ h1{
   display: flex;
   justify-content: center;
   align-items: center;
-  border: 1px solid white
+  border: solid 1px rgb(80, 80, 80)
 }
 
 .button_empresa{
@@ -59,6 +64,10 @@ h1{
   border: solid 0px;
 }
 
+.button_empresa:active .button_empresa:focus {
+  box-shadow: 0 8px 24px 0 rgb(182, 182, 182);
+}
+
 .imputestabelecimento{
     padding: 13px 20px;
     padding-left: 55px;
@@ -71,13 +80,27 @@ h1{
     letter-spacing: 0.5px;
     outline: none;
     color: #c4c3ca;
-    background-color: #1f2029;
+    background-color: #2b2b2b;
     border: none;
     transition: all 200ms linear;
     box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
-    border: solid 1px #c4c3ca;
     margin-bottom: 20px;
+    border: solid 1px rgb(80, 80, 80)
 }
+
+.imputestabelecimento:focus{
+  outline: none;
+  border-color: #686868;
+  box-shadow: 0 0 2px #696969;
+}
+
+.div-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+
 
 /* Small - Tablets */
 @media screen and (min-width: 600px) {
@@ -102,9 +125,11 @@ h1{
         display: flex;
         justify-content: center;
         align-items: center;
-        border: 1px solid white
+        border: solid 1px rgb(80, 80, 80)
       }
-
+      .card p{
+        font-size: 16px;
+      }
       .imputestabelecimento{
         padding: 13px 20px;
         padding-left: 55px;
@@ -116,14 +141,15 @@ h1{
         line-height: 22px;
         letter-spacing: 0.5px;
         outline: none;
-        color: #c4c3ca;
-        background-color: #1f2029;
+        color: #d3d1dd;
+        background-color: #2b2b2b;
         border: none;
         transition: all 200ms linear;
         box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
-        border: solid 1px #c4c3ca;
         margin-bottom: 20px;
+        border: solid 1px rgb(80, 80, 80)
     }
+  
   }
   
   /* Medium - Landscape tablets */
@@ -138,7 +164,7 @@ h1{
         margin: 15px;
         width: 345px;
         display: grid;
-        border: 1px solid white
+        border: solid 1px rgb(80, 80, 80)
       }
       .imputestabelecimento{
         padding: 13px 20px;
@@ -152,13 +178,14 @@ h1{
         letter-spacing: 0.5px;
         outline: none;
         color: #c4c3ca;
-        background-color: #1f2029;
-        border: none;
+        background-color: #2b2b2b;
         transition: all 200ms linear;
         box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
         border: solid 1px #c4c3ca;
         margin-bottom: 20px;
+        border: solid 1px rgb(80, 80, 80)
     }
+
     .form-group h1{
         font-size: 50px;
         font-family: 'Poppins';

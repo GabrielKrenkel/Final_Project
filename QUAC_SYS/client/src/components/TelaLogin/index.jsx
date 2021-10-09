@@ -92,7 +92,10 @@ export function LoginAndRegister() {
                                                     </div>
                                                     <button className="btn mt-4">Submit</button>
                                                     </form>
+
                                                     <p className="fyp"><a href="#0" className="link">Forgot your password?</a></p>
+                                                    <button className="btn mt-4" onClick={handleSubmit}>Submit</button>
+                                                    
                                                 </div>
                                             </div>
                                         </div>

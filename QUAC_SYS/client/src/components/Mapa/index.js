@@ -92,8 +92,10 @@ export class Map extends Component {
                         containerElement={<div className="maps" />}
                         mapElement={<div style={{ height: `100%` }} />}
                     />
-                    <p className="p_distancia">Distância: {this.state.distance}</p>
-                    <p className="p_tempo">Chegada em: {this.state.time}</p>
+                    <div className="distance-info">
+                    <p className="p_distancia"><i class="distance-icon uil uil-streering"></i> {this.state.distance}</p>
+                    <p className="p_tempo"><i class="distance-icon uil uil-hourglass"></i>{this.state.time}</p>
+                    </div>
                 </div>
             </>
         );

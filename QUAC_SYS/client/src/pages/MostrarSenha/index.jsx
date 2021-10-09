@@ -3,10 +3,14 @@ import { socket } from "../../services/chat";
 
 export function MostrarSenha() {
     
-    const [currentTicket, setCurrentTicket] = useState(0);
+    const [currentTicket, setCurrentTicket] = useState(undefined);
+
     
     useEffect(() => {
-        const empresaId = sessionStorage.getItem("empresaName")
+        
+        const paramBusca = new URLSearchParams(window.location.search);
+
+        const empresaId = paramBusca.get("empId")
 
         socket.connect();
 
@@ -24,6 +28,7 @@ export function MostrarSenha() {
         return () => {
             socket.disconnect();
         }
+
     }, []);
     
     
@@ -31,8 +36,13 @@ export function MostrarSenha() {
         <>
 
         <br /><br /><br />
-        <p>Senha do usuario: {currentTicket}</p>
+        
+        {
+            !currentTicket ?
+            <p>Carregando...</p> :
+            <p>Senha do atual: {currentTicket}</p>
 
+        }
         
         </>
     )

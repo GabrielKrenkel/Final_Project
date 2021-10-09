@@ -3,7 +3,7 @@ import { socket } from "../../services/chat";
 
 export function MostrarSenha() {
     
-    const [currentTicket, setCurrentTicket] = useState(0);
+    const [currentTicket, setCurrentTicket] = useState(undefined);
     
     useEffect(() => {
         
@@ -35,8 +35,13 @@ export function MostrarSenha() {
         <>
 
         <br /><br /><br />
-        <p>Senha do usuario: {currentTicket}</p>
+        
+        {
+            !currentTicket ?
+            <p>Carregando...</p> :
+            <p>Senha do atual: {currentTicket}</p>
 
+        }
         
         </>
     )

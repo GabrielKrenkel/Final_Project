@@ -14,20 +14,13 @@ export function UserDashboard() {
     const userId = paramBusca.get("userId");
 
     const history = useHistory();
+
     function calcRoute(empresaName) {
 
         history.push(`/VerificaDistancia/?userId=${userId}&lat=${latitude}&lon=${longitude}&empId=${empresaName}`);
     };
 
-    const successCallback = (position) => {
-        setLatitude(position.coords.latitude)
-        setLongitude(position.coords.longitude)
-    }
-    const errorCallback = (error) => {
-        console.error(error);
-    }
-
-    navigator.geolocation.getCurrentPosition(successCallback, errorCallback)
+    
 
     const [empresas, setEmpresas] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -47,6 +40,18 @@ export function UserDashboard() {
         }
 
         getEmpresa();
+
+        const successCallback = (position) => {
+            setLatitude(position.coords.latitude)
+            setLongitude(position.coords.longitude)
+        }
+    
+        const errorCallback = (error) => {
+            console.error(error);
+        }
+    
+        navigator.geolocation.getCurrentPosition(successCallback, errorCallback)
+        
     }, []);
 
     const [text, setText] = useState("");

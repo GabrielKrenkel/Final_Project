@@ -15,35 +15,35 @@ export function RetirarTicket() {
     const userId = paramBusca.get("userId")
 
 
-        useEffect(() => {
+    useEffect(() => {
 
-            const paramsBusca = new URLSearchParams(window.location.search);
-            
-            const empresaId = paramsBusca.get("empId")
-            
-            socket.connect();
+        const paramsBusca = new URLSearchParams(window.location.search);
 
-            socket.emit("join queue", empresaId);
+        const empresaId = paramsBusca.get("empId")
 
-            socket.on("current ticket", lastTicket => {
-                setCurrentTicket(lastTicket)
-            })
+        socket.connect();
 
-            socket.on("next ticket", ticket => {
-                console.log("Novo ticket: " + ticket);
-                setCurrentTicket(ticket.ticket);
-            });
+        socket.emit("join queue", empresaId);
 
-            return () => {
-                socket.disconnect();
-            }
-        }, []);
+        socket.on("current ticket", lastTicket => {
+            setCurrentTicket(lastTicket)
+        })
+
+        socket.on("next ticket", ticket => {
+            console.log("Novo ticket: " + ticket);
+            setCurrentTicket(ticket.ticket);
+        });
+
+        return () => {
+            socket.disconnect();
+        }
+    }, []);
 
     async function retiraSenha() {
 
         const empresaId = paramBusca.get("empId");
-        
-        const userId = paramBusca.get("userId") 
+
+        const userId = paramBusca.get("userId")
 
         console.log(empresaId);
         try {
@@ -61,20 +61,23 @@ export function RetirarTicket() {
 
     return (
         <>
-            <button className="btnhome"onClick={() => history.push(`/dashboard/?userId=${userId}`)}>Home</button>
+            <button className="btnhome" onClick={() => history.push(`/dashboard/?userId=${userId}`)}>Home</button>
             <br />
             <a href="http://localhost:3000/" className="logo" target="_parent"><p className="logo-titulo">QUAC SYSTEM</p></a>
             <br /><br />
             <button className="btn" onClick={() => retiraSenha()}>Retirar Senha</button>
-
-            <div className="senhaUser">
-                <br />
-                {
-                  senha
-                }
-                <p>{currentTicket}</p>
+            <div className="content_card">
+                <div className="card" >
+                    <div className="senhaUser">
+                        <p className="imgpato"></p>
+                        <br/><br/><br/>
+                        <p className="sua_senha">Sua senha: { senha }</p>
+                        <div>
+                            <p className="senha_atual">Senha atual: {currentTicket}</p>
+                        </div>
+                    </div>
+                </div>
             </div>
-
         </>
     );
 }

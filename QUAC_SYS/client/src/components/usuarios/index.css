@@ -127,9 +127,7 @@ h1{
         align-items: center;
         border: solid 1px rgb(80, 80, 80)
       }
-      .card p{
-        font-size: 16px;
-      }
+    
       .imputestabelecimento{
         padding: 13px 20px;
         padding-left: 55px;
@@ -200,5 +198,24 @@ h1{
   
   /* Extra large - notebooks/desktops */
   @media screen and (min-width: 1200px) {
+    .button_empresa{
+      display: flex;
+      border-radius: 4px;
+      height: 25px;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      transition: all 200ms linear;
+      width: 200px;
+      margin-bottom: 3px;
+      padding: 0 10px;
+      letter-spacing: 1px;
+      align-items: center;
+      justify-content: center;
+      background-color: #ffffff;
+      color: #000000;
+      box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
+      border: solid 0px;
+    }
     
   }  

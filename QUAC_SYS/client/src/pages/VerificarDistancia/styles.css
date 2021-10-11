@@ -86,5 +86,21 @@ body{
 @media screen and (min-width: 1920px) {
   .btnhome{
     left: 890px;
+      margin-top: 10px;
+      border-radius: 4px;
+      height: 35px;
+      font-size: 18px;
+      font-weight: 600;
+      text-transform: uppercase;
+      padding: 0 15px;
+      display: inline-flex;
+      position: relative;
+      justify-content: flex-end;
+      text-align: center;
+      border: none;
+      background-color: #ffffff;
+      color: #000000;
+      box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
+      align-items: center;
   }
 } 

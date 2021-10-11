@@ -115,5 +115,22 @@ outline: none;
         font-size: 17px ;
         margin-bottom: 9px;
     }
-   
+   .btnsalvar{
+       font-size: 18px;
+       margin-top: 25px;
+       margin-bottom: 30px;
+       border-radius: 4px;
+       height: 35px;
+       font-weight: 600;
+       text-transform: uppercase;
+       transition: all 200ms linear;
+       padding: 0 20px;
+       letter-spacing: 1px;
+       align-items: center;
+       justify-content: center;
+       background-color: #ffffff;
+       color: #000000;
+       box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
+       border: solid 1px #1f2029;
+   }
 } 

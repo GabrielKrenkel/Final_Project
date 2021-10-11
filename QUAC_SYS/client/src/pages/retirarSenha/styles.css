@@ -1,9 +1,46 @@
+.content_card{
+   width: 95%;
+   height: 95%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+    
+}
+.card{
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    
+}
+.senha{
+  font-size: 40px; 
+  width: 50px; 
+
+}
 
 .senha_atual{
-    font-size: 50px;
+    font-size: 35px;
+    margin-top: 20px;
 }
-.retirar_senha{
-    font-size: 50px;
+
+.imgpato{
+    height: 60px;
+    width: 60px;
+    background-size: 100%;
+    position: absolute;
+    
+    background-repeat: no-repeat;
+    background-image: url('https://senacsc754-my.sharepoint.com/personal/diego_santos3_alunos_sc_senac_br/Documents/Arquivos%20de%20Chat%20do%20Microsoft%20Teams/imgpsh_mobile_save-removebg-preview.png');
+}
+
+.senhaUser{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 300px;
+    width: 350px;
 }
 
 @media screen and (min-width: 600px) {
@@ -25,5 +62,5 @@
     
 }  
 @media screen and (min-width: 1920px) {
-   
+    
 } 

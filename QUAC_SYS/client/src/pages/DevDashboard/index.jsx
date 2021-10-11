@@ -211,8 +211,8 @@ export function DevDashboard() {
                                                     <p className="horario_empresa">Horario De Atendimento: {empresa.horario_atendimento}</p>
                                                     <p className="latitude_empresa">Latitude: {empresa.latitude}</p>
                                                     <p className="longitude_empresa">Longitude: {empresa.longitude}</p>
-                                                    <button className="button_empresa" onClick={() => deleteEmp(empresa.id)}>Excluir</button>
-                                                    <button className="button_empresa" onClick={() => editEmp(empresa.id)}>Editar</button>
+                                                    <button className="btnempresa" onClick={() => deleteEmp(empresa.id)}>Excluir</button>
+                                                    <button className="btnempresa" onClick={() => editEmp(empresa.id)}>Editar</button>
                                                 </div>
                                             ))
                                         }
@@ -234,8 +234,8 @@ export function DevDashboard() {
                                                     <p className="horario_empresa">Horario De Atendimento: {empresa.horario_atendimento}</p>
                                                     <p className="latitude_empresa">Latitude: {empresa.latitude}</p>
                                                     <p className="longitude_empresa">Longitude: {empresa.longitude}</p>
-                                                    <button className="button_empresa" onClick={() => deleteEmp(empresa.id)}>Excluir</button>
-                                                    <button className="button_empresa" onClick={() => editEmp(empresa.id)}>Editar</button>
+                                                    <button className="btnempresa" onClick={() => deleteEmp(empresa.id)}>Excluir</button>
+                                                    <button className="btnempresa" onClick={() => editEmp(empresa.id)}>Editar</button>
                                                 </div>
                                             ))
                                         }
@@ -272,10 +272,10 @@ export function DevDashboard() {
                         <label htmlFor="longitude"> Longitude:</label><br />
                         <input className="longitude" type="text" />
                         <br />
-                        <button className="salvarBtn">Salvar</button>
+                        <button className="salvarbotao">Salvar</button>
                     </form>
 
-                    <button className="btnsalvar" onClick={() => { closeModal() }}>Cancelar</button>             
+                    <button className="botaocancelar" onClick={() => { closeModal() }}>Cancelar</button>             
                 </div>
             </div>
         </>

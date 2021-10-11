@@ -1,0 +1,22 @@
+.senhaatual {
+    padding-top: 70px;
+    font-size: 50px;
+}
+.senha{
+    font-size: 100px;
+}
+.content_card{
+    display: flex;
+     justify-content: center; 
+     align-items: center;
+     flex-direction: column;
+     
+ } 
+.imgpato{
+    height: 100px;
+    width: 100px;
+    background-size: 100%;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-image: url('https://senacsc754-my.sharepoint.com/personal/diego_santos3_alunos_sc_senac_br/Documents/Arquivos%20de%20Chat%20do%20Microsoft%20Teams/imgpsh_mobile_save-removebg-preview.png');
+}

@@ -93,7 +93,6 @@ export function RetirarTicket() {
 
                 <p>Senha atual: {currentTicket}</p>
             </div>
-
         </>
     );
 }

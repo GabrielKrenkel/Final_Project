@@ -156,7 +156,7 @@
     border: solid 1px #c4c3ca;
     
 }
-.salvarBtn{
+.salvarbotao{
     border-radius: 4px;
     height: 25px;
     font-size: 13px;
@@ -170,12 +170,13 @@
     background-color: #ffffff;
     color: #000000;
     box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
-    margin-top: 30px;
+    margin-top: 8px;
     border: none;
 }
 
-.btnsalvar{
+.botaocancelar{
     border-radius: 4px;
+    margin-top: 8px;
     height: 25px;
     font-size: 13px;
     font-weight: 600;
@@ -188,8 +189,30 @@
     background-color: #ffffff;
     color: #000000;
     box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
-    margin-top: 30px;
     border: none;
+}
+.card{
+   justify-items: center;
+}
+
+.btnempresa{
+    border-radius: 4px;
+    height: 25px;
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    transition: all 200ms linear;
+    padding: 0 10px;
+    display: flex;
+    width: 100px;
+    justify-content: center;
+    letter-spacing: 1px;
+    background-color: #ffffff;
+    color: #000000;
+    box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
+    margin-top: 8px;
+    border: none;
+    align-items: center;
 }
 
 
@@ -205,6 +228,7 @@
         padding: 20px;
         border: 1px solid #888;
         width: 370px;
+        justify-content: center;
         background-position: bottom center;
         background-repeat: no-repeat;
         border-radius: 10px;

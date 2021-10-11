@@ -42,8 +42,8 @@ export function Moderador() {
         socket.emit("create queue", empresaId)
         
         return () => {
-            socket.disconnect();
-        };
+            socket.disconnect()
+        }
     }, []);
 
     async function getSenha() {
@@ -64,7 +64,7 @@ export function Moderador() {
                     
             setSenha(numTicket)  
                       
-            socket.emit("next ticket", ticket, empresaId);        
+            socket.emit("next ticket", ticket);        
         } catch (err) {
 
             console.log(err);

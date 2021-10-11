@@ -11,7 +11,7 @@ io.on("connection", socket => {
 
         socket.join(`empresa:${empresaId}`);
         
-        const lastTicket = tickets.find(ticket => ticket.empresa === empresaId)?.currentTicket
+        const lastTicket = tickets.find(ticket => ticket.empresa === empresaId)
 
         console.log(lastTicket);
 
@@ -24,7 +24,7 @@ io.on("connection", socket => {
     socket.on("create queue", empresaId => {
         socket.join(`empresa:${empresaId}`)
 
-        let fila = {empresa: empresaId, currentTicket: 0}
+        let fila = {empresa: empresaId, currentTicket: 0, userId:''}
 
         const verifica = tickets.find(ticket => ticket.empresa === empresaId)?.empresa
 
@@ -43,18 +43,19 @@ io.on("connection", socket => {
         tickets = tickets.map(ticket => {
             if(ticket.empresa === currentTicket.empresa_id){
                 ticket.currentTicket = currentTicket.ticket
+                ticket.userId = currentTicket.user_id
             }
 
             return ticket
         })
 
-
-        console.log(tickets);
     });
-
+    
     socket.on("disconnect", () => {
         console.log("Usuário desconectou");   
     });
+
+    
 });
 
 io.listen(8080);

@@ -67,8 +67,29 @@ async function deleteTicket(req, res, next) {
     }
 }
 
+async function findLastTicket(req, res, next){
+
+    const userId = req.params.id
+
+    try {
+        const lastTicket = await Ticket.findOne({
+            where: { user_id: userId },
+            order: [              
+              [sequelize.fn('max', sequelize.col('ticket')), 'DESC'],
+            ],
+            group: "id"
+        });
+
+        res.status(202).json(lastTicket)
+    } catch (err) {
+        console.log(err);
+
+        next(err)
+    }
+}
 module.exports = {
     retirarTicket,
-    deleteTicket
+    deleteTicket,
+    findLastTicket
 }
 

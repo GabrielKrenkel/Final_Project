@@ -9,43 +9,61 @@ export function RetirarTicket() {
     const paramBusca = new URLSearchParams(window.location.search);
 
     const history = useHistory()
-    const [senha, setSenha] = useState("");
+    const [senha, setSenha] = useState(0);
     const [currentTicket, setCurrentTicket] = useState(0);
 
     const userId = paramBusca.get("userId")
 
 
-        useEffect(() => {
+    useEffect(() => {
 
-            const paramsBusca = new URLSearchParams(window.location.search);
-            
-            const empresaId = paramsBusca.get("empId")
-            
-            socket.connect();
+        const paramsBusca = new URLSearchParams(window.location.search);
 
-            socket.emit("join queue", empresaId);
+        const empresaId = paramsBusca.get("empId")
 
-            socket.on("current ticket", lastTicket => {
-                setCurrentTicket(lastTicket)
-            })
+        const userId = paramsBusca.get("userId")
 
-            socket.on("next ticket", ticket => {
-                console.log("Novo ticket: " + ticket);
-                setCurrentTicket(ticket.ticket);
-            });
+        findLastTicket(userId)
 
-            return () => {
-                socket.disconnect();
+        socket.connect();
+
+        socket.emit("join queue", empresaId);
+
+        socket.on("current ticket", lastTicket => {
+            setCurrentTicket(lastTicket.currentTicket)
+
+        })
+
+        socket.on("next ticket", ticket => {
+
+            setCurrentTicket(ticket.ticket);
+        });
+
+        return () => {
+            socket.disconnect();
+        }
+    }, []);
+
+    async function findLastTicket(idUser) {
+
+        try {
+            const { ticket } = (await api.get(`/users/local/${idUser}`)).data
+
+            if (ticket >= currentTicket) {
+                setSenha(0)
+            } else {
+                setSenha(ticket)
             }
-        }, []);
-
+        } catch (err) {
+            console.log(err);
+        }
+    }
     async function retiraSenha() {
 
         const empresaId = paramBusca.get("empId");
-        
-        const userId = paramBusca.get("userId") 
 
-        console.log(empresaId);
+        const userId = paramBusca.get("userId")
+
         try {
 
             const { ticket } = (await api.post(`/users/${empresaId}`, { userId })).data;
@@ -61,7 +79,7 @@ export function RetirarTicket() {
 
     return (
         <>
-            <button className="btnhome"onClick={() => history.push(`/dashboard/?userId=${userId}`)}>Home</button>
+            <button className="btnhome" onClick={() => history.push(`/dashboard/?userId=${userId}`)}>Home</button>
             <br />
             <a href="http://localhost:3000/" className="logo" target="_parent"><p className="logo-titulo">QUAC SYSTEM</p></a>
             <br /><br />
@@ -69,10 +87,11 @@ export function RetirarTicket() {
 
             <div className="senhaUser">
                 <br />
-                {
-                  senha
-                }
-                <p>{currentTicket}</p>
+
+                <p>Sua senha: {senha}</p>
+
+
+                <p>Senha atual: {currentTicket}</p>
             </div>
 
         </>

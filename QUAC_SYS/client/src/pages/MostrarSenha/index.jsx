@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { api } from "../../services/api";
 import { socket } from "../../services/chat";
 
 export function MostrarSenha() {
     
-    const [currentTicket, setCurrentTicket] = useState(undefined);
+    const [currentTicket, setCurrentTicket] = useState(0);
+    const [user, setUser] = useState(undefined)
 
     
     useEffect(() => {
@@ -17,12 +19,18 @@ export function MostrarSenha() {
         socket.emit("join queue", empresaId);
 
         socket.on("current ticket", lastTicket => {
-            setCurrentTicket(lastTicket)
+            setCurrentTicket(lastTicket.currentTicket)
+
+            const user = lastTicket.userId
+            
+            findUser(user)
         })
 
         socket.on("next ticket", ticket => {
             console.log("Novo ticket: " + ticket);
             setCurrentTicket(ticket.ticket);
+
+            findUser(ticket.user_id)
         });
 
         return () => {
@@ -31,7 +39,18 @@ export function MostrarSenha() {
 
     }, []);
     
-    
+    async function findUser(userId) {
+        
+        try {
+            
+            const users = await api.get(`/users/${userId}`)
+            
+            setUser(users.data.name)
+
+        } catch (err) {
+            console.log(err);
+        }
+    }
     return(
         <>
 
@@ -42,6 +61,12 @@ export function MostrarSenha() {
             <p>Carregando...</p> :
             <p>Senha do atual: {currentTicket}</p>
 
+        }
+
+        {
+            !user ?
+            <p></p>:
+            <p>{user}</p>
         }
         
         </>

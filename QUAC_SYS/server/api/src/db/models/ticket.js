@@ -22,6 +22,10 @@ module.exports = (sequelize, DataTypes) => {
     ticket: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    verified: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
     }
   }, {
     sequelize,

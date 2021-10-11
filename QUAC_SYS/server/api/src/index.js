@@ -5,10 +5,11 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 const swaggerUi = require("swagger-ui-express");
 const swaggerDocument = require("../swagger.json");
+const cron = require("node-cron");
 
 // Middlewares de requisição
 app.use(morgan("dev"));
-app.use(cors());
+app.use(cors({ origin: "http://localhost:3000" }));
 app.use(express.json());
 
 // Rotas da API
@@ -22,5 +23,7 @@ app.use("/api/developer", require("./routes/devsRoutes"))
 app.use(require("./middleware/errorMiddleware"));
 
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+
+cron.schedule('* * 0 * * *', require("./jobs/clearTickesJob"));
 
 app.listen(PORT, () => console.log("Servidor está rodando na porta: " + PORT));

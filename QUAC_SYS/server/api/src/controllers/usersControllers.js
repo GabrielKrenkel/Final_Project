@@ -37,8 +37,22 @@ async function getUser(req, res, next) {
     }
 }
 
+async function findUser(req, res, next) {
+
+    const userId = req.params.id;
+    
+    try {        
+        const user = await User.findOne({ where: { id: userId }});
+
+        res.json(user);
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+}
 
 module.exports = {
     createUser,
-    getUser
+    getUser,
+    findUser
 }

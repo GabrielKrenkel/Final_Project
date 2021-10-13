@@ -300,6 +300,10 @@ h6 span{
   left: 100px;
 }
 
+.mb-4{
+  color: black;
+}
+
  /* Small - Tablets */
  @media screen and (min-width: 600px) {
   .logo-titulo {
@@ -314,12 +318,17 @@ h6 span{
   span{
     font-size: 1.5em;      
   }
+  .mb-4{
+    color: #c4c3ca;
+  }
 
 }
 
 /* Medium - Landscape tablets */
 @media screen and (min-width: 768px) {
-  
+  .mb-4{
+    color: #c4c3ca;
+  }
 }
 
 /* Large - notebooks/desktops */
@@ -333,9 +342,14 @@ h6 span{
     margin-top: 10px;
     margin-bottom: 35px;
   }
+  .mb-4{
+    color: #c4c3ca;
+  }
 }        
 
 /* Extra large - notebooks/desktops */
 @media screen and (min-width: 1200px) {
-      
+  .mb-4{
+    color: #c4c3ca;
+  }
 }

@@ -1,0 +1,13 @@
+.carregando{
+    font-size: 40px;
+    text-transform: uppercase;
+}
+
+.nome-usuario{
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.senha-span{
+    font-size: 85px;
+}

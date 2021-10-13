@@ -4,6 +4,7 @@ import { withScriptjs } from "react-google-maps";
 import Map from '../../components/Mapa';
 import { useHistory } from "react-router-dom";
 import { api } from "../../services/api";
+import { Footer } from "../../components/Footer";
 import "./styles.css"
 
 
@@ -67,6 +68,9 @@ export function RouteMap() {
 
                 <button className="btnSenha" onClick={retirarSenha}>retirar senha</button>
             </div>
+            <footer>
+                <Footer/>
+            </footer>
         </>
 
     );

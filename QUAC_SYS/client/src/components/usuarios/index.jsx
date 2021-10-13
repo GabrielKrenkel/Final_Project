@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 import { api } from "../../services/api";
 import "./index.css"
+import { Footer } from "../Footer";
 
 export function UserDashboard() {
 
@@ -149,6 +150,9 @@ export function UserDashboard() {
 
 
             </div>
+            <footer>
+                <Footer/>
+            </footer>
         </>
     );
 }

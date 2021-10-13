@@ -3,6 +3,8 @@ import { DashboardContainer } from "../../components/DashboardContaimer"
 import { api } from "../../services/api";
 import { socket } from "../../services/chat";
 import { useHistory } from "react-router-dom";
+import { Footer } from "../../components/Footer";
+
 import "./index.css"
 
 export function Moderador() {
@@ -151,8 +153,9 @@ export function Moderador() {
                         <DashboardContainer />
                         <div>
                             <div className="user-container">
+                            <a href="http://localhost:3000/" className="logo" target="_parent"><p className="logo-titulo">QUAC SYSTEM</p></a>
                                 <h1 className="senhaatual">Senha atual:</h1>
-                                <div className="card" >
+                                <div>
                                     <div className="content_card">
                                         <div>
                                             <p className="imgpato"></p>
@@ -167,11 +170,13 @@ export function Moderador() {
                                 <p >{empresaName}</p>
                             </div>
 
-
                             <button className="btn" onClick={getFirstTicket}>Proxima</button>
                             <br />  <br />
                             <button className="btn" onClick={goMostrarSenha}>Tela Mostrar Senha</button>
                         </div>
+                        <footer className="footer-senha">
+                            <Footer/>
+                        </footer>
                     </>
             }
         </>

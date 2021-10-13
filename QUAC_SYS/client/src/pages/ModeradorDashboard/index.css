@@ -1,22 +1,12 @@
 .senhaatual {
     padding-top: 70px;
     font-size: 50px;
+    font-family: 'Poppins';
+    text-transform: uppercase;
 }
 .senha{
     font-size: 100px;
 }
-.content_card{
-    display: flex;
-     justify-content: center; 
-     align-items: center;
-     flex-direction: column;
-     
- } 
-.imgpato{
-    height: 100px;
-    width: 100px;
-    background-size: 100%;
-    position: absolute;
-    background-repeat: no-repeat;
-    background-image: url('https://dc687.4shared.com/img/GN0CpOzsea/s24/17c71c311f0/MicrosoftTeams-image?async&rand=0.9885102850891978');
+.user-container{
+    padding-top: 70px;
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { api } from "../../services/api";
 import { socket } from "../../services/chat";
+import "./styles.css"
 
 export function MostrarSenha() {
     
@@ -60,18 +61,18 @@ export function MostrarSenha() {
         <>
 
         <br /><br /><br />
-        
+        <a href="http://localhost:3000/" className="logo" target="_parent"><p className="logo-titulo">QUAC SYSTEM</p></a>
         {
             !currentTicket ?
-            <p>Carregando...</p> :
-            <p>Senha do atual: {currentTicket}</p>
+            <p className="carregando">Carregando...</p> :
+            <p className="carregando">Senha atual: <br/><span className="senha-span">{currentTicket}</span></p>
 
         }
 
         {
             !user ?
             <p></p>:
-            <p>{user}</p>
+            <p className="nome-usuario">{user}</p>
         }
         
         </>

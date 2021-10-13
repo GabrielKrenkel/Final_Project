@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { api } from "../../services/api";
 import { socket } from "../../services/chat";
+import { Footer } from "../../components/Footer";
+
 import "./styles.css"
 
 export function RetirarTicket() {
@@ -85,23 +87,22 @@ export function RetirarTicket() {
 
             <div className="senhaUser">
                 <br />
-                <p>Senha atual: {currentTicket}</p>
+                <p className="senha-atual">Senha atual: {currentTicket}</p>
                 <br />
                 
-                <h5>Sua senha 
+                <h5 className="senha">Sua senha:
                     <>
                         {
                             senha <= currentTicket ?
-                            <h4>0</h4> :
-                            <h4>{senha}</h4>
+                            <h4 className="senha-num">0</h4> :
+                            <h4 className="senha-num">{senha}</h4>
                         }
                     </>    
                 </h5>
-
-
-                
-
             </div>
+            <footer className="footer-senha">
+                <Footer/>
+            </footer>
         </>
     );
 }

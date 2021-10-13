@@ -1,0 +1,8 @@
+.tomato {
+    border: 1px solid tomato;
+  }
+
+.head {
+    display: flex;
+    flex-direction: row;
+}

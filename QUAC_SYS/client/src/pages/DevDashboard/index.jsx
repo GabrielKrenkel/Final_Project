@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { DashboardContainer } from "../../components/DashboardContaimer"
 import React, { useEffect, useState } from 'react';
 import { api } from "../../services/api";
+import { Footer } from "../../components/Footer";
 import "./index.css"
 
 
@@ -279,6 +280,9 @@ export function DevDashboard() {
                     <button className="botaocancelar" onClick={() => { closeModal() }}>Cancelar</button>             
                 </div>
             </div>
+            <footer>
+                <Footer/>
+            </footer>
         </>
     );
 }

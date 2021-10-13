@@ -94,7 +94,7 @@ export class Map extends Component {
                     />
                     <div className="distance-info">
                     <p className="p_distancia"><i class="distance-icon uil uil-streering"></i> {this.state.distance}</p>
-                    <p className="p_tempo"><i class="distance-icon uil uil-hourglass"></i>{this.state.time}</p>
+                    <p className="p_tempo"><i class="distance-icon uil uil-hourglass"></i>{this.state.time} para chegar ao seu destino</p>
                     </div>
                 </div>
             </>

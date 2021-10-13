@@ -1,39 +1,27 @@
-.content_card{
-   width: 95%;
-   height: 95%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 
-    
-}
 .senha{
-  font-size: 40px; 
-  width: 50px; 
-
+    font-size: 30px;
+    text-transform: uppercase;
 }
 
-.senha_atual{
-    font-size: 35px;
-    margin-top: 20px;
+.senha-atual{
+    font-size: 20px;
+    text-transform: uppercase;
 }
 
-.imgpato{
-    height: 60px;
-    width: 60px;
-    background-size: 100%;
-    position: absolute;
-    
-    background-repeat: no-repeat;
-    background-image: url('https://senacsc754-my.sharepoint.com/personal/diego_santos3_alunos_sc_senac_br/Documents/Arquivos%20de%20Chat%20do%20Microsoft%20Teams/imgpsh_mobile_save-removebg-preview.png');
+.senha-num{
+    font-size: 50px;
 }
 
 .senhaUser{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    height: 300px;
-    width: 350px;
+    margin-top: 30px;
+}
+
+.footer-senha{
+    padding:40px 0;
+    position: absolute;
+    bottom: 170px;
+    width:100%;
 }
 
 @media screen and (min-width: 600px) {

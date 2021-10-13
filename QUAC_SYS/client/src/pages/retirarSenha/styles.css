@@ -7,13 +7,6 @@
 
     
 }
-.card{
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    justify-items: center;
-    
-}
 .senha{
   font-size: 40px; 
   width: 50px; 

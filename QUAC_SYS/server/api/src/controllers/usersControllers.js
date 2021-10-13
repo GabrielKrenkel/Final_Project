@@ -1,5 +1,6 @@
 const createHttpError = require("http-errors");
-const { User } = require("../db/models");
+const jwt = require("jsonwebtoken");
+const { User, Empresa } = require("../db/models");
 
 async function createUser(req, res, next) {
 
@@ -30,7 +31,42 @@ async function getUser(req, res, next) {
     try {        
         const user = await User({ where: { id: userId }});
 
+        if (!user) {
+            throw new createHttpError(404, "not foun user")
+        }
         res.json(user);
+
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+}
+
+async function findOneUser(req, res, next) {
+
+    const user = req.headers.authorization;
+
+    const [, token] = user.split(" ");
+
+    const payload = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
+
+    try {        
+
+        const userId = payload.sub
+
+        let user = await User.findOne({ where: { id: userId }});
+
+
+        if (!user) {
+            user = await Empresa.findOne({ where: {id: userId }})
+        }
+
+        if (!user) {
+            throw new createHttpError(404, "not foun user")
+        }
+        
+        res.json(user);
+
     } catch (error) {
         console.log(error);
         next(error);
@@ -54,5 +90,6 @@ async function findUser(req, res, next) {
 module.exports = {
     createUser,
     getUser,
-    findUser
+    findUser,
+    findOneUser
 }

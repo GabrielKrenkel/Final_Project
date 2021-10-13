@@ -1,6 +1,5 @@
 const createHttpError = require("http-errors");
 const { Ticket, sequelize } = require("../db/models");
-const { QueryTypes } = require("sequelize");
 const ms = require("ms");
 
 async function retirarTicket(req, res, next) {
@@ -23,10 +22,12 @@ async function retirarTicket(req, res, next) {
         console.log(lastTicket);
 
         let ticket;
+
+
         if (!lastTicket) {
-            ticket = await Ticket.create({ empresa_id, user_id: userId, expirationTime, ticket: 1});
+            ticket = await Ticket.create({ verified: 0, empresa_id, user_id: userId,  expirationTime, ticket: 1});
         } else {
-            ticket = await Ticket.create({ empresa_id, user_id: userId, expirationTime, ticket: lastTicket.ticket + 1});
+            ticket = await Ticket.create({ verified: 0, empresa_id, user_id: userId,  expirationTime, ticket: lastTicket.ticket + 1});
         }
 
         res.status(201).json(ticket);
@@ -87,9 +88,91 @@ async function findLastTicket(req, res, next){
         next(err)
     }
 }
+
+async function getTicket(req, res, next) {
+    
+    const empresaId = req.params.id
+    const numTicket = req.params.numTicket
+
+    try {
+        
+        let allTickets = await Ticket.findOne({
+            
+            where: {
+                empresa_id: empresaId,
+                ticket: numTicket, 
+                verified: false
+            }
+        
+        })
+        
+        if (!allTickets) {
+            res.json(null)
+        }
+        allTickets.verified = true
+
+        await allTickets.save()
+        
+        res.json(allTickets)
+        
+    } catch (err) {
+        console.log(err);
+
+        next(err)
+    }
+
+}
+
+async function getNotVerifi(req, res, next){
+
+    const userId = req.params.id
+
+    try {
+        let lastTicket = await Ticket.min( "ticket", { where: { verified: false, empresa_id: userId } } )
+
+        if (!lastTicket) {
+           lastTicket =  await Ticket.max( "ticket", { where: { verified: true, empresa_id: userId } } )
+        }
+
+        if (!lastTicket) {
+            throw new createHttpError(404, "not found enterprise")
+        }
+
+        res.status(202).json(lastTicket)
+
+    } catch (err) {
+        console.log(err);
+
+        next(err)
+    }
+}
+
+async function getVerifi(req, res, next){
+
+    const userId = req.params.id
+
+    try {
+            const lastTicket =  await Ticket.max( "ticket", { where: { verified: true, empresa_id: userId } } )
+
+            if (!lastTicket) {
+                throw new createHttpError(404, "not found enterprise")
+            }
+
+            res.status(202).json(lastTicket)
+
+    } catch (err) {
+        console.log(err);
+
+        next(err)
+    }
+}
+
 module.exports = {
     retirarTicket,
     deleteTicket,
-    findLastTicket
+    findLastTicket,
+    getTicket,
+    getNotVerifi,
+    getVerifi
 }
 

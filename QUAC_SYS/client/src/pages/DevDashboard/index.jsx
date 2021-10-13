@@ -7,6 +7,7 @@ import "./index.css"
 
 
 export function DevDashboard() {
+
     const history = useHistory();
     const goCadastrarEmpresa = () => history.push('/CadastrarEmpresas');
     const [empresas, setEmpresas] = useState([]);

@@ -8,11 +8,7 @@ export function UserDashboard() {
 
     const [latitude, setLatitude] = useState("")
     const [longitude, setLongitude] = useState("")
-
-    let paramBusca = new URLSearchParams(window.location.search);
- 
-    const userId = paramBusca.get("userId");
-
+    let userId;
     const history = useHistory();
 
     function calcRoute(empresaName) {
@@ -52,7 +48,26 @@ export function UserDashboard() {
     
         navigator.geolocation.getCurrentPosition(successCallback, errorCallback)
         
+        
+
+        
+
     }, []);
+
+    
+    async function getUserId() {
+            
+        try {
+            const {id} = (await api.get("/users/")).data
+
+            userId = id
+
+        } catch (err) {
+           console.log(err); 
+        }
+    }
+    
+    getUserId()
 
     const [text, setText] = useState("");
     const [filteredEmpresas, setFilteredEmpresas] = useState([]);
@@ -119,11 +134,13 @@ export function UserDashboard() {
                                     !!filteredEmpresas.length &&
                                     filteredEmpresas.map(empresa => (
                                         <div key={empresa.id} className="card">
-                                            <p className="nome_empresa">Nome: {empresa.nome}</p>
-                                            <p className="endereco_empresa">Endereço: {empresa.endereco}</p>
-                                            <p className="contato_empresa">Contato: {empresa.numero_contato}</p>
-                                            <p className="horario_empresa">Horario De Atendimento: {empresa.horario_atendimento}</p>
-                                            <button className="button_empresa" onClick={() => calcRoute(empresa.id)}>Calcular Rota</button>
+                                            <div className="div-info">
+                                                <p className="nome_empresa"><i class="card-icon uil uil-building"></i> {empresa.nome}</p>
+                                                <p className="endereco_empresa"><i class="card-icon uil uil-location-point"></i> {empresa.endereco}</p>
+                                                <p className="contato_empresa"><i class="card-icon uil uil-phone"></i> {empresa.numero_contato}</p>
+                                                <p className="horario_empresa"><i class="card-icon uil uil-clock"></i> {empresa.horario_atendimento}</p>
+                                            </div>
+                                                <button className="button_empresa" onClick={() => calcRoute(empresa.id)}>Calcular Rota</button>
                                         </div>
                                     ))
                                 }

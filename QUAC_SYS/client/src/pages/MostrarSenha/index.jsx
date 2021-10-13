@@ -19,6 +19,9 @@ export function MostrarSenha() {
         socket.emit("join queue", empresaId);
 
         socket.on("current ticket", lastTicket => {
+
+            console.log(lastTicket);
+
             setCurrentTicket(lastTicket.currentTicket)
 
             const user = lastTicket.userId
@@ -27,7 +30,9 @@ export function MostrarSenha() {
         })
 
         socket.on("next ticket", ticket => {
+
             console.log("Novo ticket: " + ticket);
+
             setCurrentTicket(ticket.ticket);
 
             findUser(ticket.user_id)

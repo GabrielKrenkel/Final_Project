@@ -15,6 +15,7 @@ app.use(express.json());
 // Rotas da API
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/users", require("./routes/usersRoutes"));
+app.use("/api/ticket", require("./routes/ticketRoutes"))
 app.use("/api/empresas", require("./routes/empresasRoutes"));
 app.use("/api/developer", require("./routes/devsRoutes"))
 
@@ -24,6 +25,6 @@ app.use(require("./middleware/errorMiddleware"));
 
 app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-cron.schedule('* * 0 * * *', require("./jobs/clearTickesJob"));
+cron.schedule('0 0 0 * * *', require("./jobs/clearTickesJob"));
 
 app.listen(PORT, () => console.log("Servidor está rodando na porta: " + PORT));

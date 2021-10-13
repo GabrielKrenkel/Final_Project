@@ -23,20 +23,22 @@ export function RetirarTicket() {
 
         const userId = paramsBusca.get("userId")
 
-        findLastTicket(userId)
-
         socket.connect();
 
         socket.emit("join queue", empresaId);
 
         socket.on("current ticket", lastTicket => {
+
             setCurrentTicket(lastTicket.currentTicket)
 
+            findLastTicket(userId)
         })
 
         socket.on("next ticket", ticket => {
 
             setCurrentTicket(ticket.ticket);
+
+            findLastTicket(userId)
         });
 
         return () => {
@@ -44,16 +46,12 @@ export function RetirarTicket() {
         }
     }, []);
 
-    async function findLastTicket(idUser) {
+    async function findLastTicket(idUser, current) {
 
         try {
-            const { ticket } = (await api.get(`/users/local/${idUser}`)).data
+            const { ticket } = (await api.get(`/ticket/local/${idUser}`)).data
 
-            if (ticket >= currentTicket) {
-                setSenha(0)
-            } else {
-                setSenha(ticket)
-            }
+            setSenha(ticket)
         } catch (err) {
             console.log(err);
         }
@@ -66,7 +64,7 @@ export function RetirarTicket() {
 
         try {
 
-            const { ticket } = (await api.post(`/users/${empresaId}`, { userId })).data;
+            const { ticket } = (await api.post(`/ticket/${empresaId}`, { userId })).data;
 
             setSenha(ticket);
 
@@ -87,11 +85,22 @@ export function RetirarTicket() {
 
             <div className="senhaUser">
                 <br />
-
-                <p>Sua senha: {senha}</p>
-
-
                 <p>Senha atual: {currentTicket}</p>
+                <br />
+                
+                <h5>Sua senha 
+                    <>
+                        {
+                            senha <= currentTicket ?
+                            <h4>0</h4> :
+                            <h4>{senha}</h4>
+                        }
+                    </>    
+                </h5>
+
+
+                
+
             </div>
         </>
     );

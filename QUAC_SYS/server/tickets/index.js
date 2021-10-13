@@ -11,7 +11,7 @@ io.on("connection", socket => {
 
         socket.join(`empresa:${empresaId}`);
         
-        const lastTicket = tickets.find(ticket => ticket.empresa === empresaId)
+        const lastTicket = tickets.find(ticket => ticket.empresa == empresaId)
 
         console.log(lastTicket);
 
@@ -30,12 +30,14 @@ io.on("connection", socket => {
 
         if (!verifica) {
             tickets.push(fila)
+
+            console.log("fila criada");
         }
     })
 
     socket.on("next ticket", currentTicket => {
 
-        console.log(currentTicket)
+        console.log(currentTicket, "index ticket")
         
         io.to(`empresa:${currentTicket.empresa_id}`).emit("next ticket", currentTicket);
 

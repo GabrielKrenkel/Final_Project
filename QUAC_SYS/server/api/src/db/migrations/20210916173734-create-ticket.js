@@ -36,7 +36,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      verifiqued: {
+      verified: {
         type: Sequelize.BOOLEAN,
         allowNull: false
       },

@@ -8,77 +8,145 @@ import "./index.css"
 export function Moderador() {
 
     const history = useHistory();
-    const paramBusca = new URLSearchParams(window.location.search);
-    const empId = paramBusca.get("userId")
+    let empId;
     const goMostrarSenha = () => history.push(`/MostrarSenha/?empId=${empId}`);
     const [senha, setSenha] = useState("")
 
     const [empresaName, setEmpresas] = useState("")
     const [loading, setLoading] = useState(true);
 
+    async function getUserId() {
+
+        try {
+            const { id } = (await api.get("/users/")).data
+
+            empId = id
+
+        } catch (err) {
+            console.log(err);
+        }
+    }
+
+    getUserId()
+
     useEffect(() => {
 
-        const paramsBusca = new URLSearchParams(window.location.search);
+        let empresaId;
 
-        const empresaId = paramsBusca.get("userId")
+        async function getUserId() {
+
+            try {
+                const { id } = (await api.get("/users/")).data
+
+                empresaId = id
+
+                getEmpresa();
+
+                socket.connect();
+
+                socket.emit("join queue", empresaId);
+
+                socket.emit("create queue", empresaId)
+
+            } catch (err) {
+
+                console.log(err);
+            }
+        }
+
 
         async function getEmpresa() {
+
             try {
                 const empresas = (await api.get(`/empresas/${empresaId}`)).data;
 
                 setEmpresas(empresas.nome);
+
+                getTicket()
             } catch (err) {
                 console.log(err);
             }
 
-            setLoading(false);
+
         }
 
-        socket.connect();
+        getUserId()
 
-        socket.emit("join queue", empresaId);
 
-        getEmpresa();
+        async function getTicket() {
 
-        socket.emit("create queue", empresaId)
+            try {
+
+                const ticket = (await api.get(`/ticket/last/${empresaId}`)).data
+
+                setSenha(ticket)
+
+                console.log(ticket);
+
+            } catch (err) {
+
+                console.log(err);
+            }
+        }
+
+
+        setLoading(false);
 
         return () => {
             socket.disconnect()
         }
     }, []);
 
-    async function getSenha() {
+    async function getSenha(senha) {
 
-        const paramsBusca = new URLSearchParams(window.location.search);
+        const empresaId = empId
 
-        const empresaId = paramsBusca.get("userId")
+        const numTicket = senha
 
         try {
 
-            const numTicket = +senha + 1
-
-            const ticket = (await api.get(`/empresas/funcionario/${empresaId}/${numTicket}`)).data
+            const ticket = (await api.put(`/ticket/funcionario/${empresaId}/${numTicket}`)).data
 
             if (ticket === null) {
                 return alert("Não ha mais usuarios para chamar!")
             }
-                    
-            setSenha(numTicket)  
-                      
-            socket.emit("next ticket", ticket);        
+
+            setSenha(numTicket)
+
+            socket.emit("next ticket", ticket);
+
         } catch (err) {
 
             console.log(err);
 
         }
 
+
+    }
+
+    async function getFirstTicket() {
+
+        const empresaId = empId
+
+        try {
+
+            const ticket = (await api.get(`/ticket/next/${empresaId}`)).data
+
+            getSenha(ticket)
+
+        } catch (err) {
+
+            console.log(err);
+        }
     }
 
     return (
         <>
             {
                 loading ?
+
                     <p>carregando...</p> :
+
                     <>
                         <DashboardContainer />
                         <div>
@@ -89,9 +157,9 @@ export function Moderador() {
                                         <div>
                                             <p className="imgpato"></p>
                                         </div>
-                        
+
                                         <div>
-                                            <h2 className="senha">{senha}</h2>
+                                            <h2 className="senha">{+senha}</h2>
                                         </div>
                                     </div>
                                 </div>
@@ -100,7 +168,7 @@ export function Moderador() {
                             </div>
 
 
-                            <button className="btn" onClick={getSenha}>Proxima</button>
+                            <button className="btn" onClick={getFirstTicket}>Proxima</button>
                             <br />  <br />
                             <button className="btn" onClick={goMostrarSenha}>Tela Mostrar Senha</button>
                         </div>

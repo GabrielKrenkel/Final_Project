@@ -271,7 +271,6 @@ h6 span{
     transition: all 200ms linear;
 }
 
-.btn:active,
 .btn:focus{  
   box-shadow: 0 8px 24px 0 rgb(182, 182, 182);
 }
@@ -290,14 +289,30 @@ h6 span{
   margin-top: 20px;
 }
 
+.logo-titulo:hover {
+  outline: none;
+  box-shadow: 0 0 10px #ffe05693;
+}
+
 .form-signup{
   margin-top: -16px;
 }
 
 .fyp{
+  text-transform: uppercase;
   margin-top: 20px;
   position: relative;
-  left: 100px;
+  left: 40px;
+}
+
+a {
+  color:#d8d4d4;
+  font-size: 12px;
+}
+
+a:hover {
+  color: #d8d4d4;
+  text-shadow:0 0 10px #ffffff93;
 }
 
 .mb-4{
@@ -320,6 +335,17 @@ h6 span{
   }
   .mb-4{
     color: #c4c3ca;
+  }
+  .fyp{
+    text-transform: uppercase;
+    margin-top: 20px;
+    position: relative;
+    left: 80px;
+  }
+  
+  a {
+    color:#d8d4d4;
+    font-size: 12px;
   }
 
 }

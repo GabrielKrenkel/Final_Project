@@ -26,6 +26,9 @@
     background-repeat: no-repeat;
     border-radius: 10px;
 }
+.usercontainer{
+    padding-top: 0;
+}
 
 .name {
     padding-left: 20px;
@@ -37,13 +40,14 @@
     line-height: 22px;
     letter-spacing: 0.5px;
     outline: none;
-    color: #c4c3ca;
-    background-color: #1f2029;
+    color: #8d8d8d;
+    background-color: #2b2b2b;
     border: none;
     transition: all 200ms linear;
     box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
-    border: solid 1px #c4c3ca;
+    border: solid 1px rgb(80 80 80);
 }
+
 .email{
     padding-left: 20px;
     height: 25px;
@@ -54,13 +58,12 @@
     line-height: 22px;
     letter-spacing: 0.5px;
     outline: none;
-    color: #c4c3ca;
-    background-color: #1f2029;
+    color: #8d8d8d;
+    background-color: #2b2b2b;
     border: none;
     transition: all 200ms linear;
     box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
-    border: solid 1px #c4c3ca;
-      
+    border: solid 1px rgb(80 80 80);
 }
 
 .endereco{
@@ -73,13 +76,12 @@
     line-height: 22px;
     letter-spacing: 0.5px;
     outline: none;
-    color: #c4c3ca;
-    background-color: #1f2029;
+    color: #8d8d8d;
+    background-color: #2b2b2b;
     border: none;
     transition: all 200ms linear;
     box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
-    border: solid 1px #c4c3ca;
-    
+    border: solid 1px rgb(80 80 80);
 }
 
 .contato {
@@ -92,12 +94,12 @@
     line-height: 22px;
     letter-spacing: 0.5px;
     outline: none;
-    color: #c4c3ca;
-    background-color: #1f2029;
+    color: #8d8d8d;
+    background-color: #2b2b2b;
     border: none;
     transition: all 200ms linear;
     box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
-    border: solid 1px #c4c3ca;
+    border: solid 1px rgb(80 80 80);
 }
 
 
@@ -111,31 +113,12 @@
     line-height: 22px;
     letter-spacing: 0.5px;
     outline: none;
-    color: #c4c3ca;
-    background-color: #1f2029;
+    color: #8d8d8d;
+    background-color: #2b2b2b;
     border: none;
     transition: all 200ms linear;
     box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
-    border: solid 1px #c4c3ca;
-}
-
-
-.longitude {
-    padding-left: 20px;
-    height: 25px;
-    width: 80%;
-    font-weight: 500;
-    border-radius: 4px;
-    font-size: 14px;
-    line-height: 22px;
-    letter-spacing: 0.5px;
-    outline: none;
-    color: #c4c3ca;
-    background-color: #1f2029;
-    border: none;
-    transition: all 200ms linear;
-    box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
-    border: solid 1px #c4c3ca;
+    border: solid 1px rgb(80 80 80);
 }
 
 .latitude {
@@ -148,14 +131,32 @@
     line-height: 22px;
     letter-spacing: 0.5px;
     outline: none;
-    color: #c4c3ca;
-    background-color: #1f2029;
+    color: #8d8d8d;
+    background-color: #2b2b2b;
     border: none;
     transition: all 200ms linear;
     box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
-    border: solid 1px #c4c3ca;
-    
+    border: solid 1px rgb(80 80 80);
 }
+
+.longitude {
+    padding-left: 20px;
+    height: 25px;
+    width: 80%;
+    font-weight: 500;
+    border-radius: 4px;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.5px;
+    outline: none;
+    color: #8d8d8d;
+    background-color: #2b2b2b;
+    border: none;
+    transition: all 200ms linear;
+    box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
+    border: solid 1px rgb(80 80 80);
+}
+
 .salvarbotao{
     border-radius: 4px;
     height: 25px;

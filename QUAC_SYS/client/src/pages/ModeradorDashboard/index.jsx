@@ -4,7 +4,7 @@ import { api } from "../../services/api";
 import { socket } from "../../services/chat";
 import { useHistory } from "react-router-dom";
 import { Footer } from "../../components/Footer";
-
+import { ModalError } from '../../components/ModalError';
 import "./index.css"
 
 export function Moderador() {
@@ -16,6 +16,7 @@ export function Moderador() {
 
     const [empresaName, setEmpresas] = useState("")
     const [loading, setLoading] = useState(true);
+    const [showModal, setShowModal] = useState(false)
 
     async function getUserId() {
 
@@ -110,7 +111,7 @@ export function Moderador() {
             const ticket = (await api.put(`/ticket/funcionario/${empresaId}/${numTicket}`)).data
 
             if (ticket === null) {
-                return alert("Não ha mais usuarios para chamar!")
+                return setShowModal(true)
             }
 
             setSenha(numTicket)
@@ -153,7 +154,7 @@ export function Moderador() {
                         <DashboardContainer />
                         <div>
                             <div className="user-container">
-                            <a href="http://localhost:3000/" className="logo" target="_parent"><p className="logo-titulo">QUAC SYSTEM</p></a>
+                                <a href="http://localhost:3000/" className="logo" target="_parent"><p className="logo-titulo">QUAC SYSTEM</p></a>
                                 <h1 className="senhaatual">Senha atual:</h1>
                                 <div>
                                     <div className="content_card">
@@ -169,15 +170,26 @@ export function Moderador() {
 
                                 <p >{empresaName}</p>
                             </div>
-
-                            <button className="btn" onClick={getFirstTicket}>Proxima</button>
-                            <br />  <br />
-                            <button className="btn" onClick={goMostrarSenha}>Tela Mostrar Senha</button>
+                            <div className="buttons">
+                                
+                                <button className="btn" onClick={getFirstTicket}>Proxima</button>
+                            
+                                <button className="btn" onClick={goMostrarSenha}>Tela Mostrar Senha</button>
+                            </div>
                         </div>
                         <footer className="footer-senha">
-                            <Footer/>
+                            <Footer />
                         </footer>
                     </>
+            }
+            {showModal &&
+                <ModalError
+                    onClose={() => setShowModal(false)}
+                >
+                   
+                    <strong><p className="text-alert">Não a mais usuarios para chamar!</p></strong>
+                    
+                </ModalError>
             }
         </>
     );

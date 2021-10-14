@@ -1,5 +1,5 @@
 body{
-    background-color :#1b1b1b;  
+    background-color: black;
 }
 
 .btnhome {
@@ -18,11 +18,11 @@ body{
     border: none;
     background-color: #ffffff;
     color: #000000;
-    box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
+    box-shadow: 0 8px 24px 0 rgba(255, 235, 167, .2);
     align-items: center;
 }
-  
-  .btnSenha{
+
+.btnSenha {
     border-radius: 4px;
     height: 25px;
     font-size: 13px;
@@ -35,72 +35,81 @@ body{
     border: none;
     background-color: #ffffff;
     color: #000000;
-    box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);  
+    box-shadow: 0 8px 24px 0 rgba(255, 235, 167, .2);
     align-items: center;
 }
 
-  /* Small - Tablets */
+
+/* Small - Tablets */
+
 @media screen and (min-width: 600px) {
-  .btnhome {
-    margin-top: 10px;
-    border-radius: 4px;
-    height: 25px;
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
-    padding: 0 15px;
-    display: inline-flex;
-    position: relative;
-    left: 230px;
-    justify-content: flex-end;
-    text-align: center;
-    border: none;
-    background-color: #ffffff;
-    color: #000000;
-    box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
-    align-items: center;
-    margin-bottom: 30px;
+    .btnhome {
+        margin-top: 10px;
+        border-radius: 4px;
+        height: 25px;
+        font-size: 13px;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 0 15px;
+        display: inline-flex;
+        position: relative;
+        left: 230px;
+        justify-content: flex-end;
+        text-align: center;
+        border: none;
+        background-color: #ffffff;
+        color: #000000;
+        box-shadow: 0 8px 24px 0 rgba(255, 235, 167, .2);
+        align-items: center;
+        margin-bottom: 30px;
+    }
 }
-}
+
 
 /* Medium - Landscape tablets */
+
 @media screen and (min-width: 768px) {
-  .btnhome{
-    left: 320px;
-  }
+    .btnhome {
+        left: 320px;
+    }
 }
 
- /* Large - notebooks/desktops */
- @media screen and (min-width: 1024px) {
-  .btnhome{
-    left: 450px;
-  }
-}     
 
- /* Extra large - notebooks/desktops */
- @media screen and (min-width: 1200px) {
-  .btnhome{
-    left: 530px;
-  }
-}  
+/* Large - notebooks/desktops */
+
+@media screen and (min-width: 1024px) {
+    .btnhome {
+        left: 450px;
+    }
+}
+
+
+/* Extra large - notebooks/desktops */
+
+@media screen and (min-width: 1200px) {
+    .btnhome {
+        left: 530px;
+    }
+}
+
 @media screen and (min-width: 1920px) {
-  .btnhome{
-    left: 890px;
-      margin-top: 10px;
-      border-radius: 4px;
-      height: 35px;
-      font-size: 18px;
-      font-weight: 600;
-      text-transform: uppercase;
-      padding: 0 15px;
-      display: inline-flex;
-      position: relative;
-      justify-content: flex-end;
-      text-align: center;
-      border: none;
-      background-color: #ffffff;
-      color: #000000;
-      box-shadow: 0 8px 24px 0 rgba(255,235,167,.2);
-      align-items: center;
-  }
-} 
+    .btnhome {
+        left: 890px;
+        margin-top: 10px;
+        border-radius: 4px;
+        height: 35px;
+        font-size: 18px;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 0 15px;
+        display: inline-flex;
+        position: relative;
+        justify-content: flex-end;
+        text-align: center;
+        border: none;
+        background-color: #ffffff;
+        color: #000000;
+        box-shadow: 0 8px 24px 0 rgba(255, 235, 167, .2);
+        align-items: center;
+    }
+}

@@ -1,3 +1,7 @@
+body{
+    background-color: black;
+}
+
 .carregando{
     font-size: 40px;
     text-transform: uppercase;

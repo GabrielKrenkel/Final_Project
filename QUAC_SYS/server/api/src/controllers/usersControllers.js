@@ -5,7 +5,17 @@ const { User, Empresa } = require("../db/models");
 async function createUser(req, res, next) {
 
     const { nameRegister, emailRegister, phoneRegister, passwordRegister } = req.body;     
-    try {        
+    try {
+        const create = await Empresa.findOne({ 
+            where: {
+                email: emailRegister
+            }
+        })
+        
+        if (create) {
+            throw new createHttpError(409, "User already exists");
+        }
+
         const [user, created] = await User.findOrCreate({
             where: {
                 email: emailRegister
@@ -17,6 +27,7 @@ async function createUser(req, res, next) {
             throw new createHttpError(409, "User already exists");
         }
 
+        
         res.status(201).json(user);
     } catch (err) {
         console.log(err);

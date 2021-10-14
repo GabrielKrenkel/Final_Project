@@ -1,5 +1,6 @@
+
 .senhaatual {
-    padding-top: 70px;
+    margin-top: 40px;
     font-size: 50px;
     font-family: 'Poppins';
     text-transform: uppercase;
@@ -9,4 +10,13 @@
 }
 .user-container{
     padding-top: 70px;
+}
+.btn{
+    margin: 5px;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }

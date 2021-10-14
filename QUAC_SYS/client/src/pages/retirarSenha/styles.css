@@ -1,3 +1,6 @@
+body{
+    background-color: black;
+}
 
 .senha{
     font-size: 30px;
@@ -18,7 +21,7 @@
 }
 
 .footer-senha{
-    padding:40px 0;
+    margin:40px 0;
     position: absolute;
     bottom: 170px;
     width:100%;

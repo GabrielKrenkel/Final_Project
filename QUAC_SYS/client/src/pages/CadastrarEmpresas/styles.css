@@ -9,6 +9,9 @@
     text-transform: uppercase;
 }
 
+body{
+    background-color: black;
+}
 .imput {
     padding-left: 20px;
     height: 35px;

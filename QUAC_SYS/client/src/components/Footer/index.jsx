@@ -8,8 +8,8 @@ return(
     
 
     <div class="footer-basic">
-        <footer>
-            <div class="social">
+        <footer className="curve">
+            <div className="social">
                 <a href="#"><i class="footer-icon uil uil-twitter-alt"></i></a>
                 <a href="#"><i class="footer-icon uil uil-github-alt"></i></a>
                 <a href="#"><i class="footer-icon uil uil-linkedin"></i></a>

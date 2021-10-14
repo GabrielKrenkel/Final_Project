@@ -91,6 +91,9 @@ export function LoginAndRegister() {
                                                         <input type="password" name="logpass" className="form-style" placeholder="Sua senha" id="logpass" autocomplete="off" value={password} onChange={e => setPassword(e.target.value)} required/>
                                                         <i className="input-icon-login uil uil-lock-alt"></i>
                                                     </div>
+                                                    <div className="fyp">
+                                                        <p><a href="#">esqueceu a senha?</a></p>
+                                                    </div>
                                                     <button className="btn mt-4">Entrar</button>
                                                     </form>
                                                     
@@ -118,7 +121,7 @@ export function LoginAndRegister() {
                                                         <input type="password" name="logpass" className="form-style" placeholder="Senha" id="logpass" autocomplete="off" value={passwordRegister} onChange={e => setPasswordRegister(e.target.value)} required/>
                                                         <i className ="input-icon uil uil-lock-alt"></i>
                                                     </div>
-                                                    <button className="btn mt-4">Salvar</button>
+                                                        <button className="btn mt-4">Salvar</button>
                                                     </form>
                                                 </div>
                                             </div>

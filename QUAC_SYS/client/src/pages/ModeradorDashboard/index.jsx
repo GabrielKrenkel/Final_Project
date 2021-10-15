@@ -166,18 +166,14 @@ export function Moderador() {
                         <div>
                         <DashboardContainer />
                             <div className="user-container">
-                                <a href="http://localhost:3000/" className="logo" target="_parent"><p className="logo-titulo">QUAC SYSTEM</p></a>
+                            <a className="logo-quac-a" href="http://localhost:3000/"  target="_parent"><p className="logo-titulo-quac">QUAC SYSTEM</p></a>
                                 <h1 className="senhaatual">Senha atual:</h1>
                                 <div>
-                                    <div className="content_card">
-                                        <div>
-                                            <p className="imgpato"></p>
-                                        </div>
-
+                                    
                                         <div>
                                             <h2 className="senha">{+senha}</h2>
                                         </div>
-                                    </div>
+                                    
                                 </div>
 
                                 <p >{empresaName}</p>
@@ -190,7 +186,7 @@ export function Moderador() {
                             </div>
                         </div>
                         
-                        <footer>
+                        <footer className="footer-mod">
                             <Footer />
                         </footer>
                     </>

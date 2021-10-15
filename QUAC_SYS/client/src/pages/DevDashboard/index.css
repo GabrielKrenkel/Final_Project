@@ -249,8 +249,10 @@
   }        
   
   /* Extra large - notebooks/desktops */
-  @media screen and (min-width: 1200px) {
-   
+  @media screen and (min-width: 1900px) {
+    .footer-dev{
+        margin-top: 120px;
+    }
   }  
 
 

@@ -100,12 +100,14 @@ h1{
   align-items: flex-start;
 }
 
-
+.footer-user{
+  margin-top: 40px;
+}
 
 /* Small - Tablets */
 @media screen and (min-width: 600px) {
     .logo-titulo {
-      font-size: 50px;
+      font-size: 40px;
       color: #ffd139;
       border: solid 2px #ffdc69;
       display: inline-block;
@@ -147,9 +149,14 @@ h1{
         margin-bottom: 20px;
         border: solid 1px rgb(80, 80, 80)
     }
-  
+    
+    .footer-user{
+      margin-top: 120px;
+    }
   }
+
   
+
   /* Medium - Landscape tablets */
   @media screen and (min-width: 768px) {
     .card{
@@ -219,3 +226,8 @@ h1{
     }
     
   }  
+  @media screen and (min-width: 1900px){
+    .footer-user{
+      margin-top: 240px;
+    }
+  }

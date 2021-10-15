@@ -8,10 +8,27 @@ body{
 }
 
 .nome-usuario{
-    font-size: 30px;
+    font-size: 40px;
     text-transform: uppercase;
 }
 
 .senha-span{
-    font-size: 85px;
+    font-size: 200px;
+}
+.footer-senha{
+margin-top: 120px;
+}
+
+@media screen and (min-width: 1920px){
+    .footer-senha{
+        margin-top: 230px;
+        }  
+        .nome-usuario{
+            font-size: 50px;
+            text-transform: uppercase;
+        }
+        
+        .senha-span{
+            font-size: 300px;
+        }  
 }

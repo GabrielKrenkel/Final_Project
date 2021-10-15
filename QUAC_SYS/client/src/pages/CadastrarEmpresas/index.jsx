@@ -45,7 +45,7 @@ export function EmpresaCadastrar() {
         <>
         <ReturnDeshboard/>
         <div>
-        <a href="http://localhost:3000/" className="logo" target="_parent"><p className="logo-titulo">QUAC SYSTEM</p></a>
+        <a className="logo-quac-a" href="http://localhost:3000/"  target="_parent"><p className="logo-titulo-quac">QUAC SYSTEM</p></a>
             <h2 className="titulo_cadastro">Cadastro da empresa</h2>
 
             <form onSubmit={handleSubmit}>

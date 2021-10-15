@@ -36,7 +36,7 @@ export function Moderador() {
 
         let empresaId;
 
-        async function getUserId() {
+        async function getEmpId() {
 
             try {
                 const { id } = (await api.get("/users/")).data
@@ -73,7 +73,7 @@ export function Moderador() {
 
         }
 
-        getUserId()
+        getEmpId()
 
 
         async function getTicket() {
@@ -82,16 +82,17 @@ export function Moderador() {
 
                 const ticket = (await api.get(`/ticket/last/${empresaId}`)).data
 
-                setSenha(ticket)
+                setSenha(ticket.ticket)
 
-                console.log(ticket);
+                socket.emit("next ticket", ticket);
+
+                
 
             } catch (err) {
 
                 console.log(err);
             }
         }
-
 
         setLoading(false);
 
@@ -146,13 +147,24 @@ export function Moderador() {
     return (
         <>
             {
+                showModal &&
+
+                <ModalError onClose={setTimeout(() => { setShowModal(false) }, 900)}>
+
+                    <strong><p className="text-alert">Não a mais usuarios para chamar!</p></strong>
+
+                </ModalError>
+            }
+
+            {
                 loading ?
 
                     <p>carregando...</p> :
 
                     <>
-                        <DashboardContainer />
+                        
                         <div>
+                        <DashboardContainer />
                             <div className="user-container">
                                 <a href="http://localhost:3000/" className="logo" target="_parent"><p className="logo-titulo">QUAC SYSTEM</p></a>
                                 <h1 className="senhaatual">Senha atual:</h1>
@@ -171,26 +183,19 @@ export function Moderador() {
                                 <p >{empresaName}</p>
                             </div>
                             <div className="buttons">
-                                
-                                <button className="btn" onClick={getFirstTicket}>Proxima</button>
-                            
+
+                                <button className="btn" onClick={() => getFirstTicket()}>Proxima</button>
+
                                 <button className="btn" onClick={goMostrarSenha}>Tela Mostrar Senha</button>
                             </div>
                         </div>
-                        <footer className="footer-senha">
+                        
+                        <footer>
                             <Footer />
                         </footer>
                     </>
             }
-            {showModal &&
-                <ModalError
-                    onClose={() => setShowModal(false)}
-                >
-                   
-                    <strong><p className="text-alert">Não a mais usuarios para chamar!</p></strong>
-                    
-                </ModalError>
-            }
+
         </>
     );
 }

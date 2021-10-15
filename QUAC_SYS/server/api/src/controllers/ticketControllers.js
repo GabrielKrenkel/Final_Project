@@ -13,8 +13,8 @@ async function retirarTicket(req, res, next) {
         // Obter o último ticket
         const lastTicket = await Ticket.findOne({
             where: { empresa_id },
-            order: [              
-              [sequelize.fn('max', sequelize.col('ticket')), 'DESC'],
+            order: [
+                [sequelize.fn('max', sequelize.col('ticket')), 'DESC'],
             ],
             group: "id"
         });
@@ -25,9 +25,9 @@ async function retirarTicket(req, res, next) {
 
 
         if (!lastTicket) {
-            ticket = await Ticket.create({ verified: 0, empresa_id, user_id: userId,  expirationTime, ticket: 1});
+            ticket = await Ticket.create({ verified: 0, empresa_id, user_id: userId, expirationTime, ticket: 1 });
         } else {
-            ticket = await Ticket.create({ verified: 0, empresa_id, user_id: userId,  expirationTime, ticket: lastTicket.ticket + 1});
+            ticket = await Ticket.create({ verified: 0, empresa_id, user_id: userId, expirationTime, ticket: lastTicket.ticket + 1 });
         }
 
         res.status(201).json(ticket);
@@ -39,7 +39,7 @@ async function retirarTicket(req, res, next) {
         next(err);
     }
 
-    
+
 }
 
 async function deleteTicket(req, res, next) {
@@ -47,7 +47,7 @@ async function deleteTicket(req, res, next) {
     const ticketId = req.params.id
 
     try {
-        
+
         const senha = await Ticket.findOne({ where: { id: ticketId } })
 
         if (!senha) {
@@ -68,15 +68,15 @@ async function deleteTicket(req, res, next) {
     }
 }
 
-async function findLastTicket(req, res, next){
+async function findLastTicket(req, res, next) {
 
     const userId = req.params.id
 
     try {
         const lastTicket = await Ticket.findOne({
             where: { user_id: userId },
-            order: [              
-              [sequelize.fn('max', sequelize.col('ticket')), 'DESC'],
+            order: [
+                [sequelize.fn('max', sequelize.col('ticket')), 'DESC'],
             ],
             group: "id"
         });
@@ -90,31 +90,31 @@ async function findLastTicket(req, res, next){
 }
 
 async function getTicket(req, res, next) {
-    
+
     const empresaId = req.params.id
     const numTicket = req.params.numTicket
 
     try {
-        
+
         let allTickets = await Ticket.findOne({
-            
+
             where: {
                 empresa_id: empresaId,
-                ticket: numTicket, 
+                ticket: numTicket,
                 verified: false
             }
-        
+
         })
-        
+
         if (!allTickets) {
             res.json(null)
         }
         allTickets.verified = true
 
         await allTickets.save()
-        
+
         res.json(allTickets)
-        
+
     } catch (err) {
         console.log(err);
 
@@ -123,15 +123,15 @@ async function getTicket(req, res, next) {
 
 }
 
-async function getNotVerifi(req, res, next){
+async function getNotVerifi(req, res, next) {
 
     const userId = req.params.id
 
     try {
-        let lastTicket = await Ticket.min( "ticket", { where: { verified: false, empresa_id: userId } } )
+        let lastTicket = await Ticket.min("ticket", { where: { verified: false, empresa_id: userId } })
 
         if (!lastTicket) {
-           lastTicket =  await Ticket.max( "ticket", { where: { verified: true, empresa_id: userId } } )
+            lastTicket = await Ticket.max("ticket", { where: { verified: true, empresa_id: userId } })
         }
 
         if (!lastTicket) {
@@ -147,21 +147,34 @@ async function getNotVerifi(req, res, next){
     }
 }
 
-async function getVerifi(req, res, next){
+async function getVerifi(req, res, next) {
 
     const userId = req.params.id
 
     try {
-            const lastTicket =  await Ticket.max( "ticket", { where: { verified: true, empresa_id: userId } } )
+        const lastTicket = await Ticket.findOne({
+            where: {
+                verified: true,
+                empresa_id: userId
+            },
+            order: [
+                [sequelize.fn('max', sequelize.col('ticket')), 'DESC']
+            ],
+            group: "id"
+        });
 
-            if (!lastTicket) {
-                throw new createHttpError(404, "not found enterprise")
-            }
 
-            res.status(202).json(lastTicket)
+        if (!lastTicket) {
+            throw new createHttpError(404, "not found enterprise")
+        }
+
+        console.log(lastTicket);
+
+        res.status(202).json(lastTicket)
 
     } catch (err) {
         console.log(err);
+
 
         next(err)
     }

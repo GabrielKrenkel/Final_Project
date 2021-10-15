@@ -48,7 +48,7 @@ export function RetirarTicket() {
         }
     }, []);
 
-    async function findLastTicket(idUser, current) {
+    async function findLastTicket(idUser) {
 
         try {
             const { ticket } = (await api.get(`/ticket/local/${idUser}`)).data
@@ -58,6 +58,7 @@ export function RetirarTicket() {
             console.log(err);
         }
     }
+
     async function retiraSenha() {
 
         const empresaId = paramBusca.get("empId");
@@ -100,6 +101,7 @@ export function RetirarTicket() {
                     </>    
                 </h5>
             </div>
+            <br /><br />
             <footer className="footer-senha">
                 <Footer/>
             </footer>

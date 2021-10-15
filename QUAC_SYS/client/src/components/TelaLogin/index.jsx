@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import { api } from '../../services/api'
 import { Footer } from "../Footer";
 import { ModalError } from "../ModalError";
+
 export function LoginAndRegister() {
 
     //Login partition
@@ -68,7 +69,7 @@ export function LoginAndRegister() {
                 }
     
             } catch (err) {
-                if (err.response.status == 409) {
+                if (err.response.status === 409) {
                     setErrorMessage("Usuario já cadastrado")    
                 }
                 
@@ -85,11 +86,11 @@ export function LoginAndRegister() {
             return(setErrorMessage("Senha muito curta"));
         } else if (str.length > 50) {
             return(setErrorMessage("Senha muito longa"));
-        } else if (str.search(/[a]/) == -1) {
-            return(setErrorMessage("A senha não possui letras minusculas"));
-        } else if (str.search(/[A]/) == -1) {
+        } else if (str.search(/[a]/) === -1) {
+            return(setErrorMessage("A senha não possui letras minuscula"));
+        } else if (str.search(/[A]/) === -1) {
             return(setErrorMessage("A senha não possui letras maiuscula"));
-        } else if (str.search(/[!-@-#-$-%-&]/) == -1) {
+        } else if (str.search(/[!-@-#-$-%-&]/) === -1) {
             return(setErrorMessage("Senha sem caractere especial"));
         }
         return("ok");
@@ -97,12 +98,17 @@ export function LoginAndRegister() {
     return (
         <>
             {error &&
-                <ModalError onClose={() => setShowModal(false)}>
+                <ModalError onClose={ setTimeout(() => {
+                    setShowModal(false)
+                }, 2000) }>
 
                     <p className="text-alert">{errorMessage}</p>
 
                 </ModalError>
             }
+            <nav>
+                <a href="/" className="btn">Home</a>
+            </nav>
             <div className="section">
                 <div className="container">
                     <div className="row full-height justify-content-center">

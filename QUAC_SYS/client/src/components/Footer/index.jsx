@@ -7,22 +7,22 @@ return(
     
     
 
-    <div class="footer-basic">
+    <div className="footer-basic">
         <footer className="curve">
             <div className="social">
-                <a href="#"><i class="footer-icon uil uil-twitter-alt"></i></a>
-                <a href="#"><i class="footer-icon uil uil-github-alt"></i></a>
-                <a href="#"><i class="footer-icon uil uil-linkedin"></i></a>
-                <a href="#"><i class="footer-icon uil uil-instagram"></i></a>
+                <a href="./"><i className="footer-icon uil uil-twitter-alt"></i></a>
+                <a href="./"><i className="footer-icon uil uil-github-alt"></i></a>
+                <a href="./"><i className="footer-icon uil uil-linkedin"></i></a>
+                <a href="./"><i className="footer-icon uil uil-instagram"></i></a>
             </div>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Home</a></li>
-                <li class="list-inline-item"><a href="#">Services</a></li>
-                <li class="list-inline-item"><a href="#">About</a></li>
-                <li class="list-inline-item"><a href="#">Terms</a></li>
-                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+            <ul className="list-inline">
+                <li className="list-inline-item"><a href="./">Home</a></li>
+                <li className="list-inline-item"><a href="./">Services</a></li>
+                <li className="list-inline-item"><a href="./">About</a></li>
+                <li className="list-inline-item"><a href="./">Terms</a></li>
+                <li className="list-inline-item"><a href="./">Privacy Policy</a></li>
             </ul>
-                <p class="copyright">DWAYEL-Tech © 2021</p>
+                <p className="copyright">DWAYEL-Tech © 2021</p>
         </footer>
     </div>
     </>

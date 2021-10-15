@@ -12,7 +12,9 @@
 body{
     background-color: black;
 }
+
 .imput {
+    margin-top: 10px;
     padding-left: 20px;
     height: 35px;
     width: 80%;
@@ -28,7 +30,8 @@ body{
     transition: all 200ms linear;
     box-shadow: 0 4px 8px 0 rgb(21 21 21 / 20%);
     margin-bottom: 20px;
-    border: solid 1px rgb(80, 80, 80)
+    border: solid 1px rgb(80, 80, 80);
+    
 }
 .imput:focus{
 outline: none;
@@ -36,14 +39,21 @@ outline: none;
   box-shadow: 0 0 2px #696969;
 }
 
-
+.div-form {
+    display: flex;
+    flex-direction: column;
+}
 .label_cadastro{
+    display: flex;
     margin-bottom: 0px;
     font-size: 15px;
     font-family: "Poppins", "Courier New", monospace;
     text-transform: uppercase;
-    position: absolute;
     left: 37px;
+    flex-direction: column;
+    align-items: flex-start;
+    align-content: space-around;
+    flex-wrap: wrap;
 }
 
 .btnsalvar{
@@ -68,7 +78,7 @@ outline: none;
   /* Small - Tablets */
   @media screen and (min-width: 600px) {
     .label_cadastro{
-    position: absolute;
+    
     left: 60px;
     }
 }
@@ -76,7 +86,7 @@ outline: none;
 /* Medium - Landscape tablets */
 @media screen and (min-width: 768px) {
     .label_cadastro{
-    position: absolute;
+    
     left: 78px;
     }
 }
@@ -89,7 +99,7 @@ outline: none;
     }
 
     .label_cadastro{
-        position: absolute;
+        
         left: 138px;
         font-size: 17px ;
         margin-bottom: 9px;
@@ -103,7 +113,6 @@ outline: none;
  /* Extra large - notebooks/desktops */
  @media screen and (min-width: 1200px) {
     .label_cadastro{
-        position: absolute;
         left: 225px;
         font-size: 17px ;
         margin-bottom: 9px;

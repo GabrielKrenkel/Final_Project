@@ -11,7 +11,7 @@ import { PrivateRoute } from "./privateRoutes";
 import { RouteMap } from "../pages/VerificarDistancia"
 import { RetirarTicket } from "../pages/RetirarSenha";
 import { MostrarSenha } from "../pages/MostrarSenha";
-
+import { LoginAndRegister } from "../components/TelaLogin"
 
 
 export function Routes() {
@@ -21,7 +21,10 @@ export function Routes() {
                 <Switch>  
                     <Route exact path="/" component={Home} />  
                     
-
+                    <Route path="/login">
+                        <LoginAndRegister/>
+                    </Route>
+                    
                     <PrivateRoute path="/CadastrarEmpresas" permissions={["dev"]}>
                         <EmpresaCadastrar />
                     </PrivateRoute>  

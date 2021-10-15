@@ -1,6 +1,7 @@
 import { Redirect } from "react-router-dom";
 import authServices from "../../services/authServices";
-import { LoginAndRegister } from "../../components/TelaLogin";
+
+import { InitialPage } from "../InitialPage";
 
 export function Home() {
   const accessToken = authServices.getAccessToken();  
@@ -12,7 +13,7 @@ export function Home() {
   return (
 
     <>
-      <LoginAndRegister/>
+      <InitialPage></InitialPage>
     </>
   );  
 }

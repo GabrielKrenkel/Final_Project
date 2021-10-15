@@ -21,8 +21,8 @@ body{
 }
 
 .footer-senha{
-    margin:40px 0;
-    position: absolute;
+    padding:60px 0;
+    position: relative;
     bottom: 170px;
     width:100%;
 }

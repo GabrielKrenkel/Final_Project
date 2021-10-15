@@ -8,6 +8,10 @@ body {
     overflow-x: hidden;
 }
 
+.footer-basic {
+    margin-top: 40px;
+}
+
 a {
     cursor: pointer;
     transition: all 200ms linear;
@@ -190,7 +194,14 @@ h6 span {
     border-color: #686868;
     box-shadow: 0 0 2px #696969;
 }
-
+.button-home {
+    margin-top: 10px;
+    display: flex;
+    align-items: flex-start;
+}
+.position {
+    margin-left: 10px;
+}
 .input-icon {
     position: absolute;
     top: 0;

@@ -1,5 +1,4 @@
 .footer-basic {
-    margin:40px 0;
     color:#4b4c4d;
     position:absolute;
     width:100%;
@@ -15,9 +14,6 @@
     margin-bottom:0;
   }
   
-  .curve {
-    margin-top: 40px;
-  }
   .footer-basic li {
     padding:0 10px;
   }

@@ -8,7 +8,7 @@ return(
     
 
     <div className="footer-basic">
-        <footer className="curve">
+        <footer >
             <div className="social">
                 <a href="./"><i className="footer-icon uil uil-twitter-alt"></i></a>
                 <a href="./"><i className="footer-icon uil uil-github-alt"></i></a>

@@ -60,20 +60,20 @@ export function LoginAndRegister() {
             try {
 
                 const response = await api.post('/users', data);
-    
+
                 if (response.status === 201) {
-    
+
                     alert("Usuário cadastrado com sucesso")
-    
-    
+
+
                 }
-    
+
             } catch (err) {
                 if (err.response.status === 409) {
-                    setErrorMessage("Usuario já cadastrado")    
+                    setErrorMessage("Usuario já cadastrado")
                 }
-                
-    
+
+
                 setShowModal(true)
             }
         } else {
@@ -83,37 +83,41 @@ export function LoginAndRegister() {
 
     function checkPwd(str) {
         if (str.length < 8) {
-            return(setErrorMessage("Senha muito curta"));
+            return (setErrorMessage("Senha muito curta"));
         } else if (str.length > 50) {
-            return(setErrorMessage("Senha muito longa"));
+            return (setErrorMessage("Senha muito longa"));
         } else if (str.search(/[a]/) === -1) {
-            return(setErrorMessage("A senha não possui letras minuscula"));
+            return (setErrorMessage("A senha não possui letras minuscula"));
         } else if (str.search(/[A]/) === -1) {
-            return(setErrorMessage("A senha não possui letras maiuscula"));
+            return (setErrorMessage("A senha não possui letras maiuscula"));
         } else if (str.search(/[!-@-#-$-%-&]/) === -1) {
-            return(setErrorMessage("Senha sem caractere especial"));
+            return (setErrorMessage("Senha sem caractere especial"));
         }
-        return("ok");
+        return ("ok");
     }
     return (
         <>
             {error &&
-                <ModalError onClose={ setTimeout(() => {
+                <ModalError onClose={setTimeout(() => {
                     setShowModal(false)
-                }, 2000) }>
+                }, 2000)}>
 
                     <p className="text-alert">{errorMessage}</p>
 
                 </ModalError>
             }
             <nav>
-                <a href="/" className="btn">Home</a>
+                <a href="/" className="btnhome">Home</a>
             </nav>
+            
+                <a className="logo-quac-a" href="http://localhost:3000/"  target="_parent"><p className="logo-titulo-quac">QUAC SYSTEM</p></a>
+            
             <div className="section">
-                <div className="container">
+
+                <div className="container-login">
                     <div className="row full-height justify-content-center">
                         <div className="col-12 text-center align-self-center py-5">
-                            <a href="http://localhost:3000/" className="logo" target="_parent"><p className="logo-titulo">QUAC SYSTEM</p></a>
+
                             <div className="section pb-5 pt-5 pt-sm-2 text-center">
                                 <h6 className="mb-0 pb-3"><span>Login</span><span>Cadastrar</span></h6>
                                 <input className="checkbox" type="checkbox" id="reg-log" name="reg-log"></input>
@@ -173,7 +177,7 @@ export function LoginAndRegister() {
                     </div>
                 </div>
             </div>
-            <footer>
+            <footer className="footer-login">
                 <Footer />
             </footer>
         </>

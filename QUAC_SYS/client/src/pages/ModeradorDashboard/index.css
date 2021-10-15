@@ -6,7 +6,7 @@
     text-transform: uppercase;
 }
 .senha{
-    font-size: 100px;
+    font-size: 150px;
 }
 .user-container{
     padding-top: 70px;
@@ -20,4 +20,17 @@
     flex-wrap: wrap;
     justify-content: center;
     z-index: 10000;
+}
+.footer-mod{
+    margin-top: 70px;
+}
+@media screen and (min-width: 600px){
+    .footer-mod{
+        margin-top: 140px;
+    }
+}
+@media screen and (min-width: 1900px){
+    .footer-mod{
+        margin-top: 240px;
+    }
 }

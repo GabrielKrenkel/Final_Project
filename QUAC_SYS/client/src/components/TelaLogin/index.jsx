@@ -86,10 +86,10 @@ export function LoginAndRegister() {
             return (setErrorMessage("Senha muito curta"));
         } else if (str.length > 50) {
             return (setErrorMessage("Senha muito longa"));
-        } else if (str.search(/[a]/) === -1) {
-            return (setErrorMessage("A senha não possui letras minuscula"));
-        } else if (str.search(/[A]/) === -1) {
-            return (setErrorMessage("A senha não possui letras maiuscula"));
+        // } else if (str.search(/[a]/) === -1) {
+        //     return (setErrorMessage("A senha não possui letras minuscula"));
+        // } else if (str.search(/[A]/) === -1) {
+        //     return (setErrorMessage("A senha não possui letras maiuscula"));
         } else if (str.search(/[!-@-#-$-%-&]/) === -1) {
             return (setErrorMessage("Senha sem caractere especial"));
         }
@@ -109,9 +109,9 @@ export function LoginAndRegister() {
             <nav>
                 <a href="/" className="btnhome">Home</a>
             </nav>
-            
+
                 <a className="logo-quac-a" href="http://localhost:3000/"  target="_parent"><p className="logo-titulo-quac">QUAC SYSTEM</p></a>
-            
+
             <div className="section">
 
                 <div className="container-login">

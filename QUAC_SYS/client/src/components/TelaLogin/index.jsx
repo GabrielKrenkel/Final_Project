@@ -82,17 +82,18 @@ export function LoginAndRegister() {
     }
 
     function checkPwd(str) {
+
+        console.log(str);
+
         if (str.length < 8) {
             return (setErrorMessage("Senha muito curta"));
         } else if (str.length > 50) {
             return (setErrorMessage("Senha muito longa"));
-        // } else if (str.search(/[a]/) === -1) {
-        //     return (setErrorMessage("A senha não possui letras minuscula"));
-        // } else if (str.search(/[A]/) === -1) {
-        //     return (setErrorMessage("A senha não possui letras maiuscula"));
-        } else if (str.search(/[!-@-#-$-%-&]/) === -1) {
-            return (setErrorMessage("Senha sem caractere especial"));
-        }
+        } else if (str.search(/[a-z]/)== -1) {
+            return (setErrorMessage("A senha não possui letras minuscula"));
+        } else if (str.search(/[A-Z]/) == -1) {
+            return (setErrorMessage("A senha não possui letras maiuscula"));
+        } 
         return ("ok");
     }
     return (

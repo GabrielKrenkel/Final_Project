@@ -25,7 +25,7 @@ async function cadastrarEmpresa(req, res, next) {
 
 async function editEmpresa(req, res, next) {
     
-    const empresaAtualizada = req.body;
+    const data = req.body;
     
     const idEmpresa = req.params.id
 
@@ -35,11 +35,11 @@ async function editEmpresa(req, res, next) {
 
         if (!empresa) throw new createError(404, "Empresa não encontrado!");
 
-        Object.assign(empresa, empresaAtualizada);
+        Object.assign(empresa, data);
 
         await empresa.save();
         
-        res.status(201).json(empresaAtualizada);
+        res.status(201).json(empresa);
 
     } catch (err) {
 

@@ -190,7 +190,7 @@ export function Moderador() {
                             </div>
                         </div>
                         
-                        <footer>
+                        <footer className="footer-mod">
                             <Footer />
                         </footer>
                     </>

@@ -8,9 +8,7 @@ body {
     overflow-x: hidden;
 }
 
-.footer-basic {
-    margin-top: 40px;
-}
+
 
 a {
     cursor: pointer;
@@ -145,6 +143,9 @@ h6 span {
 
 .card-back {
     transform: rotateY(180deg);
+}
+.login-footer .footer-basic {
+    margin-top: 0px;
 }
 
 .checkbox:checked~.card-3d-wrap .card-3d-wrapper {

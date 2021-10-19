@@ -1,5 +1,6 @@
 .logo{
   margin: 15px 0px 0px 15px;
+  
 }
 .head {
     display: flex;
@@ -7,6 +8,7 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    margin-right: 15px;
 }
 .main {
   display: flex;
@@ -14,14 +16,21 @@
   flex-wrap: wrap;
 }
 
+.steps1{
+    display: flex;
+    flex-direction: column;
+    
+}
+.steps{
+  display: flex;
+  flex-direction: column;
+}
 .sec{
-  top: 300px;
-  left: 50px;
   width: 500px;
   display: flex;
   flex-direction: column;
-  margin-left: 0px;
-  margin-top: 50px;
+  margin-left: 50px;
+  margin-top: 150px;
 }
 .info{
   color: white;

@@ -66,7 +66,7 @@ export function RouteMap() {
                     lon={lonEmp}
                 />
 
-                <button className="btnSenha" onClick={retirarSenha}>retirar senha</button>
+                <button className="btnSenha" onClick={retirarSenha}>Próximo</button>
             </div>
             <footer>
                 <Footer/>

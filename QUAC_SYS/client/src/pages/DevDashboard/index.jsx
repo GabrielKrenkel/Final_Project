@@ -64,7 +64,7 @@ export function DevDashboard() {
     async function editEmp(idEmpresa) {
 
         try {
-            const empresa = await api.get(`/empresas/${idEmpresa}`)
+            const empresa = (await api.get(`/empresas/${idEmpresa}`)).data
 
             showEmp(empresa)
 
@@ -78,7 +78,7 @@ export function DevDashboard() {
 
     function showEmp(empresa) {
 
-        console.log(empresa.data);
+        console.log(empresa);
 
         let nome = document.querySelector(".name")
         let endereco = document.querySelector(".endereco")
@@ -88,16 +88,16 @@ export function DevDashboard() {
         let longitude = document.querySelector(".longitude")
         let email = document.querySelector(".email")
 
-        nome.value = empresa.data.nome
-        endereco.value = empresa.data.endereco
-        contato.value = empresa.data.numero_contato
-        atendimento.value = empresa.data.horario_atendimento
-        latitude.value = empresa.data.latitude
-        longitude.value = empresa.data.longitude
-        email.value = empresa.data.email
+        nome.value = empresa.nome
+        endereco.value = empresa.endereco
+        contato.value = empresa.numero_contato
+        atendimento.value = empresa.horario_atendimento
+        latitude.value = empresa.latitude
+        longitude.value = empresa.longitude
+        email.value = empresa.email
 
 
-        showModal(empresa.data.id)
+        showModal(empresa.id)
     }
 
     function showModal(empresaId) {
@@ -124,7 +124,7 @@ export function DevDashboard() {
         let nome = document.querySelector(".name").value
         let endereco = document.querySelector(".endereco").value
         let numero_contato = document.querySelector(".contato").value
-        let email = document.querySelector(".email")
+        let email = document.querySelector(".email").value
         let horario_atendimento = document.querySelector(".atendimento").value
         let latitude = document.querySelector(".latitude").value
         let longitude = document.querySelector(".longitude").value
@@ -134,9 +134,13 @@ export function DevDashboard() {
 
         try {
 
-            const response = await api.put(`/developer/${idEmpresa}`, data);
+            console.log(data);
+            console.log(idEmpresa);
+            const response = await api.put(`/developer/${idEmpresa}`, data)
 
-            if (response.status === 201) {
+            console.log("NAO FOI");
+
+            if (response.status == 201) {
 
                 alert("Empresa atualizada com sucesso!!")
 
@@ -149,7 +153,7 @@ export function DevDashboard() {
 
         } catch (error) {
 
-            console.log(error);
+            console.log(error.message);
 
         }
 

@@ -173,7 +173,8 @@ export function LoginAndRegister() {
                     </div>
                 </div>
             </div>
-            <footer>
+
+            <footer className="login-footer">
                 <Footer />
             </footer>
         </>

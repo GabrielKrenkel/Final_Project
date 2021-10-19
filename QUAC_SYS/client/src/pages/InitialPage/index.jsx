@@ -23,18 +23,29 @@ export function InitialPage() {
                 <main className="w-100 main">
                                    
                     <section className="container-sm sec">
-                        <h3 style={{color: "white"}}>lorem</h3>
-                        <p className="info">Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum minima, dicta expedita soluta autem cum impedit temporibus veniam nam quidem at fuga, perspiciatis hic nobis quae debitis suscipit laudantium labore.</p>
+                        <h3 style={{color: "white"}}>QUAC-SYS</h3>
+                        <p className="info">
+                            Projetado pensando na satisfação dos usuários e na diminuição de filas em hospitais, instituições privadas, 
+                            entre outros devido a pandemia de Covid -19, o QUAC-SYSTEM veio para melhorar e inovar as filas de atendimentos, gerando mais conforto e segurança para seus usuários,
+                            e preservando a natureza, diminuindo o gasto com papel impresso.
+                        </p>
                     </section>
                     <section className="container-sm div" style={{color: "white"}}>
                         <h3>Como utilizar?</h3>
-                        <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Totam placeat quaerat ratione quia deserunt veritatis nihil voluptatem facilis dolor harum dolorum eligendi sint aspernatur, beatae, voluptatibus exercitationem, itaque pariatur doloremque!
+                        <p className="steps1"> 
+                            <label className="steps"><strong>Passo 1</strong> Crie sua conta no nosso site.</label> <br />
+                            
+                            <label className="steps"><strong>Passo 2</strong> Após criar uma conta, você tera uma tela onde vai poder pesquisar a empresa de sua preferencia!</label> <br />
+                            
+                            <label className="steps"> <strong>Passo 3</strong> Após selecionar a empresa de sua preferencia, você terá acesso a uma tela onde você poderá verificar a distancia da sua localização até onde você deseja ir e quanto temo irá demorar até lá, se estiver tudo de acordo pressione "Próximo".</label>
+                            <br />
+                            <label className="steps"><strong>Passo 4</strong> Ótimo! você agora está no ultimo passo, pode retirar sua senha e ir com calma até o local! </label>
                         </p>
                     </section>
                     
                 </main>
 
-                <footer>
+                <footer className="footer-initial">
                     <Footer/>
                 </footer>
 

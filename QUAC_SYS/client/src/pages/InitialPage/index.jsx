@@ -11,7 +11,7 @@ export function InitialPage() {
 
                 <header className="head">
                     
-                        <a href="./" className="logo" target="_parent"><p className="logo-titulo">QUAC SYSTEM</p></a>
+                <a className="logo-quac-a" href="https://quac-system-front.herokuapp.com"  target="_parent"><p className="logo-titulo-quac">QUAC SYSTEM</p></a>
                     
                     <nav className="navgation">
                         <a className="btn btn-dark" href="./">Contact-us</a>

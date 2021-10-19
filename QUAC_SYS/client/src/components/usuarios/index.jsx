@@ -92,7 +92,7 @@ export function UserDashboard() {
         <>
         <DashboardContainer/>
             <div className="usercontainer">
-            <a className="logo-quac-a" href="http://localhost:3000/"  target="_parent"><p className="logo-titulo-quac">QUAC SYSTEM</p></a>
+            <a className="logo-quac-a" href="https://quac-system-front.herokuapp.com"  target="_parent"><p className="logo-titulo-quac">QUAC SYSTEM</p></a>
                 <div className="form-group">
                     <h1>Escolha o estabelecimento</h1>
                     <label htmlFor="to" className="paraOndeLabel"></label>

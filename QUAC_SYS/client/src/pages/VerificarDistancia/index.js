@@ -68,7 +68,7 @@ export function RouteMap() {
 
                 <button className="btnSenha" onClick={retirarSenha}>Próximo</button>
             </div>
-            <footer>
+            <footer className="footer-verificar">
                 <Footer/>
             </footer>
         </>

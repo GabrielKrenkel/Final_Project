@@ -182,7 +182,7 @@ export function DevDashboard() {
             <br/>
             <br/>
             <div className="admin-container">
-                <a href="http://localhost:3000/" className="logo" target="_parent"><p className="logo-titulo">QUAC SYSTEM</p></a>
+            <a className="logo-quac-a" href="http://localhost:3000/"  target="_parent"><p className="logo-titulo-quac">QUAC SYSTEM</p></a>
                 <br/>
                 <button
                     className="btn"
@@ -284,7 +284,7 @@ export function DevDashboard() {
                     <button className="botaocancelar" onClick={() => { closeModal() }}>Cancelar</button>             
                 </div>
             </div>
-            <footer>
+            <footer className="footer-dev">
                 <Footer/>
             </footer>
         </>

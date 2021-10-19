@@ -92,7 +92,7 @@ export function UserDashboard() {
         <>
         <DashboardContainer/>
             <div className="usercontainer">
-            <a href="http://localhost:3000/" className="logo" target="_parent"><p className="logo-titulo">QUAC SYSTEM</p></a>
+            <a className="logo-quac-a" href="http://localhost:3000/"  target="_parent"><p className="logo-titulo-quac">QUAC SYSTEM</p></a>
                 <div className="form-group">
                     <h1>Escolha o estabelecimento</h1>
                     <label htmlFor="to" className="paraOndeLabel"></label>
@@ -150,7 +150,7 @@ export function UserDashboard() {
 
 
             </div>
-            <footer>
+            <footer className="footer-user">
                 <Footer/>
             </footer>
         </>

@@ -10,6 +10,7 @@ body {
 
 
 
+
 a {
     cursor: pointer;
     transition: all 200ms linear;
@@ -47,9 +48,7 @@ h6 span {
 }
 
 .section {
-    position: relative;
     width: 100%;
-    display: block;
 }
 
 .full-height {
@@ -315,21 +314,17 @@ h6 span {
     box-shadow: 0 8px 24px 0 rgb(182, 182, 182);
 }
 
-
-/* .btn:hover{  
-  background-color: rgba(16,39,112, 0.2);
-  color: #ffffff;
-  box-shadow: 0 8px 24px 0 rgba(16,39,112,.2);
-} */
-
-.logo-titulo {
+.logo-titulo-quac {
+    margin-top: 30px;
+    display: inline-block;
     font-size: 40px;
     color: #ffd139;
     border: solid 2px #ffdc69;
-    display: inline-block;
     padding: 0px 5px 0px 5px;
-    margin-top: 20px;
+
 }
+
+
 
 .form-signup {
     margin-top: -16px;
@@ -341,8 +336,9 @@ h6 span {
     left: 100px;
 }
 
-.mb-4 {
-    color: black;
+.col-12{
+    width: 370px;
+
 }
 
 
@@ -364,7 +360,31 @@ h6 span {
     .mb-4 {
         color: #c4c3ca;
     }
+    .col-12{
+        width: 580px;
+    }
+    .card-front,
+.card-back {
+    width: 100%;
+    height: 100%;
+    background-color: #2a2b38;
+    background-image: url('https://dc687.4shared.com/img/GN0CpOzsea/s24/17c71c311f0/MicrosoftTeams-image?async&rand=0.9885102850891978');
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    border-radius: 6px;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border: solid 1px rgb(66, 66, 66);
 }
+
+}
+
 
 
 /* Medium - Landscape tablets */

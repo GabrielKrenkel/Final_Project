@@ -61,7 +61,7 @@ export function MostrarSenha() {
         <>
 
         <br /><br /><br />
-        <a className="logo-quac-a" href="http://localhost:3000/"  target="_parent"><p className="logo-titulo-quac">QUAC SYSTEM</p></a>
+        <a className="logo-quac-a" href="https://quac-system-front.herokuapp.com"  target="_parent"><p className="logo-titulo-quac">QUAC SYSTEM</p></a>
         {
             !currentTicket ?
             <p className="carregando">Carregando...</p> :

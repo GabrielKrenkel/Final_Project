@@ -182,7 +182,7 @@ export function DevDashboard() {
             <br/>
             <br/>
             <div className="admin-container">
-            <a className="logo-quac-a" href="http://localhost:3000/"  target="_parent"><p className="logo-titulo-quac">QUAC SYSTEM</p></a>
+            <a className="logo-quac-a" href="https://quac-system-front.herokuapp.com"  target="_parent"><p className="logo-titulo-quac">QUAC SYSTEM</p></a>
                 <br/>
                 <button
                     className="btn"
